@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="courses">
+        <item>646 Software Architecture and Design</item>
+        <item>698 Intro to Research Topics</item>
+        <item>666 Algorithm and Design</item>
+    </string-array>
+</resources>
