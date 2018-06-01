@@ -57,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
         spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                string1 = parent.getItemAtPosition(position).toString();
-                String s = string1 + string2;
+                string2 = parent.getItemAtPosition(position).toString();
+                s = string1 + string2;
                 textView1.setText(s);
             }
 
@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent i = new Intent(MainActivity.this, Main2Activity.class);
+
                 i.putExtra("getData", s);
                 startActivity(i);
             }
