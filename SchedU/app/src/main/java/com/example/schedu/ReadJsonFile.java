@@ -74,12 +74,14 @@ public class ReadJsonFile
                 JSONObject general = (JSONObject)dataArr.get(i);
 
                 // Print info
-                courseInfo.title = (String)general.get("title");
+                /*courseInfo.title = (String)general.get("title");
                 courseInfo.capacity = (String)general.get("enrollment_capacity");
                 courseInfo.section = (String)general.get("section");
-                courseInfo.enrollmentNum = (String)general.get("enrollment_total");
+                courseInfo.enrollmentNum = (String)general.get("enrollment_total"); 
+                */
 
                 System.out.println("title: " +general.get("title"));
+                System.out.println("capacity: " +general.get("capacity"));
                 System.out.println("class_number: " +general.get("class_number"));
                 System.out.println("section: " +general.get("section"));
                 System.out.println("enrollment_capacity: " +general.get("enrollment_capacity"));
@@ -128,7 +130,9 @@ public class ReadJsonFile
         String courseName = "CS";
         String courseNumber = "136";
 
-        //readFromWeb(courseName, courseNumber);
+        Course c = new Course(courseName, courseNumber);
+
+        readFromWeb(c);
     }
 
 }
