@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 String spinnername = spn_res;
 
                 DbHandler dbHandler = new DbHandler(MainActivity.this);
-                dbHandler.insertUserDetails(username, location, designation, spinnername);
+                dbHandler.insertUserDetails(username, location, designation, spn_res);
                 Toast.makeText(getApplicationContext(), "Details Inserted Successfully",Toast.LENGTH_SHORT).show();
 
                 intent = new Intent(MainActivity.this,DetailsActivity.class);
