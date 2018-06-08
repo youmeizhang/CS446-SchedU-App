@@ -62,31 +62,24 @@ public class ReadJsonFile
             // Array of "data"
             JSONArray dataArr = (JSONArray) jobj.get("data");
 
-            // Create a new CourseInfo object
-            //CourseInfo courseInfo = new CourseInfo(course.name, course.number);
+
 
             // Loop all sets in 'data'
             for(int i=0;i<dataArr.size();i++)
             {
+                // Create a new CourseInfo object
                 CourseInfo courseInfo = new CourseInfo(course.name, course.number);
 
                 // Get general info of a course
                 JSONObject general = (JSONObject)dataArr.get(i);
 
-                // Print info
-                /*courseInfo.title = (String)general.get("title");
-                courseInfo.capacity = (String)general.get("enrollment_capacity");
-                courseInfo.section = (String)general.get("section");
-                courseInfo.enrollmentNum = (String)general.get("enrollment_total"); 
-                */
+                // General course info
+                courseInfo.title = general.get("title").toString();
+                courseInfo.section = general.get("section").toString();
+                courseInfo.capacity = general.get("enrollment_capacity").toString();
+                courseInfo.enrollmentNum = general.get("enrollment_total").toString();
 
-                System.out.println("title: " +general.get("title"));
-                System.out.println("capacity: " +general.get("capacity"));
-                System.out.println("class_number: " +general.get("class_number"));
-                System.out.println("section: " +general.get("section"));
-                System.out.println("enrollment_capacity: " +general.get("enrollment_capacity"));
-
-                // Array of 'classes'
+              // Array of 'classes'
                 JSONArray classArr = (JSONArray) general.get("classes");
 
                 // Loop all sets in 'classes'
@@ -98,20 +91,23 @@ public class ReadJsonFile
                     // class time and weekdays;
                     JSONObject dateObj = (JSONObject)sections.get("date");
 
-                    System.out.println("start_time: " + dateObj.get("start_time"));
-                    System.out.println("end_time: " + dateObj.get("end_time"));
-                    System.out.println("weekdays: " + dateObj.get("weekdays"));
+                    courseInfo.startTime = dateObj.get("start_time").toString();
+                    courseInfo.endTime = dateObj.get("end_time").toString();
+                    courseInfo.weekdays = dateObj.get("weekdays").toString();
 
                     // location info
                     JSONObject locationOjb = (JSONObject)sections.get("location");
-
-                    System.out.println("building: " +locationOjb.get("building"));
-                    System.out.println("room: " +locationOjb.get("room"));
+                    if (locationOjb.get("building") == null || locationOjb.get("room") == null)
+                        courseInfo.location = "NA";
+                    else
+                        courseInfo.location = locationOjb.get("building").toString() + locationOjb.get("room").toString();
 
                     // instructor info
-                    System.out.println("instructors: " +sections.get("instructors"));
+                    courseInfo.instructor = sections.get("instructors").toString();
 
                     System.out.println("\n");
+                    courseInfo.printAll();
+                    break;
                 }
 
             }
@@ -128,7 +124,7 @@ public class ReadJsonFile
     public static void main(String [] args) {
 
         String courseName = "CS";
-        String courseNumber = "136";
+        String courseNumber = "446";
 
         Course c = new Course(courseName, courseNumber);
 
