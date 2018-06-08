@@ -27,7 +27,7 @@ public class DetailsActivity extends AppCompatActivity {
         DbHandler db = new DbHandler(this);
         ArrayList<HashMap<String, String>> userList = db.GetUsers();
 
-        ListAdapter adapter = new SimpleAdapter(DetailsActivity.this, userList, R.layout.list_row,new String[]{"name","designation","location"}, new int[]{R.id.name, R.id.designation, R.id.location});
+        ListAdapter adapter = new SimpleAdapter(DetailsActivity.this, userList, R.layout.list_row,new String[]{"name","designation","location", "spinnername"}, new int[]{R.id.name, R.id.designation, R.id.location, R.id.spnname});
         lv.setAdapter(adapter);
 
         Button back = (Button)findViewById(R.id.btnBack);
