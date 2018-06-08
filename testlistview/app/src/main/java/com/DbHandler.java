@@ -18,17 +18,25 @@ public class DbHandler extends SQLiteOpenHelper {
     private static final String KEY_LOC = "location";
     private static final String KEY_DESG = "designation";
     private static final String KEY_SPNNAME = "spinnername";
+
+    SQLiteDatabase db;
+
     public DbHandler(Context context){
         super(context,DB_NAME, null, DB_VERSION);
+        db = this.getWritableDatabase();
     }
     @Override
     public void onCreate(SQLiteDatabase db){
+
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_Users);
+
         String CREATE_TABLE = "CREATE TABLE " + TABLE_Users + "("
                 + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_NAME + " TEXT,"
                 + KEY_LOC + " TEXT,"
                 + KEY_DESG + " TEXT,"
-                + KEY_SPNNAME + "TEXT"
+                + KEY_SPNNAME + " TEXT"
                 + ")";
+        System.out.println(CREATE_TABLE);
         db.execSQL(CREATE_TABLE);
     }
     @Override
@@ -38,7 +46,7 @@ public class DbHandler extends SQLiteOpenHelper {
     }
 
     public void insertUserDetails(String name, String location, String designation, String spinnername){
-        SQLiteDatabase db = this.getWritableDatabase();
+        onCreate(db);
         ContentValues cValues = new ContentValues();
         cValues.put(KEY_NAME, name);
         cValues.put(KEY_LOC, location);
@@ -46,19 +54,20 @@ public class DbHandler extends SQLiteOpenHelper {
         cValues.put(KEY_SPNNAME, spinnername);
         long newRowId = db.insert(TABLE_Users,null, cValues);
         db.close();
-
     }
 
     public ArrayList<HashMap<String, String>> GetUsers(){
-        SQLiteDatabase db = this.getWritableDatabase();
         ArrayList<HashMap<String, String>> userList = new ArrayList<>();
-        String query = "SELECT name, location, designation FROM "+ TABLE_Users;
+        String query = "SELECT name, location, designation, spinnername FROM "+ TABLE_Users;
+
+        System.out.println("QUERY is " + query);
+
         Cursor cursor = db.rawQuery(query,null);
         while (cursor.moveToNext()){
             HashMap<String,String> user = new HashMap<>();
             user.put("name",cursor.getString(cursor.getColumnIndex(KEY_NAME)));
-            user.put("designation",cursor.getString(cursor.getColumnIndex(KEY_DESG)));
             user.put("location",cursor.getString(cursor.getColumnIndex(KEY_LOC)));
+            user.put("designation",cursor.getString(cursor.getColumnIndex(KEY_DESG)));
             user.put("spinnername", cursor.getString(cursor.getColumnIndex(KEY_SPNNAME)));
             userList.add(user);
         }
@@ -73,8 +82,8 @@ public class DbHandler extends SQLiteOpenHelper {
         if (cursor.moveToNext()){
             HashMap<String,String> user = new HashMap<>();
             user.put("name",cursor.getString(cursor.getColumnIndex(KEY_NAME)));
-            user.put("designation",cursor.getString(cursor.getColumnIndex(KEY_DESG)));
             user.put("location",cursor.getString(cursor.getColumnIndex(KEY_LOC)));
+            user.put("designation",cursor.getString(cursor.getColumnIndex(KEY_DESG)));
             user.put("spinnername", cursor.getString(cursor.getColumnIndex(KEY_SPNNAME)));
             userList.add(user);
         }
