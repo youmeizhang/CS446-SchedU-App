@@ -1,6 +1,8 @@
 package com.example.schedu;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,14 +11,18 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
     private TextView textView1;
+    private TextView textView2;
     private Spinner spinner1;
     private Spinner spinner2;
     private Button btn1;
+    private Button btn2;
+    private Button btn_read;
     private String[][] dataStrings = { {"446 Software Architecture and Design", "486 Introduction to Artificial Intelligence", "698 Introduction to Research Topics"},
             {"656 Database System", "657A Data Model & Knowledge", "653 Quality Assurance"}, {"641 Text Analysis", "640 Big Data"}, };
     private ArrayAdapter<CharSequence> adapter = null;
@@ -33,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         spinner1 = (Spinner)findViewById(R.id.spinner_subject);
         spinner2 = (Spinner)findViewById(R.id.spinner_course);
         textView1 = (TextView)findViewById(R.id.display_info);
+        textView2 = (TextView)findViewById(R.id.display_read);
+
 
         spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -77,5 +85,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        btn2 = (Button)findViewById(R.id.add_course);
+
     }
 }
