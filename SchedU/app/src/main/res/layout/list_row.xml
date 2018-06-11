@@ -4,29 +4,42 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="5dip" >
+    <TextView
+        android:id="@+id/lr_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="id"
+        android:textSize="14dp" />
 
     <TextView
         android:id="@+id/lr_subject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/lr_id"
+        android:layout_marginTop="7dp"
+        android:textColor="#343434"
+        android:textSize="17dp"
         android:fontFamily="casual"
-        android:text="name"
-        android:textSize="17dp" />
+        android:text="subject" />
     <TextView
         android:id="@+id/lr_course"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/lr_subject"
+        android:layout_alignBaseline="@+id/lr_subject"
+        android:layout_alignBottom="@+id/lr_subject"
         android:layout_marginTop="7dp"
         android:textColor="#343434"
-        android:textSize="14dp"
+        android:textSize="17dp"
+        android:fontFamily="casual"
+        android:layout_alignParentRight="true"
         android:text="course"/>
     <TextView
         android:id="@+id/lr_session"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/lr_course"
-        android:layout_alignBottom="@+id/lr_course"
+        android:layout_alignBottom="@+id/lr_subject"
+        android:layout_alignBaseline="@+id/lr_priority"
         android:layout_alignParentRight="true"
         android:textColor="#343434"
         android:textSize="14dp"

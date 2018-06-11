@@ -54,18 +54,20 @@ public class DbHandler extends SQLiteOpenHelper {
         cValues.put(KEY_SESS, session);
         cValues.put(KEY_PRIO, priority);
         long newRowId = db.insert(TABLE_Users,null, cValues);
+        System.out.println("Data inserted as: " + cValues);
         db.close();
     }
 
     public ArrayList<HashMap<String, String>> GetUsers(){
         ArrayList<HashMap<String, String>> userList = new ArrayList<>();
-        String query = "SELECT subject, course, session, priority FROM "+ TABLE_Users;
+        String query = "SELECT id, subject, course, session, priority FROM "+ TABLE_Users;
 
         System.out.println("QUERY is " + query);
 
         Cursor cursor = db.rawQuery(query,null);
         while (cursor.moveToNext()){
             HashMap<String,String> user = new HashMap<>();
+            user.put("id", cursor.getString(cursor.getColumnIndex(KEY_ID)));
             user.put("subject",cursor.getString(cursor.getColumnIndex(KEY_SUB)));
             user.put("course",cursor.getString(cursor.getColumnIndex(KEY_COU)));
             user.put("session",cursor.getString(cursor.getColumnIndex(KEY_SESS)));
@@ -91,7 +93,7 @@ public class DbHandler extends SQLiteOpenHelper {
         return  userList;
     }
     // Delete User Details
-    public void DeleteUser(int userid){
+    public void DeleteUser(long userid){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_Users, KEY_ID+" = ?",new String[]{String.valueOf(userid)});
         db.close();

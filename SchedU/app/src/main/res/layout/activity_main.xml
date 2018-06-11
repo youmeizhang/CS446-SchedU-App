@@ -112,10 +112,10 @@
         android:id="@+id/generate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/finish_adding"
-        android:layout_alignBottom="@+id/finish_adding"
-        android:layout_toEndOf="@+id/add_course"
-        android:layout_toRightOf="@+id/add_course"
+        android:layout_alignBaseline="@+id/add_course"
+        android:layout_alignBottom="@+id/add_course"
+        android:layout_toEndOf="@+id/btn_finish"
+        android:layout_toRightOf="@+id/btn_finish"
         android:text="Generate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -133,7 +133,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/finish_adding"
+        android:id="@+id/add_course"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -142,7 +142,7 @@
         android:layout_marginStart="31dp"
         android:layout_toEndOf="@+id/displayresult"
         android:layout_toRightOf="@+id/displayresult"
-        android:text="Finish Adding"
+        android:text="Add Course"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -158,17 +158,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/add_course"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/display_info"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
-        android:text="Add Course"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <TextView
         android:id="@+id/display_read"
         android:layout_width="wrap_content"
@@ -180,5 +169,16 @@
         android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_finish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/display_info"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:text="Check Chosen course"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </RelativeLayout>

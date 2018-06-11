@@ -17,6 +17,9 @@ import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Main2Activity extends AppCompatActivity {
     private TextView textView2;
     private Button btn3;
@@ -41,6 +44,10 @@ public class Main2Activity extends AppCompatActivity {
                 btnMon8.setText(value);
             }
         });
+
+        //DbHandler db = new DbHandler(this);
+        //ArrayList<HashMap<String, String>> userList = db.GetUsers();
+        //userList.get("session")
 
         mContext = getApplicationContext();
         mActivity = Main2Activity.this;
