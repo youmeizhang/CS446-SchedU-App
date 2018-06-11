@@ -6,6 +6,7 @@ import java.util.Scanner;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+
 import java.util.*;
 import java.lang.Object;
 
@@ -105,12 +106,16 @@ public class ReadJsonFile
                     // instructor info
                     courseInfo.instructor = sections.get("instructors").toString();
 
-                    System.out.println("\n");
-                    courseInfo.printAll();
-                    break;
+                    // find out the type of section: TUT, LEC or TST
+                    if (courseInfo.section.toLowerCase().contains("lec"))
+                        course.lectures.add(courseInfo);
+                    if (courseInfo.section.toLowerCase().contains("tut"))
+                        course.tutorials.add(courseInfo);
+                    if (courseInfo.section.toLowerCase().contains("tst"))
+                        course.tests.add(courseInfo);
                 }
-
             }
+            course.printCourseSummary();
             //Disconnect the HttpURLConnection stream
             conn.disconnect();
         }
@@ -123,10 +128,9 @@ public class ReadJsonFile
     // test
     public static void main(String [] args) {
 
-        String courseName = "CS";
-        String courseNumber = "446";
-
-        Course c = new Course(courseName, courseNumber);
+        Course c = new Course();
+        c.name = "CS";
+        c.number = "136";
 
         readFromWeb(c);
     }
