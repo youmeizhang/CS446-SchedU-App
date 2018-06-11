@@ -90,7 +90,8 @@
         android:layout_marginStart="80dp"
         android:layout_marginTop="27dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/spinner_course"  />
+        app:layout_constraintTop_toTopOf="@+id/spinner_course"
+        android:entries="@array/sessions"/>
 
     <Button
         android:id="@+id/generate"
