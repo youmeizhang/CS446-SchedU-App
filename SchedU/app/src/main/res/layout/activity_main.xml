@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bubble_back_ground"
     tools:context=".MainActivity">
 
     <TextView
@@ -107,13 +106,7 @@
         android:layout_marginTop="100dp"
         android:background="@android:color/darker_gray"
         app:layout_constraintStart_toStartOf="parent"
-<<<<<<< HEAD
-        app:layout_constraintTop_toTopOf="@+id/spinner_course"
         android:entries="@array/sessions"/>
-=======
-        app:layout_constraintTop_toTopOf="parent" />
->>>>>>> f6dba0774f7f4eb26882be5a73c6725e31ff3675
-
     <Button
         android:id="@+id/generate"
         android:layout_width="wrap_content"
