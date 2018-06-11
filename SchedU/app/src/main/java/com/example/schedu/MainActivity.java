@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_gen;
     private Button btn_add;
     private Button btn_finish;
+    private Button btn_finish_new;
     private String[][] dataStrings = { {"446 Software Architecture and Design", "486 Introduction to Artificial Intelligence", "698 Introduction to Research Topics"},
             {"656 Database System", "657A Data Model & Knowledge", "653 Quality Assurance"}, {"641 Text Analysis", "640 Big Data"}, };
     private ArrayAdapter<CharSequence> adapter = null;
@@ -78,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 string_course = parent.getItemAtPosition(position).toString();
                 s = string_subject + string_course;
-                textView1.setText(s);
+                //textView1.setText(s);
             }
 
             @Override
@@ -126,22 +127,30 @@ public class MainActivity extends AppCompatActivity {
         btn_add.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 DbHandler dbHandler = new DbHandler(MainActivity.this);
-                //dbHandler.onCreate(SQLiteDatabase db);
-
                 dbHandler.insertUserDetails(string_subject, string_course, string_session, string_priority);
+
                 Toast.makeText(getApplicationContext(), "Course Added Successfully", Toast.LENGTH_SHORT).show();
 
-                //intent = new Intent(MainActivity.this, DetailsActivity.class);
-                //startActivity(intent);
             }
         });
 
-        btn_finish = (Button)findViewById(R.id.finish_adding);
-        btn_finish.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
+        btn_finish_new = (Button)findViewById(R.id.btn_finish);
+        btn_finish_new.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 intent = new Intent(MainActivity.this, DetailsActivity.class);
                 startActivity(intent);
             }
         });
+/*
+        btn_finish = (Button)findViewById(R.id.finish_adding);
+        btn_finish.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                textView1.setText(s);
+                intent = new Intent(MainActivity.this, DetailsActivity.class);
+                startActivity(intent);
+            }
+        });
+        */
     }
 }
