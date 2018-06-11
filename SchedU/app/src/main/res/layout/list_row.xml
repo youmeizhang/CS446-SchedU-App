@@ -4,13 +4,20 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="5dip" >
+
     <TextView
         android:id="@+id/lr_subject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
+        android:fontFamily="casual"
+        android:text="name"
         android:textSize="17dp"
+<<<<<<< HEAD:SchedU/app/src/main/res/layout/list_row.xml
         android:text="subject"/>
+=======
+        android:textStyle="bold"
+        android:typeface="sans" />
+>>>>>>> f6dba0774f7f4eb26882be5a73c6725e31ff3675:testlistview/app/src/main/res/layout/list_row.xml
     <TextView
         android:id="@+id/lr_course"
         android:layout_width="wrap_content"
