@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private Spinner priority;
     private Button btn_gen;
     private Button btn_add;
-    private Button btn_read;
+    private Button btn_finish;
     private String[][] dataStrings = { {"446 Software Architecture and Design", "486 Introduction to Artificial Intelligence", "698 Introduction to Research Topics"},
             {"656 Database System", "657A Data Model & Knowledge", "653 Quality Assurance"}, {"641 Text Analysis", "640 Big Data"}, };
     private ArrayAdapter<CharSequence> adapter = null;
@@ -131,10 +131,17 @@ public class MainActivity extends AppCompatActivity {
                 dbHandler.insertUserDetails(string_subject, string_course, string_session, string_priority);
                 Toast.makeText(getApplicationContext(), "Course Added Successfully", Toast.LENGTH_SHORT).show();
 
+                //intent = new Intent(MainActivity.this, DetailsActivity.class);
+                //startActivity(intent);
+            }
+        });
+
+        btn_finish = (Button)findViewById(R.id.finish_adding);
+        btn_finish.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
                 intent = new Intent(MainActivity.this, DetailsActivity.class);
                 startActivity(intent);
             }
         });
-
     }
 }

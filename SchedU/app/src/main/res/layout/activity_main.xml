@@ -112,10 +112,10 @@
         android:id="@+id/generate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/add_course"
-        android:layout_alignBottom="@+id/add_course"
-        android:layout_toEndOf="@+id/finish_adding"
-        android:layout_toRightOf="@+id/finish_adding"
+        android:layout_alignBaseline="@+id/finish_adding"
+        android:layout_alignBottom="@+id/finish_adding"
+        android:layout_toEndOf="@+id/add_course"
+        android:layout_toRightOf="@+id/add_course"
         android:text="Generate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -133,7 +133,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/add_course"
+        android:id="@+id/finish_adding"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -142,7 +142,7 @@
         android:layout_marginStart="31dp"
         android:layout_toEndOf="@+id/displayresult"
         android:layout_toRightOf="@+id/displayresult"
-        android:text="Add Course"
+        android:text="Finish Adding"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -153,19 +153,19 @@
         android:layout_below="@+id/spinner_priority"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="55dp"
-        android:text="display info"
+        android:text=""
         android:textColor="@android:color/background_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/finish_adding"
+        android:id="@+id/add_course"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/display_info"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
-        android:text="Finish Adding"
+        android:text="Add Course"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -176,7 +176,7 @@
         android:layout_above="@+id/add_course"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="25dp"
-        android:text="display_read"
+        android:text=""
         android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

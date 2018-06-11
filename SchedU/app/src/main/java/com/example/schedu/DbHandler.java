@@ -24,11 +24,12 @@ public class DbHandler extends SQLiteOpenHelper {
     public DbHandler(Context context){
         super(context,DB_NAME, null, DB_VERSION);
         db = this.getWritableDatabase();
+        //onCreate(db);
     }
     @Override
     public void onCreate(SQLiteDatabase db){
 
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_Users);
+        //db.execSQL("DROP TABLE IF EXISTS " + TABLE_Users);
 
         String CREATE_TABLE = "CREATE TABLE " + TABLE_Users + "("
             + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_SUB + " TEXT,"
@@ -46,7 +47,7 @@ public class DbHandler extends SQLiteOpenHelper {
     }
 
     public void insertUserDetails(String subject, String course, String session, String priority){
-        onCreate(db);
+        //onCreate(db);
         ContentValues cValues = new ContentValues();
         cValues.put(KEY_SUB, subject);
         cValues.put(KEY_COU, course);
