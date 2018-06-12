@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:shrinkColumns="1, 1"
@@ -32,11 +33,10 @@
         <TextView
             android:text="8:00"
             android:padding="3dip"/>
-
-        <TextView
+        <Button
             android:id="@+id/Mon8"
-            android:padding="3dip"
-            android:text="data"/>
+            android:text="Mon8"
+            android:padding="3dip" />
 
         <TextView
             android:id="@+id/Tue8"
