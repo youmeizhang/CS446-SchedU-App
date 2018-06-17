@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Layout;
@@ -36,6 +37,7 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
         value = getIntent().getStringExtra("getData");
         tv = (TextView) findViewById(R.id.tv);
         btn3 = (Button)findViewById(R.id.new_button);
@@ -44,10 +46,8 @@ public class Main2Activity extends AppCompatActivity {
                 btnMon8.setText(value);
             }
         });
-
-        //DbHandler db = new DbHandler(this);
-        //ArrayList<HashMap<String, String>> userList = db.GetUsers();
-        //userList.get("session")
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager.setAdapter(new CustomPagerAdapter(this));
 
         mContext = getApplicationContext();
         mActivity = Main2Activity.this;
