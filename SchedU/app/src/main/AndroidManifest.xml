@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".WelcomeScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,7 +17,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".Main2Activity" />
-        <activity android:name=".DetailsActivity"></activity>
+        <activity android:name=".DetailsActivity" />
+        <activity android:name=".CustomPagerAdapter" />
+        <activity android:name=".ModelObject" />
+        <activity android:name=".MainActivity"></activity>
     </application>
 
+<<<<<<< HEAD
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
+=======
+</manifest>
+>>>>>>> 865dcee7543d16007e00c2489794680ac8936409

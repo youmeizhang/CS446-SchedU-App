@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rl"
+    android:id="@+id/rl2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:shrinkColumns="1, 1"
@@ -9,7 +9,7 @@
         android:layout_width="0dp"
         android:layout_weight="1"
         <TextView
-            android:text="" />
+            android:text=""/>
         <TextView
             android:text="Monday"
             android:padding="3dip"/>
@@ -33,25 +33,22 @@
         <TextView
             android:text="8:00"
             android:padding="3dip"/>
-        <Button
-            android:id="@+id/Mon8"
-            android:text="Mon8"
+
+        <TextView
+            android:id="@+id/Tue82"
+            android:padding="3dip"
+            android:text="second view"/>
+
+        <TextView
+            android:id="@+id/Wed82"
             android:padding="3dip" />
 
         <TextView
-            android:id="@+id/Tue8"
+            android:id="@+id/Thur82"
             android:padding="3dip" />
 
         <TextView
-            android:id="@+id/Wed8"
-            android:padding="3dip" />
-
-        <TextView
-            android:id="@+id/Thur8"
-            android:padding="3dip" />
-
-        <TextView
-            android:id="@+id/Fri8"
+            android:id="@+id/Fri82"
             android:padding="3dip" />
 
     </TableRow>
@@ -60,30 +57,24 @@
             android:text="9:00"
             android:padding="3dip"/>
         <TextView
-            android:id="@+id/Mon9"
+            android:id="@+id/Mon92"
             android:padding="3dip"
             android:text=""/>
 
         <TextView
-            android:id="@+id/Tue9"
-            android:padding="3dip" />
-
-        <Button
-            android:id="@+id/new_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button" />
-
-        <TextView
-            android:id="@+id/Wed9"
+            android:id="@+id/Tue92"
             android:padding="3dip" />
 
         <TextView
-            android:id="@+id/Thur9"
+            android:id="@+id/Wed92"
             android:padding="3dip" />
 
         <TextView
-            android:id="@+id/Fri9"
+            android:id="@+id/Thur92"
+            android:padding="3dip" />
+
+        <TextView
+            android:id="@+id/Fri92"
             android:padding="3dip" />
     </TableRow>
     <TableRow>
@@ -96,20 +87,5 @@
             android:text="11:00"
             android:padding="3dip"/>
     </TableRow>
-    <TableRow>
-        <TextView
-            android:text="12:00"
-            android:padding="3dip"/>
-    </TableRow>
-    <TableRow>
-        <TextView
-            android:text="13:00"
-            android:padding="5dip"/>
-    </TableRow>
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
 </TableLayout>

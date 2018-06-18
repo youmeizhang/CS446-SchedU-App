@@ -24,6 +24,12 @@ public class CourseInfo {
         this.number = number;
     }
 
+    public boolean isFull(){
+        int c = Integer.parseInt(capacity);
+        int e = Integer.parseInt(enrollmentNum);
+        return (c <= e);
+    }
+
     public String getName(){
         return this.name;
     }
@@ -45,10 +51,5 @@ public class CourseInfo {
         System.out.println("Weekdays: " + weekdays);
         System.out.println("\n");
     }
-
-    public void getCourseInfo(){
-
-    }
-
 
 }
