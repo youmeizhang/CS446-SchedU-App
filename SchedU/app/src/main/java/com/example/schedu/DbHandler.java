@@ -77,6 +77,27 @@ public class DbHandler extends SQLiteOpenHelper {
         return  userList;
     }
 
+    public ArrayList<Course> GetCourses(){
+        ArrayList<Course> userList = new ArrayList<>();
+        String query = "SELECT id, subject, course, session, priority FROM "+ TABLE_Users + " ORDER BY " + KEY_PRIO + " DESC";
+
+        //System.out.println("QUERY is " + query);
+
+        Cursor cursor = db.rawQuery(query,null);
+        while (cursor.moveToNext()){
+            Course c = new Course();
+            //c.put("id", cursor.getString(cursor.getColumnIndex(KEY_ID)));
+            String[] tmp = cursor.getString(cursor.getColumnIndex(KEY_COU)).split(" ");
+            c.number = tmp[0];
+            c.name = cursor.getString(cursor.getColumnIndex(KEY_SUB));
+
+            //c.put("session",cursor.getString(cursor.getColumnIndex(KEY_SESS)));
+            //c.put("priority", cursor.getString(cursor.getColumnIndex(KEY_PRIO)));
+            userList.add(c);
+        }
+        return  userList;
+    }
+
     // Get User Details based on userid
     public ArrayList<HashMap<String, String>> GetUserByUserId(int userid){
         SQLiteDatabase db = this.getWritableDatabase();

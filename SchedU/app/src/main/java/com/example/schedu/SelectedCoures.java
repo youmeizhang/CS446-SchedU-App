@@ -4,7 +4,7 @@ import java.util.*;
 
 public class SelectedCoures {
 
-    List<Course> selectedCourses;
+    ArrayList<Course> selectedCourses;
 
     public SelectedCoures(){
         selectedCourses = new ArrayList<>();
@@ -14,7 +14,7 @@ public class SelectedCoures {
         selectedCourses = new ArrayList<>();
         selectedCourses.add(c);
     }
-
+    /*
     public SelectedCoures(ArrayList<HashMap<String, String>> courseList){
         selectedCourses = new ArrayList<>();
         String KEY_ID = "id";
@@ -26,16 +26,27 @@ public class SelectedCoures {
 
         for(HashMap pair: courseList){
             String courseNum = pair.get(KEY_COU).toString();
-            String courseName = pair.get(KEY_SUB).toString();
+            String[] tmp = courseNum.split(" ");
 
+            courseNum = tmp[0];
+            String courseName = pair.get(KEY_SUB).toString();
+            System.out.println("parsed name " + courseName + courseNum);
+
+            Course c = new Course();
+            c.name = courseName;
+            c.number = courseNum;
+            selectedCourses.add(c);
         }
-        
-        //selectedCourses.addAll(courseList);
+
+    }*/
+
+
+    public void add(ArrayList<Course> courseList){
+        selectedCourses.addAll(courseList);
     }
 
-    public SelectedCoures(List<Course> courseList){
-        selectedCourses = new ArrayList<>();
-        selectedCourses.addAll(courseList);
+    public ArrayList<Course> getSelectedCourses(){
+        return selectedCourses;
     }
 
     public void add(Course c){
@@ -51,18 +62,24 @@ public class SelectedCoures {
         }
     }
 
+    public void getDetailFromWeb(){
+
+        // grab details from web for each course
+        for(Course c: selectedCourses){
+            c.InitValue();
+        }
+    }
+
+    public void printInfo(){
+        for(Course c: selectedCourses){
+            System.out.println(c.name + " " + c.number);
+        }
+    }
+
     public void genCombination(){
 
         for(Course c: selectedCourses){
 
         }
     }
-
-    public static void main(String[] args){
-
-    
-
-    }
-
-
 }
