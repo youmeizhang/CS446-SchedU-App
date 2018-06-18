@@ -9,7 +9,7 @@
         android:layout_width="0dp"
         android:layout_weight="1"
         <TextView
-            android:text=""/>
+            android:text="" />
         <TextView
             android:text="Monday"
             android:padding="3dip"/>
