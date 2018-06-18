@@ -1,6 +1,7 @@
 package com.example.schedu;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class SelectedCoures {
 
@@ -77,9 +78,19 @@ public class SelectedCoures {
     }
 
     public void genCombination(){
+        System.out.println(selectedCourses.size());
+        TimeTable timeTable = new TimeTable(1);
 
         for(Course c: selectedCourses){
 
+            if(c.lectures.size() > 0)
+                timeTable.contents.add(c.lectures.get(0));
+            if(c.tutorials.size() > 0)
+                timeTable.contents.add(c.tutorials.get(0));
         }
+        System.out.println(timeTable.contents.size());
+        timeTable.printInfo();
     }
+
+
 }
