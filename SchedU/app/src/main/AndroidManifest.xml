@@ -22,10 +22,7 @@
         <activity android:name=".ModelObject" />
         <activity android:name=".MainActivity"></activity>
     </application>
-
-<<<<<<< HEAD
     <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
-=======
-</manifest>
->>>>>>> 865dcee7543d16007e00c2489794680ac8936409
+
+
