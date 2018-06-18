@@ -3,4 +3,13 @@
     <string name="first">1</string>
     <string name="second">2</string>
     <string name="third">3</string>
+    <color name="blue">#9DC6DB</color>
+    <color name="green">#00b3ca</color>
+    <color name="orange">#f69256</color>
+    <color name="scuba_blue">#00b3ca</color>
+    <color name="pink">#e38690</color>
+    <color name="light_green">#D5F5E3</color>
+    <color name="light_pink">#FADBD8</color>
+    <color name="light_orange">#FAD7A0</color>
+
 </resources>
