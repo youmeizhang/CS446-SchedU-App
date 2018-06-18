@@ -12,16 +12,20 @@ public class Course {
     List<CourseInfo> tutorials;
     List<CourseInfo> tests;
 
+    ReadJsonFile reader;
+
     public Course() {
         lectures = new ArrayList<CourseInfo>();
         tutorials = new ArrayList<CourseInfo>();
         tests = new ArrayList<CourseInfo>();
+
+        reader = new ReadJsonFile();
     }
 
+    // get values from api
     public void InitValue() {
 
-        ReadJsonFile.readFromWeb(this);
-
+        reader.readFromWeb(this);
     }
 
     public void printLectureInfo() {
