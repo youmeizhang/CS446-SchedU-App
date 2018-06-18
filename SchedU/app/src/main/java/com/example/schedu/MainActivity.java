@@ -122,10 +122,14 @@ public class MainActivity extends AppCompatActivity {
 
                 i.putExtra("getData", s);
                 DbHandler dbHandler = new DbHandler(MainActivity.this);
-                ArrayList<HashMap<String, String>> data = dbHandler.GetUsers();
+                ArrayList<Course> data = dbHandler.GetCourses();
 
+                // selected courses
+                SelectedCoures sc = new SelectedCoures();
+                sc.add(data);
 
-                System.out.println("generate button clicked " + data.toString());
+                // read details for selected courses
+                sc.getDetailFromWeb();
 
                 startActivity(i);
             }

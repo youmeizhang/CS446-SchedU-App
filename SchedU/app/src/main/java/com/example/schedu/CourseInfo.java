@@ -46,9 +46,4 @@ public class CourseInfo {
         System.out.println("\n");
     }
 
-    public void getCourseInfo(){
-
-    }
-
-
 }
