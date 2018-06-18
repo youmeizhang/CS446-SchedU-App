@@ -16,6 +16,9 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity {
     private TextView textView1;
     private TextView textView2;
@@ -118,6 +121,12 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(MainActivity.this, Main2Activity.class);
 
                 i.putExtra("getData", s);
+                DbHandler dbHandler = new DbHandler(MainActivity.this);
+                ArrayList<HashMap<String, String>> data = dbHandler.GetUsers();
+
+
+                System.out.println("generate button clicked " + data.toString());
+
                 startActivity(i);
             }
         });
