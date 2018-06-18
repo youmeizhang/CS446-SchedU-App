@@ -17,5 +17,16 @@ public class TimeTable {
     public void add(CourseInfo c){
         contents.add(c);
     }
-    
+
+    public void printInfo(){
+        for(CourseInfo i: contents){
+            i.printAll();
+        }
+    }
+
+    public static void main(String[] args){
+
+    }
+
+
 }
