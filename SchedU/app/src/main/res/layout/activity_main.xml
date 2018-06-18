@@ -4,20 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bubble_back_ground"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="57dp"
-        android:layout_marginLeft="57dp"
-        android:layout_marginTop="18dp"
-        android:background="@color/blue"
-        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         android:text="Subject"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
@@ -27,30 +23,24 @@
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="57dp"
-        android:layout_marginStart="57dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="60dp"
         android:text="Course"
-        android:gravity="center"
-        android:background="@color/green"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/textView2"
-        android:layout_alignLeft="@id/textView2"
-        android:layout_marginTop="143dp"
-        android:background="@color/pink"
-        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="100dp"
         android:text="Session"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
@@ -60,92 +50,101 @@
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/textView2"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_marginTop="211dp"
-        android:background="@color/orange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="140dp"
         android:text="Priority"
-        android:gravity="center"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="parent" />
 
+    <TextView
+        android:id="@+id/displayresult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
+
     <Spinner
         android:id="@+id/spinner_subject"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_alignTop="@+id/textView2"
-        android:layout_toEndOf="@+id/textView2"
-        android:layout_toRightOf="@+id/textView2"
-        android:background="@color/blue"
+        android:layout_width="260dp"
+        android:layout_height="25dp"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignLeft="@+id/spinner_course"
+        android:layout_alignStart="@+id/spinner_course"
+        android:background="@android:color/darker_gray"
         android:entries="@array/subjects"
-        android:popupBackground="#ffffff"
+        android:popupBackground="@android:color/darker_gray"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/spinner_course"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_alignTop="@+id/textView5"
-        android:layout_toEndOf="@+id/textView2"
-        android:layout_toRightOf="@+id/textView2"
-        android:background="@color/green"
+        android:layout_width="260dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="60dp"
+        android:background="@android:color/darker_gray"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/spinner_session"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_alignTop="@+id/textView6"
-        android:layout_toEndOf="@+id/textView2"
-        android:layout_toRightOf="@+id/textView2"
-        android:background="@color/pink"
-        android:entries="@array/sessions"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        android:layout_width="260dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="100dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        android:entries="@array/sessions"/>
     <Button
         android:id="@+id/generate"
-        android:layout_width="167dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/add_course"
-        android:layout_alignLeft="@+id/add_course"
-        android:layout_marginBottom="29dp"
-        android:background="#ffffff"
+        android:layout_alignBaseline="@+id/add_course"
+        android:layout_alignBottom="@+id/add_course"
+        android:layout_toEndOf="@+id/btn_finish"
+        android:layout_toRightOf="@+id/btn_finish"
         android:text="Generate"
-        android:textColor="#717D7E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Spinner
         android:id="@+id/spinner_priority"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_alignTop="@+id/textView7"
-        android:layout_toEndOf="@+id/textView2"
-        android:layout_toRightOf="@+id/textView2"
-        android:background="@color/orange"
+        android:layout_width="260dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="140dp"
+        android:background="@android:color/darker_gray"
         android:entries="@array/priority"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/add_course"
-        android:layout_width="166dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/display_info"
-        android:layout_alignStart="@+id/btn_finish"
-        android:layout_alignLeft="@+id/btn_finish"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="58dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginStart="31dp"
+        android:layout_toEndOf="@+id/displayresult"
+        android:layout_toRightOf="@+id/displayresult"
         android:text="Add Course"
-        android:background="#ffffff"
-        android:textColor="#717D7E  " />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/display_info"
@@ -173,42 +172,13 @@
 
     <Button
         android:id="@+id/btn_finish"
-        android:layout_width="164dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/display_info"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="92dp"
-        android:background="#ffffff"
-        android:text="Check Courses"
-        android:textColor="#717D7E"
+        android:layout_marginTop="18dp"
+        android:text="Check Chosen course"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView_add"
-        android:layout_width="40dp"
-        android:layout_height="48dp"
-        android:layout_alignTop="@+id/add_course"
-        android:layout_toStartOf="@+id/add_course"
-        android:layout_toLeftOf="@+id/add_course"
-        app:srcCompat="@drawable/roundshape" />
-
-    <ImageView
-        android:id="@+id/imageView_finish"
-        android:layout_width="40dp"
-        android:layout_height="48dp"
-        android:layout_alignBottom="@+id/btn_finish"
-        android:layout_toStartOf="@+id/generate"
-        android:layout_toLeftOf="@+id/generate"
-        app:srcCompat="@drawable/roundline" />
-
-    <ImageView
-        android:id="@+id/imageView_gen"
-        android:layout_width="40dp"
-        android:layout_height="48dp"
-        android:layout_alignTop="@+id/generate"
-        android:layout_toStartOf="@+id/generate"
-        android:layout_toLeftOf="@+id/generate"
-        app:srcCompat="@drawable/finish" />
 
 </RelativeLayout>
