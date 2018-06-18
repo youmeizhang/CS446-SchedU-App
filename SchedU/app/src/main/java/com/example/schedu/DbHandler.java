@@ -60,7 +60,7 @@ public class DbHandler extends SQLiteOpenHelper {
 
     public ArrayList<HashMap<String, String>> GetUsers(){
         ArrayList<HashMap<String, String>> userList = new ArrayList<>();
-        String query = "SELECT id, subject, course, session, priority FROM "+ TABLE_Users;
+        String query = "SELECT id, subject, course, session, priority FROM "+ TABLE_Users + " ORDER BY " + KEY_PRIO + " DESC";
 
         System.out.println("QUERY is " + query);
 
@@ -76,11 +76,12 @@ public class DbHandler extends SQLiteOpenHelper {
         }
         return  userList;
     }
+
     // Get User Details based on userid
     public ArrayList<HashMap<String, String>> GetUserByUserId(int userid){
         SQLiteDatabase db = this.getWritableDatabase();
         ArrayList<HashMap<String, String>> userList = new ArrayList<>();
-        String query = "SELECT subject, course, session, priority FROM "+ TABLE_Users;
+        String query = "SELECT subject, course, session, priority FROM "+ TABLE_Users + "ORDER BY " + KEY_PRIO + " DESC";
         Cursor cursor = db.query(TABLE_Users, new String[]{KEY_SUB, KEY_COU, KEY_SESS, KEY_PRIO}, KEY_ID+ "=?",new String[]{String.valueOf(userid)},null, null, null, null);
         if (cursor.moveToNext()){
             HashMap<String,String> user = new HashMap<>();
@@ -92,12 +93,14 @@ public class DbHandler extends SQLiteOpenHelper {
         }
         return  userList;
     }
+
     // Delete User Details
     public void DeleteUser(long userid){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_Users, KEY_ID+" = ?",new String[]{String.valueOf(userid)});
         db.close();
     }
+
     // Update User Details
     public int UpdateUserDetails(String course, String session, int id){
         SQLiteDatabase db = this.getWritableDatabase();
