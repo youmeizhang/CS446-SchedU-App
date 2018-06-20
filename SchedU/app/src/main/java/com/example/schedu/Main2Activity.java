@@ -86,7 +86,7 @@ public class Main2Activity extends AppCompatActivity {
         TimeTable timeTable = findCourse();
         System.out.println("items in timetable " + timeTable.contents.size());
 
-        for(CourseInfo i: timeTable.contents){
+        for (CourseInfo i : timeTable.contents) {
             String courseName = i.name + i.number + " " + i.section;
             String start = i.startTime.replace(":", "");
             String end = i.endTime.replace(":", "");
@@ -97,17 +97,16 @@ public class Main2Activity extends AppCompatActivity {
             String textViewId;
             int color = colorList.get(curColor);
             int duration_start = 0;
-            int duration_end = (int)Calculation.timeDifference(start, end)/30;
+            int duration_end = (int) Calculation.timeDifference(start, end) / 30;
 
 
-
-            while(duration_start <= duration_end) {
+            while (duration_start <= duration_end) {
                 if (weekdays.contains("M")) {
                     textViewId = "M" + start;
                     int resID = getResources().getIdentifier(textViewId, "id", getPackageName());
                     TextView textView = new TextView(this);
                     textView = (TextView) findViewById(resID);
-                    if(duration_start == 0)
+                    if (duration_start == 0)
                         textView.setText(courseName);
                     textView.setBackgroundColor(color);
                     tvList.add(textView);
@@ -123,7 +122,7 @@ public class Main2Activity extends AppCompatActivity {
                         System.out.println("NULL!!!!!!!");
                         break;
                     }*/
-                    if(duration_start == 0)
+                    if (duration_start == 0)
                         textView.setText(courseName);
                     textView.setBackgroundColor(color);
                     tvList.add(textView);
@@ -134,7 +133,7 @@ public class Main2Activity extends AppCompatActivity {
 
                     TextView textView = new TextView(this);
                     textView = (TextView) findViewById(resID);
-                    if(duration_start == 0)
+                    if (duration_start == 0)
                         textView.setText(courseName);
                     textView.setBackgroundColor(color);
                     tvList.add(textView);
@@ -145,7 +144,7 @@ public class Main2Activity extends AppCompatActivity {
 
                     TextView textView = new TextView(this);
                     textView = (TextView) findViewById(resID);
-                    if(duration_start == 0)
+                    if (duration_start == 0)
                         textView.setText(courseName);
                     textView.setBackgroundColor(color);
                     tvList.add(textView);
@@ -156,7 +155,7 @@ public class Main2Activity extends AppCompatActivity {
 
                     TextView textView = new TextView(this);
                     textView = (TextView) findViewById(resID);
-                    if(duration_start == 0)
+                    if (duration_start == 0)
                         textView.setText(courseName);
                     textView.setBackgroundColor(color);
                     tvList.add(textView);
@@ -169,6 +168,15 @@ public class Main2Activity extends AppCompatActivity {
             curColor++;
 
         }
+        View.OnClickListener myClickListener = new View.OnClickListener() {
+            public void onClick(View view) {
+                startActivity(new Intent(Main2Activity.this, CourseDetail.class));
+            }
+        };
+
+        for (TextView t : tvList) {
+            t.setOnClickListener(myClickListener);
+        }
 
         value = getIntent().getStringExtra("getData");
 
@@ -177,16 +185,8 @@ public class Main2Activity extends AppCompatActivity {
         mActivity = Main2Activity.this;
 
         scrollView = (ScrollView) findViewById(R.id.rl);
-/*
-        M0830.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                startActivity(new Intent(Main2Activity.this, CourseDetail.class));
-
-            }
-        });
-
-*/
     }
+
 }
 
 
