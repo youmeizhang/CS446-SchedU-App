@@ -65,7 +65,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public List<String> getAllLabels(){
         List<String> sub_from_db = new ArrayList<String>();
-        String selectQuery = "SELECT subject FROM " + CLASS_TABLE;
+        String selectQuery = "SELECT DISTINCT subject FROM " + CLASS_TABLE;
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -78,17 +78,67 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return sub_from_db;
     }
 
-    public List<String> getAllCourse(String sub) {
-        List<String> course_from_db = new ArrayList<String>();
+
+    public List<String> getAllCourseNum(String sub) {
+        List<String> course_with_num = new ArrayList<>();
+
         String subject = "\""+ sub + "\"";
-        //System.out.println(subject);
-        String selectQuery = "SELECT CATALOG_NUMBER FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject;
+        String selectQuery = "SELECT CATALOG_NUMBER, TITLE FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject;
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         while (cursor.moveToNext()) {
-            course_from_db.add(cursor.getString(cursor.getColumnIndex("CATALOG_NUMBER")));
+            course_with_num.add(cursor.getString(cursor.getColumnIndex("CATALOG_NUMBER")));
+        }
+        cursor.close();
+        db.close();
+        return course_with_num;
+    }
+
+    public List<String> getAllCourse(String sub) {
+        List<String> course_from_db = new ArrayList<String>();
+
+        String subject = "\""+ sub + "\"";
+        String selectQuery = "SELECT DISTINCT CATALOG_NUMBER, TITLE FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        while (cursor.moveToNext()) {
+            course_from_db.add(cursor.getString(cursor.getColumnIndex("CATALOG_NUMBER")) + " " + cursor.getString(cursor.getColumnIndex("TITLE")));
+        }
+        cursor.close();
+        db.close();
+        return course_from_db;
+    }
+
+    public List<String> getAllTitle(String sub, String course_num){
+        List<String> title_from_db = new ArrayList<String>();
+        String selectQuery = "SELECT title FROM " + CLASS_TABLE + " WHERE subject = " + sub + " AND course_num = " + course_num;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        while (cursor.moveToNext()) {
+            title_from_db.add(cursor.getString(cursor.getColumnIndex("TITLE")));
+        }
+        cursor.close();
+        db.close();
+        return title_from_db;
+    }
+
+    public List<String> getAllSection(String sub, String course_num) {
+        List<String> course_from_db = new ArrayList<String>();
+        course_from_db.add("ALL");
+        String subject = "\""+ sub + "\"";
+        String selectQuery = "SELECT SECTION FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject + " AND CATALOG_NUMBER = " + course_num;
+        System.out.println(selectQuery);
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        while (cursor.moveToNext()) {
+            course_from_db.add(cursor.getString(cursor.getColumnIndex("SECTION")));
         }
         cursor.close();
         db.close();

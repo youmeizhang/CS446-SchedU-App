@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<CharSequence> adapter;
     private ArrayAdapter<String> subAdapter;
     private ArrayAdapter<String> couAdapter;
+    private ArrayAdapter<String> sesAdapter;
 
     String string_subject;
     String string_course;
@@ -43,7 +45,10 @@ public class MainActivity extends AppCompatActivity {
     String string_priority;
     String s;
 
+    long int_course;
+
     List<String> course_from_db;
+    List<String> section_from_db;
 
     Intent intent;
 
@@ -61,8 +66,8 @@ public class MainActivity extends AppCompatActivity {
         textView2 = (TextView)findViewById(R.id.display_read);
 
         final DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
-        //fetchData process = new fetchData(databaseHelper);
-        //process.execute();
+        fetchData process = new fetchData(databaseHelper);
+        process.execute();
 
         final List<String> sub_from_db = databaseHelper.getAllLabels();
         System.out.println(sub_from_db);
@@ -95,8 +100,21 @@ public class MainActivity extends AppCompatActivity {
         course.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                //string_course = parent.getItemAtPosition(position).toString();
                 string_course = parent.getItemAtPosition(position).toString();
-                s = string_subject + string_course;
+
+                String[] list = string_course.split(" ");
+                String courseNumber = list[0];
+                System.out.println(courseNumber);
+
+                section_from_db = databaseHelper.getAllSection(string_subject, courseNumber);
+
+                System.out.println(section_from_db);
+
+                sesAdapter = new ArrayAdapter<String>(MainActivity.this,
+                        android.R.layout.simple_spinner_item, section_from_db);
+                session.setAdapter(sesAdapter);
+                //s = string_subject + string_course;
             }
 
             @Override
