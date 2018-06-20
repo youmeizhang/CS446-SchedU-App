@@ -70,12 +70,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        //if (cursor.moveToFirst()) {
-            //do {
-                //sub_from_db.add(cursor.getString(cursor.getColumnIndex("SUBJECT")));
-            //} while (cursor.moveToNext());
-        //}
-
         while (cursor.moveToNext()) {
             sub_from_db.add(cursor.getString(cursor.getColumnIndex("SUBJECT")));
         }
@@ -87,14 +81,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public List<String> getAllCourse(String sub) {
         List<String> course_from_db = new ArrayList<String>();
         String subject = "\""+ sub + "\"";
-        System.out.println(subject);
-        String selectQuery = "SELECT CATALOG_NUMBER INTEGER FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject;
+        //System.out.println(subject);
+        String selectQuery = "SELECT CATALOG_NUMBER FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject;
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         while (cursor.moveToNext()) {
-            course_from_db.add(cursor.getString(cursor.getColumnIndex("CATALOG_NUMBER INTEGER")));
+            course_from_db.add(cursor.getString(cursor.getColumnIndex("CATALOG_NUMBER")));
         }
         cursor.close();
         db.close();

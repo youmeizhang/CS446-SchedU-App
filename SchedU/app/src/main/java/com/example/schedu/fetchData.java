@@ -22,6 +22,20 @@ public class fetchData extends AsyncTask<DatabaseHelper, Void, Void> {
 
     String data_parsed = "";
     DatabaseHelper databaseHelper = null;
+    String units_number;
+    String title;
+    String section;
+    String campus;
+    String enrollment_capacity;
+    String enrollment_totle;
+    String start_time;
+    String end_time;
+    String weekdays;
+    String building;
+    String room;
+    String instructor;
+    String instructor_rating;
+    String academic_level;
 
     public fetchData(DatabaseHelper databaseHelper) {
         super();
@@ -52,6 +66,21 @@ public class fetchData extends AsyncTask<DatabaseHelper, Void, Void> {
                 JSONObject courseObj = (JSONObject) JA.get(i);
                 subject  = courseObj.getString("subject");
                 catalog_number  = courseObj.getString("catalog_number");
+                units_number = courseObj.getString("units_numer");
+                title = courseObj.getString("title");
+                section = courseObj.getString("section");
+                campus = courseObj.getString("campus");
+                enrollment_capacity = courseObj.getString("enrollment_capacity");
+                enrollment_totle = courseObj.getString("enrollment_totle");
+                start_time = courseObj.getString("start_time");
+                end_time = courseObj.getString("end_time");
+                weekdays = courseObj.getString("weekdays");
+                building = courseObj.getString("building");
+                room = courseObj.getString("room");
+                instructor = courseObj.getString("instructor");
+                instructor_rating = courseObj.getString("instructor_rating");
+                academic_level = courseObj.getString("academic_level");
+
                 OneCourseFetch oneCourseFetch = new OneCourseFetch(databaseHelper, subject, catalog_number, false);
                 oneCourseFetch.execute();// fill in or update this course info in classTable
 
@@ -107,24 +136,3 @@ public class fetchData extends AsyncTask<DatabaseHelper, Void, Void> {
         //MainActivity.mydb.fillClassTable();
     }
 }
-
-
-
-
-/*
-
-            JSONObject JO = new JSONObject(data);
-            single_parsed  = "Name: " + JO.getString("meta") + "\n" +
-                    "Age: " + JO.getString("data") + "\n";
-            data_parsed = data_parsed + single_parsed;
-
-            //JSONArray JA = new JSONArray(data);
-            //for (int i = 0; i < JA.length(); i++) {
-            //    JSONObject JO = (JSONObject) JA.get(i);
-            //    single_parsed  = "Name: " + JO.getString("name") + "\n" +
-            //            "Age: " + JO.getString("age") + "\n";
-            //    data_parsed = data_parsed + single_parsed;
-            //}
-
-
- */
