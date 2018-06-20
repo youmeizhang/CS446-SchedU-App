@@ -55,7 +55,9 @@ public class MainActivity extends AppCompatActivity {
         textView1 = (TextView)findViewById(R.id.display_info);
         textView2 = (TextView)findViewById(R.id.display_read);
 
-
+        // create database
+        //DatabaseHelper DatabaseHelper = new DatabaseHelper(MainActivity.this);
+        //new fetchData(DatabaseHelper).execute();
 
         subject.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -121,15 +123,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(MainActivity.this, Main2Activity.class);
 
                 i.putExtra("getData", s);
-                DbHandler dbHandler = new DbHandler(MainActivity.this);
-                ArrayList<Course> data = dbHandler.GetCourses();
-
-                // selected courses
-                SelectedCoures sc = new SelectedCoures();
-                sc.add(data);
-
-                // read details for selected courses
-                sc.getDetailFromWeb();
 
                 startActivity(i);
             }
