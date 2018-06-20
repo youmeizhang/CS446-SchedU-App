@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Main2Activity extends AppCompatActivity {
-<<<<<<< Updated upstream
+
 
     String value;
     private Context mContext;
@@ -34,18 +34,11 @@ public class Main2Activity extends AppCompatActivity {
     private ArrayList<TextView> tvList;
     private TableLayout tableLayout;
     private ArrayList<Integer> colorList;
-=======
+
     private TextView textView2;
-    private Button btn3;
-    //private Button btnMon8;
-    String value;
-    private Context mContext;
-    private Activity mActivity;
-    private TextView tv;
-    private TextView tvM830;
     //private TableLayout tableLayout;
     private ScrollView scrollView;
->>>>>>> Stashed changes
+
 
     private PopupWindow mPopupWindow;
 
@@ -100,7 +93,7 @@ public class Main2Activity extends AppCompatActivity {
             String weekdays = i.weekdays.toUpperCase();
             System.out.println("course info: " + courseName + " " + start + " " + end + " " + weekdays);
 
-<<<<<<< Updated upstream
+
             String textViewId;
             int color = colorList.get(curColor);
             int duration_start = 0;
@@ -172,14 +165,6 @@ public class Main2Activity extends AppCompatActivity {
                 start = Calculation.timeAdd(start);
                 duration_start++;
                 System.out.println("start is" + start);
-=======
-        value = getIntent().getStringExtra("getData");
-        //tv = (TextView) findViewById(R.id.tv);
-        /*btn3 = (Button)findViewById(R.id.new_button);
-        btn3.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                btnMon8.setText(value);
->>>>>>> Stashed changes
             }
             curColor++;
 
@@ -187,47 +172,20 @@ public class Main2Activity extends AppCompatActivity {
 
         value = getIntent().getStringExtra("getData");
 
-<<<<<<< Updated upstream
-        //tv2.setText("Hello");
-        //tv2.setBackgroundColor(Color.GRAY);
-
-        // bind listeners
-        /*
-        for(TextView tv: tvList) {
-            tv.setOnTouchListener(new OnTouchListener() {
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                        tv.setText("Hello");
-                        tv.setBackgroundColor(Color.GRAY);
-                        return true;
-                    }
-                    return false;
-                }
-            });
-        }*/
-=======
->>>>>>> Stashed changes
-
 
         mContext = getApplicationContext();
         mActivity = Main2Activity.this;
 
- //       tableLayout = (TableLayout) findViewById(R.id.rl);
         scrollView = (ScrollView) findViewById(R.id.rl);
-
-        tvM830 = (TextView) findViewById(R.id.M830);
-
-
-
-        tvM830.setOnClickListener(new View.OnClickListener() {
+/*
+        M0830.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 startActivity(new Intent(Main2Activity.this, CourseDetail.class));
 
             }
         });
 
-
+*/
     }
 }
 
