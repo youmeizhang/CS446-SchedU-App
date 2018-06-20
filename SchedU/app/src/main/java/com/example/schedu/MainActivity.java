@@ -18,6 +18,7 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private TextView textView1;
@@ -32,13 +33,17 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_finish_new;
     private String[][] dataStrings = { {"446 Software Architecture and Design", "486 Introduction to Artificial Intelligence", "698 Introduction to Research Topics"},
             {"656 Database System", "657A Data Model & Knowledge", "653 Quality Assurance"}, {"641 Text Analysis", "640 Big Data"}, };
-    private ArrayAdapter<CharSequence> adapter = null;
+    private ArrayAdapter<CharSequence> adapter;
+    private ArrayAdapter<String> subAdapter;
+    private ArrayAdapter<String> couAdapter;
 
     String string_subject;
     String string_course;
     String string_session;
     String string_priority;
     String s;
+
+    List<String> course_from_db;
 
     Intent intent;
 
@@ -56,18 +61,37 @@ public class MainActivity extends AppCompatActivity {
         textView2 = (TextView)findViewById(R.id.display_read);
 
         // create database
-        //DatabaseHelper DatabaseHelper = new DatabaseHelper(MainActivity.this);
-        //new fetchData(DatabaseHelper).execute();
+        final DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
+        //fetchData process = new fetchData(databaseHelper);
+        //process.execute();
+
+        //List<String> sub_from_db = databaseHelper.getAllLabels();
+        //System.out.println(sub_from_db);
+
+        //new fetchData(databaseHelper).execute();
+
+        final List<String> sub_from_db = databaseHelper.getAllLabels();
+        System.out.println(sub_from_db);
+
+        subAdapter = new ArrayAdapter<String>(MainActivity.this,
+                android.R.layout.simple_spinner_item, sub_from_db);
+        subject.setAdapter(subAdapter);
 
         subject.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                adapter = new ArrayAdapter<CharSequence>(MainActivity.this,
-                        android.R.layout.simple_spinner_item,
-                        dataStrings[position]);
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                course.setAdapter(adapter);
+                //adapter = new ArrayAdapter<CharSequence>(MainActivity.this,
+                        //android.R.layout.simple_spinner_item,
+                        //dataStrings[position]);
+                //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                //course.setAdapter(adapter);
                 string_subject = parent.getItemAtPosition(position).toString();
+                course_from_db = databaseHelper.getAllCourse(string_subject);
+                System.out.println(course_from_db);
+
+                couAdapter = new ArrayAdapter<String>(MainActivity.this,
+                        android.R.layout.simple_spinner_item, course_from_db);
+                course.setAdapter(couAdapter);
 
                 //String[] subject = getResources().getStringArray(R.array.subjects);
                 //textView.setText("the subject you choose is:" + subject[position]);
@@ -84,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 string_course = parent.getItemAtPosition(position).toString();
                 s = string_subject + string_course;
-                //textView1.setText(s);
             }
 
             @Override
@@ -105,7 +128,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //priority.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
+        //loadSpinnerData();
+
         priority.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 string_priority = priority.getSelectedItem().toString();
@@ -159,4 +186,21 @@ public class MainActivity extends AppCompatActivity {
         });
         */
     }
+
+    private void loadSpinnerData() {
+        DatabaseHelper db = new DatabaseHelper(getApplicationContext());
+
+        List<String> sub_from_db = db.getAllLabels();
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, sub_from_db);
+
+        dataAdapter
+                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        priority.setAdapter(dataAdapter);
+        System.out.println(sub_from_db);
+
+    }
+
 }
