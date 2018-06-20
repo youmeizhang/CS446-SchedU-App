@@ -4,85 +4,94 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:shrinkColumns="1, 1"
-    android:stretchColumns="*">
+    android:stretchColumns="0,1,2,3,4,5">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        android:layout_width="0dp"
+        android:layout_weight="1"
+
+        <TextView android:text="  " />
+
+        <TextView
+            android:padding="3dip"
+            android:text="Mon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:padding="3dip"
+            android:text="Tues" />
+
+        <TextView
+            android:padding="3dip"
+            android:text="Wed" />
+
+        <TextView
+            android:padding="3dip"
+            android:text="Thu" />
+
+        <TextView
+            android:padding="3dip"
+            android:text="Fri" />
+    </TableRow>
+
     <TableRow>
         android:layout_width="0dp"
         android:layout_weight="1"
         <TextView
-            android:text="" />
-        <TextView
-            android:text="Monday"
-            android:padding="3dip"/>
-
-        <TextView
             android:padding="3dip"
-            android:text="Tuesday" />
+            android:text="8:00" />
+
         <TextView
-            android:text="Wednesday"
-            android:padding="3dip"/>
-        <TextView
-            android:text="Thursday"
-            android:padding="3dip"/>
-        <TextView
-            android:text="Friday"
-            android:padding="3dip" />
-    </TableRow>
-    <TableRow>
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        <TextView
-            android:text="8:00"
-            android:padding="3dip"/>
-        <Button
-            android:id="@+id/Mon8"
-            android:text="Mon8"
+            android:id="@+id/M8"
             android:padding="3dip" />
 
         <TextView
-            android:id="@+id/Tue8"
+            android:id="@+id/T8"
             android:padding="3dip" />
 
         <TextView
-            android:id="@+id/Wed8"
+            android:id="@+id/W8"
             android:padding="3dip" />
 
         <TextView
-            android:id="@+id/Thur8"
+            android:id="@+id/Th8"
             android:padding="3dip" />
 
         <TextView
-            android:id="@+id/Fri8"
+            android:id="@+id/F8"
             android:padding="3dip" />
 
     </TableRow>
 
-    <TableRow>
+        <TableRow>
 
-        <TextView
-            android:padding="3dip"
-            android:text="9:00" />
+            <TextView
+                android:padding="3dip"
+                android:text="9:00" />
 
-        <TextView
-            android:id="@+id/Mon9"
-            android:padding="3dip"
-            android:text="" />
+            <TextView
+                android:id="@+id/Mon9"
+                android:padding="3dip" />
 
-        <TextView
-            android:id="@+id/Tue9"
-            android:padding="3dip" />
+            <TextView
+                android:id="@+id/Tue9"
+                android:padding="3dip" />
 
-        <TextView
-            android:id="@+id/Wed9"
-            android:padding="3dip" />
+            <TextView
+                android:id="@+id/Wed9"
+                android:padding="3dip" />
 
-        <TextView
-            android:id="@+id/Thur9"
-            android:padding="3dip" />
+            <TextView
+                android:id="@+id/Thur9"
+                android:padding="3dip" />
 
-        <TextView
-            android:id="@+id/Fri9"
-            android:padding="3dip" />
-    </TableRow>
+            <TextView
+                android:id="@+id/Fri9"
+                android:padding="3dip" />
+        </TableRow>
+
     <TableRow>
         <TextView
             android:text="10:00"
@@ -139,39 +148,39 @@
             android:padding="5dip"/>
     </TableRow>
 
-    <TableRow>
-        <TextView
-            android:text=""
-            android:padding="5dip"/>
+       <TableRow>
+           <TextView
+               android:text=""
+               android:padding="5dip"/>
 
-        <Button
-            android:id="@+id/like"
-            android:layout_width="56dp"
-            android:layout_height="50dp"
-            android:background="@drawable/heart" />
+           <Button
+               android:id="@+id/like"
+               android:layout_width="56dp"
+               android:layout_height="50dp"
+               android:background="@drawable/heart" />
 
-        <Button
-            android:id="@+id/new_button"
-            android:layout_width="30dp"
-            android:layout_height="50dp" />
+           <Button
+               android:id="@+id/new_button"
+               android:layout_width="30dp"
+               android:layout_height="50dp" />
 
-        <Button
-            android:id="@+id/delete"
-            android:layout_width="30dp"
-            android:layout_height="50dp"
-            android:background="@drawable/ic_delete" />
-        <TextView
-            android:text=""
-            android:padding="5dip"/>
+           <Button
+               android:id="@+id/delete"
+               android:layout_width="30dp"
+               android:layout_height="50dp"
+               android:background="@drawable/ic_delete" />
+           <TextView
+               android:text=""
+               android:padding="5dip"/>
 
-        <TextView
-            android:text=""
-            android:padding="5dip"/>
-    </TableRow>
+           <TextView
+               android:text=""
+               android:padding="5dip"/>
+       </TableRow>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+       <android.support.v4.view.ViewPager
+           android:id="@+id/viewpager"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"/>
 
-</TableLayout>
+   </TableLayout>

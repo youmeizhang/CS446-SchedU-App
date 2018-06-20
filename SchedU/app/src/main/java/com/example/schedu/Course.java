@@ -25,8 +25,8 @@ public class Course {
 
     // get values from api
     public void InitValue() {
-
         reader.readFromWeb(this);
+        printLectureInfo();
     }
 
     public void printLectureInfo() {
