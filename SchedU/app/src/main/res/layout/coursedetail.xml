@@ -1,101 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rl_custom_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="2dp"
-    >
-    <ImageButton
-        android:id="@+id/ib_close"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_close_white_24dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:background="@null" />
+    android:background="@color/light_orange"
+
+    android:padding="2dp">
 
     <TextView
-        android:id="@+id/tv"
-        android:layout_width="270dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
+        android:id="@+id/textView"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_alignLeft="@+id/textView3"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="70dp"
-        android:gravity="center"
-        android:padding="25sp"
-        android:text="Software Architecture and Design"
-        android:textSize="21dp" />
+        android:layout_alignStart="@+id/textView3"
+        android:text="SoftWare Architecture and Design"
+        android:textAlignment="center"
+        android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/total_enrollment"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView3"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="214dp"
-        android:gravity="center"
-        android:text="Total Enrolment:         90"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Total Capacity:         94"
+        android:textAlignment="viewStart" />
 
     <TextView
-        android:id="@+id/available_seats"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView4"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="231dp"
-        android:gravity="center"
-        android:text="Available Seats:           4"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignStart="@+id/textView3"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="24dp"
+        android:text="Total Enrollment:     90"
+        android:textAlignment="viewStart" />
 
     <TextView
-        android:id="@+id/total_cap"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView8"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv"
-        android:gravity="center"
-        android:text="Total Capacity:           94"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_below="@+id/textView4"
+        android:layout_marginTop="23dp"
+        android:text="Avaliable Seats:        4" />
 
     <TextView
-        android:id="@+id/prof_rating"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView9"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="191dp"
-        android:gravity="center"
-        android:text="Prof Ratings:                4"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="102dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/tv"
-        android:layout_marginEnd="17dp"
-        android:background="@color/orange" />
-
+        android:layout_alignLeft="@+id/textView8"
+        android:layout_alignStart="@+id/textView8"
+        android:layout_below="@+id/textView8"
+        android:layout_marginTop="21dp"
+        android:text="Prof's Rating:            4.5" />
 </RelativeLayout>
