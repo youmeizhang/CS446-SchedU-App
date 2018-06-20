@@ -81,27 +81,28 @@ public class Main2Activity extends AppCompatActivity {
             }
         });*/
 
-        tv1 = (TextView) findViewById(R.id.M8);
-        tv2 = (TextView) findViewById(R.id.T8);
-        tv3 = (TextView) findViewById(R.id.W8);
+        tv1 = (TextView) findViewById(R.id.M830);
+        tv2 = (TextView) findViewById(R.id.T830);
+        tv3 = (TextView) findViewById(R.id.W830);
 
-        tv2.setText("Hello");
-        tv2.setBackgroundColor(Color.GRAY);
+        //tv2.setText("Hello");
+        //tv2.setBackgroundColor(Color.GRAY);
 
         // bind listeners
         tv1.setOnTouchListener(new OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == MotionEvent.ACTION_DOWN){
-
+                    tv1.setText("Hello");
+                    tv1.setBackgroundColor(Color.GRAY);
                     return true;
                 }
                 return false;
             }
         });
 
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        viewPager.setAdapter(new CustomPagerAdapter(this));
+        //ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        //viewPager.setAdapter(new CustomPagerAdapter(this));
 
         mContext = getApplicationContext();
         mActivity = Main2Activity.this;
