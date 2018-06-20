@@ -2,8 +2,12 @@ package com.example.schedu;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -58,6 +62,45 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "ACADEMIC_LEVEL TEXT)");
         //fillClassTable();
     }
+
+    public List<String> getAllLabels(){
+        List<String> sub_from_db = new ArrayList<String>();
+        String selectQuery = "SELECT subject FROM " + CLASS_TABLE;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        //if (cursor.moveToFirst()) {
+            //do {
+                //sub_from_db.add(cursor.getString(cursor.getColumnIndex("SUBJECT")));
+            //} while (cursor.moveToNext());
+        //}
+
+        while (cursor.moveToNext()) {
+            sub_from_db.add(cursor.getString(cursor.getColumnIndex("SUBJECT")));
+        }
+        cursor.close();
+        db.close();
+        return sub_from_db;
+    }
+
+    public List<String> getAllCourse(String sub) {
+        List<String> course_from_db = new ArrayList<String>();
+        String subject = "\""+ sub + "\"";
+        System.out.println(subject);
+        String selectQuery = "SELECT CATALOG_NUMBER INTEGER FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        while (cursor.moveToNext()) {
+            course_from_db.add(cursor.getString(cursor.getColumnIndex("CATALOG_NUMBER INTEGER")));
+        }
+        cursor.close();
+        db.close();
+        return course_from_db;
+    }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
