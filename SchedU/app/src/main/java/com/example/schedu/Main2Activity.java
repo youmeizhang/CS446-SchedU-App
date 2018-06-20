@@ -29,14 +29,42 @@ public class Main2Activity extends AppCompatActivity {
     private Context mContext;
     private Activity mActivity;
     private TextView tv;
-    private TableLayout mRelativeLayout;
+    private TableLayout tableLayout;
 
     private PopupWindow mPopupWindow;
+
+    public TimeTable findCourse(){
+        DbHandler dbHandler = new DbHandler(Main2Activity.this);
+        ArrayList<Course> data = dbHandler.GetCourses();
+
+
+        // selected courses
+        SelectedCoures sc = new SelectedCoures();
+        sc.add(data);
+        /*
+        // read details for selected courses
+        sc.getDetailFromWeb();
+        TimeTable t = sc.genCombination();*/
+        TimeTable t = sc.hardCode();
+
+        return t;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        TimeTable timeTable = findCourse();
+        System.out.println("items in timetable " + timeTable.contents.size());
+
+        for(CourseInfo i: timeTable.contents){
+            String courseName = i.name + i.number + " " + i.section;
+            String start = i.startTime.replace(":", "");
+            String end = i.endTime.replace(":", "");
+            String weekdays = i.weekdays;
+            System.out.println("course info: " + courseName + " " + start + " " + end + " " + weekdays);
+        }
 
         value = getIntent().getStringExtra("getData");
         tv = (TextView) findViewById(R.id.tv);
@@ -52,7 +80,7 @@ public class Main2Activity extends AppCompatActivity {
         mContext = getApplicationContext();
         mActivity = Main2Activity.this;
 
-        mRelativeLayout = (TableLayout) findViewById(R.id.rl);
+        tableLayout = (TableLayout) findViewById(R.id.rl);
         btnMon8 = (Button) findViewById(R.id.Mon8);
         btnMon8.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -79,7 +107,7 @@ public class Main2Activity extends AppCompatActivity {
                     }
                 });
 
-                mPopupWindow.showAtLocation(mRelativeLayout, Gravity.CENTER, 0, 0);
+                mPopupWindow.showAtLocation(tableLayout, Gravity.CENTER, 0, 0);
             }
         });
 

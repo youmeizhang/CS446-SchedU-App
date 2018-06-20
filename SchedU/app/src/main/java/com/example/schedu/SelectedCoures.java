@@ -77,7 +77,8 @@ public class SelectedCoures {
         }
     }
 
-    public void genCombination(){
+
+    public TimeTable genCombination(){
         System.out.println(selectedCourses.size());
         TimeTable timeTable = new TimeTable(1);
 
@@ -88,8 +89,48 @@ public class SelectedCoures {
             if(c.tutorials.size() > 0)
                 timeTable.contents.add(c.tutorials.get(0));
         }
-        System.out.println(timeTable.contents.size());
-        timeTable.printInfo();
+
+        for(CourseInfo i: timeTable.contents){
+            i.printAll();
+        }
+        return timeTable;
+    }
+    // Hard coded need to change!!!!!!
+    public TimeTable hardCode(){
+        TimeTable timeTable = new TimeTable(1);
+
+        // hard coded
+        CourseInfo c1 = new CourseInfo("CS", "136");
+        c1.section = "LEC 001";
+        c1.capacity = "90";
+        c1.enrollmentNum = "88";
+        c1.startTime = "11:30";
+        c1.endTime = "12:50";
+        c1.weekdays = "TTh";
+
+        CourseInfo c2 = new CourseInfo("CS", "486");
+
+        c2.section = "LEC 001";
+        c2.capacity = "114";
+        c2.enrollmentNum = "116";
+        c2.startTime = "11:30";
+        c2.endTime = "12:50";
+        c2.weekdays = "MW";
+
+        CourseInfo c3 = new CourseInfo("CS", "446");
+
+        c3.section = "LEC 001";
+        c3.capacity = "88";
+        c3.enrollmentNum = "71";
+        c3.startTime = "12:30";
+        c3.endTime = "13:20";
+        c3.weekdays = "MWF";
+
+        timeTable.contents.add(c1);
+        timeTable.contents.add(c2);
+        timeTable.contents.add(c3);
+
+        return timeTable;
     }
 
 
