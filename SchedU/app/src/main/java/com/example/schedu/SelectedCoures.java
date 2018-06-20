@@ -104,8 +104,8 @@ public class SelectedCoures {
         c1.section = "LEC 001";
         c1.capacity = "90";
         c1.enrollmentNum = "88";
-        c1.startTime = "11:30";
-        c1.endTime = "12:50";
+        c1.startTime = "14:30";
+        c1.endTime = "15:50";
         c1.weekdays = "TTh";
 
         CourseInfo c2 = new CourseInfo("CS", "486");
@@ -126,9 +126,29 @@ public class SelectedCoures {
         c3.endTime = "13:20";
         c3.weekdays = "MWF";
 
+        CourseInfo c4 = new CourseInfo("CS", "136");
+
+        c4.section = "TUT 002";
+        c4.capacity = "95";
+        c4.enrollmentNum = "89";
+        c4.startTime = "08:30";
+        c4.endTime = "09:20";
+        c4.weekdays = "F";
+
+        CourseInfo c5 = new CourseInfo("CS", "350");
+
+        c5.section = "LEC 002";
+        c5.capacity = "115";
+        c5.enrollmentNum = "108";
+        c5.startTime = "15:30";
+        c5.endTime = "16:20";
+        c5.weekdays = "MWF";
+
         timeTable.contents.add(c1);
         timeTable.contents.add(c2);
         timeTable.contents.add(c3);
+        timeTable.contents.add(c4);
+        timeTable.contents.add(c5);
 
         return timeTable;
     }

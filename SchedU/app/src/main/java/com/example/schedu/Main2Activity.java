@@ -125,6 +125,11 @@ public class Main2Activity extends AppCompatActivity {
 
                     TextView textView = new TextView(this);
                     textView = (TextView) findViewById(resID);
+                    /*System.out.println("textview id: " + textViewId);
+                    if (textView == null) {
+                        System.out.println("NULL!!!!!!!");
+                        break;
+                    }*/
                     if(duration_start == 0)
                         textView.setText(courseName);
                     textView.setBackgroundColor(color);
