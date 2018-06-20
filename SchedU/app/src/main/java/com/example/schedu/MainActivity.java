@@ -60,15 +60,9 @@ public class MainActivity extends AppCompatActivity {
         textView1 = (TextView)findViewById(R.id.display_info);
         textView2 = (TextView)findViewById(R.id.display_read);
 
-        // create database
         final DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
         //fetchData process = new fetchData(databaseHelper);
         //process.execute();
-
-        //List<String> sub_from_db = databaseHelper.getAllLabels();
-        //System.out.println(sub_from_db);
-
-        //new fetchData(databaseHelper).execute();
 
         final List<String> sub_from_db = databaseHelper.getAllLabels();
         System.out.println(sub_from_db);
@@ -80,11 +74,6 @@ public class MainActivity extends AppCompatActivity {
         subject.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                //adapter = new ArrayAdapter<CharSequence>(MainActivity.this,
-                        //android.R.layout.simple_spinner_item,
-                        //dataStrings[position]);
-                //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                //course.setAdapter(adapter);
                 string_subject = parent.getItemAtPosition(position).toString();
                 course_from_db = databaseHelper.getAllCourse(string_subject);
                 System.out.println(course_from_db);
@@ -127,9 +116,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-        //priority.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
-        //loadSpinnerData();
 
         priority.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
@@ -175,32 +161,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-/*
-        btn_finish = (Button)findViewById(R.id.finish_adding);
-        btn_finish.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                textView1.setText(s);
-                intent = new Intent(MainActivity.this, DetailsActivity.class);
-                startActivity(intent);
-            }
-        });
-        */
     }
-
-    private void loadSpinnerData() {
-        DatabaseHelper db = new DatabaseHelper(getApplicationContext());
-
-        List<String> sub_from_db = db.getAllLabels();
-
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, sub_from_db);
-
-        dataAdapter
-                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        priority.setAdapter(dataAdapter);
-        System.out.println(sub_from_db);
-
-    }
-
 }
