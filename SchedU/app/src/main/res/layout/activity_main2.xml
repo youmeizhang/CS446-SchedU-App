@@ -73,43 +73,43 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/M830"
+                android:id="@+id/M0830"
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon0830"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/T830"
+                android:id="@+id/T0830"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue0830"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/W830"
+                android:id="@+id/W0830"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed0830"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/Th830"
+                android:id="@+id/Th0830"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr0830"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/F830"
+                android:id="@+id/F0830"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri0830"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -124,43 +124,43 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/M9"
+                android:id="@+id/M0900"
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon0900"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/T9"
+                android:id="@+id/T0900"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue0900"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/W9"
+                android:id="@+id/W0900"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed0900"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/Th9"
+                android:id="@+id/Th0900"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr0900"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/F9"
+                android:id="@+id/F0900"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri0900"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -175,43 +175,43 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/M930"
+                android:id="@+id/M0930"
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon0930"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/T930"
+                android:id="@+id/T0930"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue0930"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/W930"
+                android:id="@+id/W0930"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed0930"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/Th930"
+                android:id="@+id/Th0930"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr0930"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/F930"
+                android:id="@+id/F0930"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri0930"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -226,43 +226,43 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/M10"
+                android:id="@+id/M1000"
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon1000"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/T10"
+                android:id="@+id/T1000"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue1000"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/W10"
+                android:id="@+id/W1000"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed1000"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/Th10"
+                android:id="@+id/Th1000"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr1000"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/F10"
+                android:id="@+id/F1000"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri1000"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -281,7 +281,7 @@
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon1030"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -289,7 +289,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue1030"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -297,7 +297,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed1030"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -305,7 +305,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr1030"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -313,7 +313,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri1030"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -328,43 +328,43 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/M11"
+                android:id="@+id/M1100"
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon1100"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/T11"
+                android:id="@+id/T1100"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue1100"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/W11"
+                android:id="@+id/W1100"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed1100"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/Th11"
+                android:id="@+id/Th1100"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr1100"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/F11"
+                android:id="@+id/F1100"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri1100"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -385,7 +385,7 @@
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon1130"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -393,7 +393,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue1130"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -401,7 +401,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed1130"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -409,7 +409,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr1130"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -417,7 +417,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri1130"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -432,43 +432,43 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/M12"
+                android:id="@+id/M1200"
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon1200"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/T12"
+                android:id="@+id/T1200"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue1200"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/W12"
+                android:id="@+id/W1200"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed1200"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/Th12"
+                android:id="@+id/Th1200"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr1200"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/F12"
+                android:id="@+id/F1200"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri1200"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -489,7 +489,7 @@
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon1230"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -497,7 +497,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue1230"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -505,7 +505,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed1230"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -513,7 +513,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr1230"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -521,7 +521,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri1230"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -536,43 +536,43 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/M13"
+                android:id="@+id/M1300"
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon1300"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/T13"
+                android:id="@+id/T1300"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue1300"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/W13"
+                android:id="@+id/W1300"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed1300"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/Th13"
+                android:id="@+id/Th1300"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr1300"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/F13"
+                android:id="@+id/F1300"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri1300"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -593,7 +593,7 @@
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon1330"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -601,7 +601,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue1330"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -609,7 +609,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed1330"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -617,7 +617,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr1330"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -625,7 +625,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri1330"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -640,43 +640,43 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/M14"
+                android:id="@+id/M1400"
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon1400"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/T14"
+                android:id="@+id/T1400"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue1400"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/W14"
+                android:id="@+id/W1400"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed1400"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/Th14"
+                android:id="@+id/Th1400"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr1400"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/F14"
+                android:id="@+id/F1400"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri1400"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -697,7 +697,7 @@
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon1430"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -705,7 +705,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue1430"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -713,7 +713,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed1430"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -721,7 +721,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr1430"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -729,7 +729,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri1430"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -744,43 +744,43 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/M15"
+                android:id="@+id/M1500"
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon1500"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/T15"
+                android:id="@+id/T1500"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue1500"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/W15"
+                android:id="@+id/W1500"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed1500"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/Th15"
+                android:id="@+id/Th1500"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr1500"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/F15"
+                android:id="@+id/F1500"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri1500"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -801,7 +801,7 @@
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon1530"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -809,7 +809,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue1530"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -817,7 +817,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed1530"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -825,7 +825,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr1530"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -833,7 +833,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri1530"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -848,43 +848,43 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/M16"
+                android:id="@+id/M1600"
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon1600"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/T16"
+                android:id="@+id/T1600"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue1600"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/W16"
+                android:id="@+id/W1600"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed1600"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/Th16"
+                android:id="@+id/Th1600"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr1600"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/F16"
+                android:id="@+id/F1600"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri1600"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -905,7 +905,7 @@
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon1630"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -913,7 +913,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue1630"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -921,7 +921,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed1630"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -929,7 +929,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr1630"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -937,7 +937,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri1630"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -952,43 +952,43 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/M17"
+                android:id="@+id/M1700"
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon1700"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/T17"
+                android:id="@+id/T1700"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue1700"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/W17"
+                android:id="@+id/W1700"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed1700"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/Th17"
+                android:id="@+id/Th1700"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr1700"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/F17"
+                android:id="@+id/F1700"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri1700"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -1009,7 +1009,7 @@
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon1730"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -1017,7 +1017,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue1730"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -1025,7 +1025,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed1730"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -1033,7 +1033,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr1730"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -1041,7 +1041,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri1730"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -1056,43 +1056,43 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/M18"
+                android:id="@+id/M1800"
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon1800"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/T18"
+                android:id="@+id/T1800"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue1800"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/W18"
+                android:id="@+id/W1800"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed1800"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/Th18"
+                android:id="@+id/Th1800"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr1800"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/F18"
+                android:id="@+id/F1800"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri1800"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -1113,7 +1113,7 @@
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon1830"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -1121,7 +1121,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue1830"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -1129,7 +1129,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed1830"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -1137,7 +1137,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr1830"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -1145,7 +1145,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri1830"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -1160,43 +1160,43 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/M19"
+                android:id="@+id/M1900"
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon1900"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/T19"
+                android:id="@+id/T1900"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue1900"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/W19"
+                android:id="@+id/W1900"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed1900"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/Th19"
+                android:id="@+id/Th1900"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr1900"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/F19"
+                android:id="@+id/F1900"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri1900"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -1217,7 +1217,7 @@
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon1930"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -1225,7 +1225,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue1930"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -1233,7 +1233,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed1930"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -1241,7 +1241,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr1930"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -1249,7 +1249,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri1930"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -1264,43 +1264,43 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/M20"
+                android:id="@+id/M2000"
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon2000"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/T20"
+                android:id="@+id/T2000"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue2000"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/W20"
+                android:id="@+id/W2000"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed2000"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/Th20"
+                android:id="@+id/Th2000"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr2000"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/F20"
+                android:id="@+id/F2000"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri2000"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -1321,7 +1321,7 @@
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon2030"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -1329,7 +1329,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue2030"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -1337,7 +1337,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed2030"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -1345,7 +1345,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr2030"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -1353,7 +1353,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri2030"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -1368,43 +1368,43 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/M21"
+                android:id="@+id/M2100"
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon2100"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/T21"
+                android:id="@+id/T2100"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue2100"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/W21"
+                android:id="@+id/W2100"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed2100"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/Th21"
+                android:id="@+id/Th2100"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr2100"
+                
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/F21"
+                android:id="@+id/F2100"
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri2100"
+                
                 android:textAlignment="center" />
 
         </TableRow>
@@ -1425,7 +1425,7 @@
                 android:layout_width="62dp"
 
                 android:layout_height="wrap_content"
-                android:text="Mon2130"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -1433,7 +1433,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Tue2130"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -1441,7 +1441,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Wed2130"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -1449,7 +1449,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Thr2130"
+                
                 android:textAlignment="center" />
 
             <TextView
@@ -1457,7 +1457,7 @@
                 android:layout_width="63dp"
 
                 android:layout_height="wrap_content"
-                android:text="Fri2130"
+                
                 android:textAlignment="center" />
 
         </TableRow>
