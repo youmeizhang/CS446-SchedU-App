@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Layout;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.view.View.OnTouchListener;
@@ -24,6 +26,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Main2Activity extends AppCompatActivity {
+<<<<<<< Updated upstream
 
     String value;
     private Context mContext;
@@ -31,6 +34,18 @@ public class Main2Activity extends AppCompatActivity {
     private ArrayList<TextView> tvList;
     private TableLayout tableLayout;
     private ArrayList<Integer> colorList;
+=======
+    private TextView textView2;
+    private Button btn3;
+    //private Button btnMon8;
+    String value;
+    private Context mContext;
+    private Activity mActivity;
+    private TextView tv;
+    private TextView tvM830;
+    //private TableLayout tableLayout;
+    private ScrollView scrollView;
+>>>>>>> Stashed changes
 
     private PopupWindow mPopupWindow;
 
@@ -85,6 +100,7 @@ public class Main2Activity extends AppCompatActivity {
             String weekdays = i.weekdays.toUpperCase();
             System.out.println("course info: " + courseName + " " + start + " " + end + " " + weekdays);
 
+<<<<<<< Updated upstream
             String textViewId;
             int color = colorList.get(curColor);
             int duration_start = 0;
@@ -151,6 +167,14 @@ public class Main2Activity extends AppCompatActivity {
                 start = Calculation.timeAdd(start);
                 duration_start++;
                 System.out.println("start is" + start);
+=======
+        value = getIntent().getStringExtra("getData");
+        //tv = (TextView) findViewById(R.id.tv);
+        /*btn3 = (Button)findViewById(R.id.new_button);
+        btn3.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                btnMon8.setText(value);
+>>>>>>> Stashed changes
             }
             curColor++;
 
@@ -158,6 +182,7 @@ public class Main2Activity extends AppCompatActivity {
 
         value = getIntent().getStringExtra("getData");
 
+<<<<<<< Updated upstream
         //tv2.setText("Hello");
         //tv2.setBackgroundColor(Color.GRAY);
 
@@ -176,44 +201,26 @@ public class Main2Activity extends AppCompatActivity {
                 }
             });
         }*/
+=======
+>>>>>>> Stashed changes
 
-        //ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        //viewPager.setAdapter(new CustomPagerAdapter(this));
 
         mContext = getApplicationContext();
         mActivity = Main2Activity.this;
-/*
-        tableLayout = (TableLayout) findViewById(R.id.rl);
 
-        btnMon8 = (Button) findViewById(R.id.M8);
-        btnMon8.setOnClickListener(new View.OnClickListener() {
+ //       tableLayout = (TableLayout) findViewById(R.id.rl);
+        scrollView = (ScrollView) findViewById(R.id.rl);
+
+        tvM830 = (TextView) findViewById(R.id.M830);
+
+
+
+        tvM830.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
-                View courseView = inflater.inflate(R.layout.coursedetail, null);
+                startActivity(new Intent(Main2Activity.this, CourseDetail.class));
 
-                mPopupWindow = new PopupWindow(
-                        courseView,
-                        TableLayout.LayoutParams.WRAP_CONTENT,
-                        TableLayout.LayoutParams.WRAP_CONTENT
-                );
-
-                ((TextView)mPopupWindow.getContentView().findViewById(R.id.tv)).setText(value);
-
-                if(Build.VERSION.SDK_INT>=21){
-                    mPopupWindow.setElevation(5.0f);
-                }
-
-                ImageButton closeButton = (ImageButton) courseView.findViewById(R.id.ib_close);
-
-                closeButton.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View view) {
-                        mPopupWindow.dismiss();
-                    }
-                });
-
-                mPopupWindow.showAtLocation(tableLayout, Gravity.CENTER, 0, 0);
             }
-        });*/
+        });
 
 
     }
