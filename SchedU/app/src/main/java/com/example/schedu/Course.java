@@ -1,6 +1,7 @@
 package com.example.schedu;
 
 import java.util.*;
+import java.util.zip.CheckedOutputStream;
 
 public class Course {
     String name;
@@ -24,8 +25,8 @@ public class Course {
 
     // get values from api
     public void InitValue() {
-
         reader.readFromWeb(this);
+        printLectureInfo();
     }
 
     public void printLectureInfo() {
@@ -59,5 +60,34 @@ public class Course {
         printLectureInfo();
         printTutInfo();
         printTstInfo();
+    }
+
+
+    public ArrayList<Pair> genCombination(Course c){
+
+        ArrayList<Pair> jumbo = new ArrayList<>();
+        for(CourseInfo lec: c.lectures){
+
+            for(CourseInfo tut: c.tutorials){
+                Pair p = new Pair(lec, tut);
+                jumbo.add(p);
+            }
+        }
+
+        for(Pair i: jumbo){
+            System.out.println(i.lec.section + i.lec.section);
+        }
+
+        return jumbo;
+    }
+
+    class Pair{
+        CourseInfo lec;
+        CourseInfo tut;
+
+        Pair(CourseInfo l, CourseInfo t){
+            lec = l;
+            tut = t;
+        }
     }
 }

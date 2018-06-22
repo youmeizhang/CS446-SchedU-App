@@ -1,38 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rl_custom_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="2dp"
-    >
-    <ImageButton
-        android:id="@+id/ib_close"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_close_white_24dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:background="@null" />
+    android:background="@color/light_orange"
+
+    android:padding="2dp">
 
     <TextView
-        android:id="@+id/tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:id="@+id/coursename"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_alignLeft="@+id/title"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="91dp"
-        android:padding="25sp"
-        android:text="This is a sample popup window." />
+        android:layout_alignStart="@+id/title"
+        android:textAlignment="center"
+        android:textSize="18sp" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="88dp"
-        android:layout_height="102dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="19dp"
-        android:layout_marginTop="70dp"
-        app:srcCompat="@drawable/roundline" />
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/coursename"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textAlignment="viewStart" />
+
+    <TextView
+        android:id="@+id/capacity"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/title"
+        android:layout_alignStart="@+id/title"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="24dp"
+        android:textAlignment="viewStart" />
+
+    <TextView
+        android:id="@+id/enrollment"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/capacity"
+        android:layout_alignStart="@+id/capacity"
+        android:layout_below="@+id/capacity"
+        android:layout_marginTop="23dp"/>
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/enrollment"
+        android:layout_alignStart="@+id/enrollment"
+        android:layout_below="@+id/enrollment"
+        android:layout_marginTop="21dp" />
 </RelativeLayout>
