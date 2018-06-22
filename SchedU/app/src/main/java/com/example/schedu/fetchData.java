@@ -96,7 +96,6 @@ public class fetchData extends AsyncTask<DatabaseHelper, Void, Void> {
                     courseLine = courseBufferedReader.readLine();
                     totalLine = totalLine + courseLine;
                 }
-
                 JSONObject courseJO = new JSONObject(data);
                 courseList  = courseJO.getString("data");
                 JSONArray courseJA = new JSONArray(courseList);

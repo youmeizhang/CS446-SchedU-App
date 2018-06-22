@@ -33,6 +33,7 @@ public class AllCourses
 
         try
         {
+            String urlString = "https://api.uwaterloo.ca/v2/courses.json?key=6e9e2a8c5b5114e5b4fe9d30387fec4d";
             URL url = new URL(urlString);
 
             // Open URL connection to access json data
@@ -68,9 +69,6 @@ public class AllCourses
 
             // Array of "data"
             JSONArray dataArr = (JSONArray) jobj.get("data");
-
-
-
             // Loop all sets in 'data'
             for(int i=0;i<dataArr.size();i++)
             {

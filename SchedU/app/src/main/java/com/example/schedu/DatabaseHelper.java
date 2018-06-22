@@ -69,10 +69,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
-
+        int i = 0;
         while (cursor.moveToNext()) {
             sub_from_db.add(cursor.getString(cursor.getColumnIndex("SUBJECT")));
+            i++;
         }
+        //System.out.println("Total rows in table: " + i);
         cursor.close();
         db.close();
         return sub_from_db;

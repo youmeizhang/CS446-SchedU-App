@@ -28,19 +28,17 @@ import java.util.HashMap;
 public class Main2Activity extends AppCompatActivity {
 
 
-    String value;
     private Context mContext;
     private Activity mActivity;
     private ArrayList<TextView> tvList;
     private TableLayout tableLayout;
     private ArrayList<Integer> colorList;
 
-    private TextView textView2;
-    //private TableLayout tableLayout;
-    private ScrollView scrollView;
-
-
-    private PopupWindow mPopupWindow;
+    private String capacity;
+    private String coursename;
+    private String enrollmentNumber;
+    private String location;
+    private String title;
 
     public TimeTable findCourse(){
         DbHandler dbHandler = new DbHandler(Main2Activity.this);
@@ -87,11 +85,18 @@ public class Main2Activity extends AppCompatActivity {
         System.out.println("items in timetable " + timeTable.contents.size());
 
         for (CourseInfo i : timeTable.contents) {
-            String courseName = i.name + i.number + " " + i.section;
+            final String courseName = i.name + i.number + " " + i.section;
             String start = i.startTime.replace(":", "");
             String end = i.endTime.replace(":", "");
             String weekdays = i.weekdays.toUpperCase();
-            System.out.println("course info: " + courseName + " " + start + " " + end + " " + weekdays);
+
+            coursename = courseName;
+            capacity = i.capacity;
+            enrollmentNumber = i.enrollmentNum;
+            location = i.location;
+            title = i.title;
+
+            System.out.println("course info: " + courseName + " " + start + " " + end + " " + weekdays+ " "+ capacity);
 
 
             String textViewId;
@@ -99,6 +104,23 @@ public class Main2Activity extends AppCompatActivity {
             int duration_start = 0;
             int duration_end = (int) Calculation.timeDifference(start, end) / 30;
 
+
+            View.OnClickListener myClickListener = new View.OnClickListener() {
+                String coursename_tmp = coursename;
+                String capacity_tmp = capacity;
+                String enrollmentNumber_tmp = enrollmentNumber;
+                String location_tmp = location;
+                String title_tmp = title;
+                public void onClick(View view) {
+                    Intent intent = new Intent(Main2Activity.this, CourseDetail.class);
+                    intent.putExtra("CourseName", coursename_tmp);
+                    intent.putExtra("Capacity", capacity_tmp);
+                    intent.putExtra("EnrollmentNumber", enrollmentNumber_tmp);
+                    intent.putExtra("Location", location_tmp);
+                    intent.putExtra("Title", title_tmp);
+                    startActivity(intent);
+                }
+            };
 
             while (duration_start <= duration_end) {
                 if (weekdays.contains("M")) {
@@ -109,6 +131,7 @@ public class Main2Activity extends AppCompatActivity {
                     if (duration_start == 0)
                         textView.setText(courseName);
                     textView.setBackgroundColor(color);
+                    textView.setOnClickListener(myClickListener);
                     tvList.add(textView);
                 }
                 if ((weekdays.contains("T") && !weekdays.contains("H")) || weekdays.contains("TTH")) {
@@ -125,6 +148,7 @@ public class Main2Activity extends AppCompatActivity {
                     if (duration_start == 0)
                         textView.setText(courseName);
                     textView.setBackgroundColor(color);
+                    textView.setOnClickListener(myClickListener);
                     tvList.add(textView);
                 }
                 if (weekdays.contains("W")) {
@@ -136,6 +160,7 @@ public class Main2Activity extends AppCompatActivity {
                     if (duration_start == 0)
                         textView.setText(courseName);
                     textView.setBackgroundColor(color);
+                    textView.setOnClickListener(myClickListener);
                     tvList.add(textView);
                 }
                 if (weekdays.contains("TH")) {
@@ -147,6 +172,7 @@ public class Main2Activity extends AppCompatActivity {
                     if (duration_start == 0)
                         textView.setText(courseName);
                     textView.setBackgroundColor(color);
+                    textView.setOnClickListener(myClickListener);
                     tvList.add(textView);
                 }
                 if (weekdays.contains("F")) {
@@ -158,6 +184,7 @@ public class Main2Activity extends AppCompatActivity {
                     if (duration_start == 0)
                         textView.setText(courseName);
                     textView.setBackgroundColor(color);
+                    textView.setOnClickListener(myClickListener);
                     tvList.add(textView);
                 }
 
@@ -168,23 +195,10 @@ public class Main2Activity extends AppCompatActivity {
             curColor++;
 
         }
-        View.OnClickListener myClickListener = new View.OnClickListener() {
-            public void onClick(View view) {
-                startActivity(new Intent(Main2Activity.this, CourseDetail.class));
-            }
-        };
-
-        for (TextView t : tvList) {
-            t.setOnClickListener(myClickListener);
-        }
-
-        value = getIntent().getStringExtra("getData");
-
 
         mContext = getApplicationContext();
         mActivity = Main2Activity.this;
 
-        scrollView = (ScrollView) findViewById(R.id.rl);
     }
 
 }

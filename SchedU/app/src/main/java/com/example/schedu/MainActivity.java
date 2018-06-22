@@ -67,10 +67,11 @@ public class MainActivity extends AppCompatActivity {
 
         final DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
         fetchData process = new fetchData(databaseHelper);
+        System.out.println("next is background program");
         process.execute();
 
         final List<String> sub_from_db = databaseHelper.getAllLabels();
-        System.out.println(sub_from_db);
+        System.out.println("all subjects are here: " + sub_from_db);
 
         subAdapter = new ArrayAdapter<String>(MainActivity.this,
                 android.R.layout.simple_spinner_item, sub_from_db);
