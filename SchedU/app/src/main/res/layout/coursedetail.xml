@@ -9,54 +9,49 @@
     android:padding="2dp">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/coursename"
         android:layout_width="150dp"
         android:layout_height="80dp"
-        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignLeft="@+id/title"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/textView3"
-        android:text="SoftWare Architecture and Design"
+        android:layout_alignStart="@+id/title"
         android:textAlignment="center"
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/title"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/coursename"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Total Capacity:         94"
         android:textAlignment="viewStart" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/capacity"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_alignStart="@+id/textView3"
-        android:layout_below="@+id/textView3"
+        android:layout_alignLeft="@+id/title"
+        android:layout_alignStart="@+id/title"
+        android:layout_below="@+id/title"
         android:layout_marginTop="24dp"
-        android:text="Total Enrollment:     90"
         android:textAlignment="viewStart" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/enrollment"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_alignStart="@+id/textView4"
-        android:layout_below="@+id/textView4"
-        android:layout_marginTop="23dp"
-        android:text="Avaliable Seats:        4" />
+        android:layout_alignLeft="@+id/capacity"
+        android:layout_alignStart="@+id/capacity"
+        android:layout_below="@+id/capacity"
+        android:layout_marginTop="23dp"/>
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/location"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView8"
-        android:layout_alignStart="@+id/textView8"
-        android:layout_below="@+id/textView8"
-        android:layout_marginTop="21dp"
-        android:text="Prof's Rating:            4.5" />
+        android:layout_alignLeft="@+id/enrollment"
+        android:layout_alignStart="@+id/enrollment"
+        android:layout_below="@+id/enrollment"
+        android:layout_marginTop="21dp" />
 </RelativeLayout>

@@ -64,8 +64,6 @@ public class ReadJsonFile
                 // Array of "data"
                 JSONArray dataArr = (JSONArray) jobj.get("data");
 
-
-
                 // Loop all sets in 'data'
                 for(int i=0;i<dataArr.size();i++)
                 {
