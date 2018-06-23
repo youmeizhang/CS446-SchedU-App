@@ -45,7 +45,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //only run once when database is created.
         db.execSQL("create table " + CLASS_TABLE + " (CLASS_NUMBER INTEGER PRIMARY KEY," +
                 "SUBJECT TEXT," +
-                "CATALOG_NUMBER INTEGER," +
+                "CATALOG_NUMBER TEXT," +
                 "UNITS_NUMBER TEXT," +
                 "TITLE TEXT," +
                 "SECTION TEXT," +
@@ -346,7 +346,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // add column values into this contentValues
         contentValues.put(CLASS_TABLE_COL_1, Integer.parseInt(class_number));
         contentValues.put(CLASS_TABLE_COL_2, subject);
-        contentValues.put(CLASS_TABLE_COL_3, Integer.parseInt(catalog_number));
+        contentValues.put(CLASS_TABLE_COL_3, catalog_number);
         contentValues.put(CLASS_TABLE_COL_4, units_number);
         contentValues.put(CLASS_TABLE_COL_5, title);
         contentValues.put(CLASS_TABLE_COL_6, section);
