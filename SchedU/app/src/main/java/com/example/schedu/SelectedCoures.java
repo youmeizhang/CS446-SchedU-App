@@ -15,31 +15,6 @@ public class SelectedCoures {
         selectedCourses = new ArrayList<>();
         selectedCourses.add(c);
     }
-    /*
-    public SelectedCoures(ArrayList<HashMap<String, String>> courseList){
-        selectedCourses = new ArrayList<>();
-        String KEY_ID = "id";
-        String KEY_SUB = "subject";
-        String KEY_COU = "course";
-        String KEY_SESS = "session";
-        String KEY_PRIO = "priority";
-
-
-        for(HashMap pair: courseList){
-            String courseNum = pair.get(KEY_COU).toString();
-            String[] tmp = courseNum.split(" ");
-
-            courseNum = tmp[0];
-            String courseName = pair.get(KEY_SUB).toString();
-            System.out.println("parsed name " + courseName + courseNum);
-
-            Course c = new Course();
-            c.name = courseName;
-            c.number = courseNum;
-            selectedCourses.add(c);
-        }
-
-    }*/
 
 
     public void add(ArrayList<Course> courseList){
@@ -78,23 +53,79 @@ public class SelectedCoures {
     }
 
 
-    public TimeTable genCombination(){
-        System.out.println(selectedCourses.size());
-        TimeTable timeTable = new TimeTable(1);
+    public ArrayList<TimeTable> genTimeTable() {
 
-        for(Course c: selectedCourses){
+        ArrayList<CourseInfo> Monday = new ArrayList<>();
+        ArrayList<CourseInfo> Tuesday = new ArrayList<>();
+        ArrayList<CourseInfo> Wednesday = new ArrayList<>();
+        ArrayList<CourseInfo> Thursday = new ArrayList<>();
+        ArrayList<CourseInfo> Friday = new ArrayList<>();
 
-            if(c.lectures.size() > 0)
-                timeTable.contents.add(c.lectures.get(0));
-            if(c.tutorials.size() > 0)
-                timeTable.contents.add(c.tutorials.get(0));
+
+
+        for (Course c : selectedCourses) {
+
+            if (c.lectures.size() > 0) {
+                for (CourseInfo courseInfo : c.lectures) {
+                    String curWeeday = courseInfo.weekdays.toUpperCase();
+                    if (curWeeday.contains("M")) {
+                        Monday.add(courseInfo);
+                        break;
+                    }
+                    if ((curWeeday.contains("T") && !curWeeday.contains("H"))
+                            || curWeeday.contains("TTH")) {
+                        Tuesday.add(courseInfo);
+                        break;
+                    }
+                    if (curWeeday.contains("W")) {
+                        Wednesday.add(courseInfo);
+                        break;
+                    }
+                    if (curWeeday.contains("TH")) {
+                        Thursday.add(courseInfo);
+                        break;
+                    }
+                    if (curWeeday.contains("F")) {
+                        Friday.add(courseInfo);
+                        break;
+                    }
+
+                }
+            }
         }
 
-        for(CourseInfo i: timeTable.contents){
-            i.printAll();
-        }
-        return timeTable;
+        return null;
     }
+
+    public ArrayList<TimeTable> genTimeTable(int k, int n) {
+        ArrayList<TimeTable> allTimeTables = new ArrayList<>();
+        int timeTableID = 1;
+        TimeTable timeTable = new TimeTable(timeTableID);
+
+        int[] num = {1,2,3,4,5,6,7,8,9};
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+       // helper(allTimeTables, timeTable, num, k, n,0);
+        return allTimeTables;
+    }
+
+    public void helper(ArrayList<TimeTable> allTimeTable, TimeTable timeTable, ArrayList<CourseInfo> allCourse, int k, int start){
+
+
+
+/*
+        if (k == 0 && target == 0){
+            allTimeTable.add(timeTable);
+        } else {
+            for (int i = start; i < num.length && target > 0 && k >0; i++){
+                list.add(num[i]);
+                helper(result, list, num, k-1,target-num[i],i+1);
+                list.remove(list.size()-1);
+            }
+        }*/
+    }
+
+
+
     // Hard coded need to change!!!!!!
     public TimeTable hardCode(){
         TimeTable timeTable = new TimeTable(1);
@@ -151,6 +182,7 @@ public class SelectedCoures {
         c5.startTime = "15:30";
         c5.endTime = "16:20";
         c5.weekdays = "TTh";
+
 
         timeTable.contents.add(c1);
         timeTable.contents.add(c2);
