@@ -27,5 +27,4 @@ public class TimeTable {
             i.printAll();
         }
     }
-
 }

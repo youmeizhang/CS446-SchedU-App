@@ -11,9 +11,9 @@ public class Course {
     String sectionNumber;   // could be user selected section, or default as 'ALL'
     String priority;        // dont really know why need this
 
-    List<CourseInfo> lectures;
-    List<CourseInfo> tutorials;
-    List<CourseInfo> tests;
+    ArrayList<CourseInfo> lectures;
+    ArrayList<CourseInfo> tutorials;
+    ArrayList<CourseInfo> tests;
 
     ReadJsonFile reader;
 
