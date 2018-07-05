@@ -66,8 +66,8 @@ public class MainActivity extends AppCompatActivity {
         textView2 = (TextView)findViewById(R.id.display_read);
 
         final DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
-        fetchData process = new fetchData(databaseHelper);
-        process.execute();
+        //fetchData process = new fetchData(databaseHelper);
+        //process.execute();
 
         final List<String> sub_from_db = databaseHelper.getAllLabels();
         System.out.println("all subjects are here: " + sub_from_db);

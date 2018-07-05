@@ -6,10 +6,11 @@ import java.util.Collections;
 import java.util.ArrayList;
 
 public class PermutationGenerator {
-    private ArrayList<ArrayList<CourseInfo>> result;
+    private ArrayList<TimeTable> result;
     private ArrayList<ArrayList<CourseInfo>> data;
+    private int id = 1;
 
-    public ArrayList<ArrayList<CourseInfo>> permutate(ArrayList<ArrayList<CourseInfo>> data) {
+    public ArrayList<TimeTable> permutate(ArrayList<ArrayList<CourseInfo>> data) {
         this.data = data;
         this.result = new ArrayList<>();
 
@@ -28,14 +29,17 @@ public class PermutationGenerator {
             output.set(index, curArrayList.get(i));
             if (index == maxIndex) {
                 ArrayList<CourseInfo> tmp = new ArrayList<>(output);
-                result.add(tmp);
+                TimeTable curTimeTable = new TimeTable(id);
+                curTimeTable.contents = tmp;
+                id++;
+                result.add(curTimeTable);
             } else {
                 recursion(index + 1, maxIndex, output);
             }
         }
     }
 
-    public static void validate(ArrayList<CourseInfo> timeTables){
+    public static boolean validate(ArrayList<CourseInfo> timeTables){
 
         ArrayList<CourseInfo> Monday = new ArrayList<>();
         ArrayList<CourseInfo> Tuesday = new ArrayList<>();
@@ -64,11 +68,13 @@ public class PermutationGenerator {
             }
         }
         System.out.println("course on monday " + Monday.size());
-        if (!checkWeekday(Monday))
+        if (!(checkWeekday(Monday) && checkWeekday(Tuesday)
+                && checkWeekday(Wednesday) && checkWeekday(Thursday)
+                && checkWeekday(Friday))) {
             System.out.println("this schedule doesnt work");
-        if (!checkWeekday(Tuesday))
-            System.out.println("this schedule doesnt work");
-
+            return false;
+        }
+        return true;
     }
 
     public static boolean checkWeekday(ArrayList<CourseInfo> courseInfos){
@@ -162,17 +168,17 @@ public class PermutationGenerator {
         input.add(list2);
         input.add(list3);
 
-        ArrayList<ArrayList<CourseInfo>> output = pg.permutate(input);
-        for (ArrayList<CourseInfo> courseInfos : output) {
-            for(CourseInfo c : courseInfos){
+        ArrayList<TimeTable> output = pg.permutate(input);
+        for (TimeTable t : output) {
+            for(CourseInfo c : t.contents){
                 System.out.println(c.name + " " + c.section);
             }
             System.out.println("---------------------------------");
         }
         System.out.println("TOTAL: " + output.size());
 
-        for(ArrayList<CourseInfo> schedule: output){
-            validate(schedule);
+        for(TimeTable t: output){
+            validate(t.contents);
         }
     }
 
