@@ -67,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
 
         final DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
         fetchData process = new fetchData(databaseHelper);
-        System.out.println("next is background program");
         process.execute();
 
         final List<String> sub_from_db = databaseHelper.getAllLabels();

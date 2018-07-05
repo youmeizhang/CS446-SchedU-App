@@ -42,16 +42,42 @@ public class Main2Activity extends AppCompatActivity {
 
     public TimeTable findCourse(){
         DbHandler dbHandler = new DbHandler(Main2Activity.this);
+        DatabaseHelper databaseHelper = new DatabaseHelper(Main2Activity.this);
+
         ArrayList<Course> data = dbHandler.GetCourses();
 
+        System.out.println("selected courses: ");
+
+        for (Course c: data){
+            System.out.println("=====" + c.name + " " + c.number + " " + c.sectionNumber + " " + c.priority + "=====");
+
+            ArrayList<CourseInfo> courseInfos = databaseHelper.getCourseDetails(c.name, c.number);
+            if (c.sectionNumber.contains("ALL")) {
+                for (CourseInfo courseInfo: courseInfos){
+                    if (courseInfo.section.toLowerCase().contains("lec"))
+                        c.lectures.add(courseInfo);
+                    if (courseInfo.section.toLowerCase().contains("tut"))
+                        c.tutorials.add(courseInfo);
+                }
+            } else {
+                for (CourseInfo courseInfo: courseInfos){
+                    if (courseInfo.section.contains(c.sectionNumber) || c.sectionNumber.contains(courseInfo.section)){
+                        if (c.sectionNumber.toLowerCase().contains("lec"))
+                            c.lectures.add(courseInfo);
+                        if (c.sectionNumber.toLowerCase().contains("tut"))
+                            c.tutorials.add(courseInfo);
+                    }
+                }
+            }
+
+            c.printCourseSummary();
+            System.out.println("=============================================");
+        }
 
         // selected courses
         SelectedCoures sc = new SelectedCoures();
         sc.add(data);
-        /*
-        // read details for selected courses
-        sc.getDetailFromWeb();
-        TimeTable t = sc.genCombination();*/
+
         TimeTable t = sc.hardCode();
 
         return t;
@@ -80,6 +106,7 @@ public class Main2Activity extends AppCompatActivity {
         initColors();
 
         int curColor = 0;
+
 
         TimeTable timeTable = findCourse();
         System.out.println("items in timetable " + timeTable.contents.size());
@@ -190,7 +217,6 @@ public class Main2Activity extends AppCompatActivity {
 
                 start = Calculation.timeAdd(start);
                 duration_start++;
-                System.out.println("start is" + start);
             }
             curColor++;
 
