@@ -30,6 +30,7 @@ public class Main2Activity extends AppCompatActivity {
 
     private Context mContext;
     private Activity mActivity;
+    private Button like;
     private ArrayList<TextView> tvList;
     private TableLayout tableLayout;
     private ArrayList<Integer> colorList;
@@ -40,21 +41,73 @@ public class Main2Activity extends AppCompatActivity {
     private String location;
     private String title;
 
-    public TimeTable findCourse(){
+    public ArrayList<TimeTable> findCourse(){
         DbHandler dbHandler = new DbHandler(Main2Activity.this);
+        DatabaseHelper databaseHelper = new DatabaseHelper(Main2Activity.this);
+        ArrayList<TimeTable> allTimeTables = new ArrayList<>();
+
         ArrayList<Course> data = dbHandler.GetCourses();
 
+        System.out.println("selected courses: ");
 
+        for (Course c: data){
+            System.out.println("=====" + c.name + " " + c.number + " " + c.sectionNumber + " " + c.priority + "=====");
+
+            ArrayList<CourseInfo> courseInfos = databaseHelper.getCourseDetails(c.name, c.number);
+            if (c.sectionNumber.contains("ALL")) {
+                for (CourseInfo courseInfo: courseInfos){
+                    if (courseInfo.section.toLowerCase().contains("lec"))
+                        c.lectures.add(courseInfo);
+                    if (courseInfo.section.toLowerCase().contains("tut"))
+                        c.tutorials.add(courseInfo);
+                }
+            } else {
+                for (CourseInfo courseInfo: courseInfos){
+                    if (courseInfo.section.contains(c.sectionNumber) || c.sectionNumber.contains(courseInfo.section)){
+                        if (c.sectionNumber.toLowerCase().contains("lec"))
+                            c.lectures.add(courseInfo);
+                        if (c.sectionNumber.toLowerCase().contains("tut"))
+                            c.tutorials.add(courseInfo);
+                    }
+                }
+            }
+
+            c.printCourseSummary();
+            System.out.println("=============================================");
+        }
+
+        PermutationGenerator pg = new PermutationGenerator();
+        ArrayList<ArrayList<CourseInfo>> input = new ArrayList<>();
+
+        for(Course c: data){
+            if (c.lectures.size() != 0)
+                input.add(c.lectures);
+            if (c.tutorials.size() != 0)
+                input.add(c.tutorials);
+        }
+
+        ArrayList<TimeTable> output = pg.permutate(input);
+        for (TimeTable t : output) {
+            for(CourseInfo c : t.contents){
+                System.out.println(c.name + " " + c.section);
+            }
+            System.out.println("---------------------------------");
+        }
+        System.out.println("TOTAL: " + output.size());
+
+        for(TimeTable t: output){
+            // validated schedules
+            if (pg.validate(t.contents))
+                allTimeTables.add(t);
+
+        }
         // selected courses
         SelectedCoures sc = new SelectedCoures();
         sc.add(data);
-        /*
-        // read details for selected courses
-        sc.getDetailFromWeb();
-        TimeTable t = sc.genCombination();*/
+
         TimeTable t = sc.hardCode();
 
-        return t;
+        return allTimeTables;
     }
 
     public void initColors(){
@@ -81,7 +134,10 @@ public class Main2Activity extends AppCompatActivity {
 
         int curColor = 0;
 
-        TimeTable timeTable = findCourse();
+        ArrayList<TimeTable> allTimeTables = findCourse();
+        System.out.println("number of possible combinations: " + allTimeTables.size());
+        TimeTable timeTable = allTimeTables.get(1);
+
         System.out.println("items in timetable " + timeTable.contents.size());
 
         for (CourseInfo i : timeTable.contents) {
@@ -140,11 +196,7 @@ public class Main2Activity extends AppCompatActivity {
 
                     TextView textView = new TextView(this);
                     textView = (TextView) findViewById(resID);
-                    /*System.out.println("textview id: " + textViewId);
-                    if (textView == null) {
-                        System.out.println("NULL!!!!!!!");
-                        break;
-                    }*/
+
                     if (duration_start == 0)
                         textView.setText(courseName);
                     textView.setBackgroundColor(color);
@@ -190,7 +242,6 @@ public class Main2Activity extends AppCompatActivity {
 
                 start = Calculation.timeAdd(start);
                 duration_start++;
-                System.out.println("start is" + start);
             }
             curColor++;
 
@@ -199,6 +250,14 @@ public class Main2Activity extends AppCompatActivity {
         mContext = getApplicationContext();
         mActivity = Main2Activity.this;
 
+        like = (Button)findViewById(R.id.like);
+        like.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Main2Activity.this, CalenderVersion.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }

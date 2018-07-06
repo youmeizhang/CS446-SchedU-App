@@ -36,10 +36,32 @@ public class Calculation {
         return newTime;
     }
 
+    public static boolean isOverlapping(String s1, String e1, String s2, String e2) {
+
+        boolean retval = false;
+        SimpleDateFormat df = new SimpleDateFormat("HH:mm");
+        try {
+            Date start1 = df.parse(s1);
+            Date start2 = df.parse(s2);
+            Date end1 = df.parse(e1);
+            Date end2 = df.parse(e2);
+
+            retval = start1.before(end2) && start2.before(end1);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+
+        return retval;
+    }
+
     public static void main(String[] args){
         String s1 = "0830";
         String s2 = "1020";
-        //timeDifference(s1, s2);
-        timeAdd(s2);
+
+        String s3 = "1019";
+        String s4 = "1050";
+
+        if (isOverlapping(s1,s2,s3,s4))
+            System.out.println("overlapped!");
     }
 }

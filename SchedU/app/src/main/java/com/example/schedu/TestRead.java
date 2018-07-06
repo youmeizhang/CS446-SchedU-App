@@ -147,10 +147,6 @@ public class TestRead
         TestRead.readFromWeb(c1);
         TestRead.readFromWeb(c2);
 
-
-        sc.genCombination();
-
-
     }
 
 }
