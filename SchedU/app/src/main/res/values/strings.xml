@@ -10,6 +10,7 @@
     <color name="pink">#e38690</color>
     <color name="light_pink">#FADBD8</color>
     <color name="light_orange">#FAD7A0</color>
+    <string name="title_activity_calendar_version">CalendarVersion</string>
 
 
 </resources>

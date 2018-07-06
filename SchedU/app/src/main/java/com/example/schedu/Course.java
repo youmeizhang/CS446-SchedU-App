@@ -8,10 +8,12 @@ public class Course {
     String number;
     String courseId;
     String courseTitle;
+    String sectionNumber;   // could be user selected section, or default as 'ALL'
+    String priority;        // dont really know why need this
 
-    List<CourseInfo> lectures;
-    List<CourseInfo> tutorials;
-    List<CourseInfo> tests;
+    ArrayList<CourseInfo> lectures;
+    ArrayList<CourseInfo> tutorials;
+    ArrayList<CourseInfo> tests;
 
     ReadJsonFile reader;
 
@@ -63,31 +65,4 @@ public class Course {
     }
 
 
-    public ArrayList<Pair> genCombination(Course c){
-
-        ArrayList<Pair> jumbo = new ArrayList<>();
-        for(CourseInfo lec: c.lectures){
-
-            for(CourseInfo tut: c.tutorials){
-                Pair p = new Pair(lec, tut);
-                jumbo.add(p);
-            }
-        }
-
-        for(Pair i: jumbo){
-            System.out.println(i.lec.section + i.lec.section);
-        }
-
-        return jumbo;
-    }
-
-    class Pair{
-        CourseInfo lec;
-        CourseInfo tut;
-
-        Pair(CourseInfo l, CourseInfo t){
-            lec = l;
-            tut = t;
-        }
-    }
 }

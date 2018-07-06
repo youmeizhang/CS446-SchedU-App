@@ -90,9 +90,8 @@ public class DbHandler extends SQLiteOpenHelper {
             String[] tmp = cursor.getString(cursor.getColumnIndex(KEY_COU)).split(" ");
             c.number = tmp[0];
             c.name = cursor.getString(cursor.getColumnIndex(KEY_SUB));
-
-            //c.put("session",cursor.getString(cursor.getColumnIndex(KEY_SESS)));
-            //c.put("priority", cursor.getString(cursor.getColumnIndex(KEY_PRIO)));
+            c.sectionNumber = cursor.getString(cursor.getColumnIndex(KEY_SESS));
+            c.priority = cursor.getString(cursor.getColumnIndex(KEY_PRIO));
             userList.add(c);
         }
         return  userList;

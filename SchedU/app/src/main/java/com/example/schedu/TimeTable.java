@@ -1,6 +1,10 @@
 package com.example.schedu;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 
 public class TimeTable {
 
@@ -23,10 +27,4 @@ public class TimeTable {
             i.printAll();
         }
     }
-
-    public static void main(String[] args){
-
-    }
-
-
 }

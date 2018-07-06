@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.schedu">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,16 +18,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Main2Activity"/>
+        <activity android:name=".Main2Activity" />
         <activity android:name=".DetailsActivity" />
-        <activity android:name=".CourseDetail"
-            android:theme="@style/AppTheme.CustomTheme"/>
+        <activity android:name=".CalenderVersion" />
+        <activity
+            android:name=".CourseDetail"
+            android:theme="@style/AppTheme.CustomTheme" />
         <activity android:name=".CustomPagerAdapter" />
         <activity android:name=".ModelObject" />
-
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".CalendarVersion"
+            android:label="@string/title_activity_calendar_version"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
+
 </manifest>
-
-

@@ -42,10 +42,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        System.out.println("Start create new course detail table.......");
         //only run once when database is created.
         db.execSQL("create table " + CLASS_TABLE + " (CLASS_NUMBER INTEGER PRIMARY KEY," +
                 "SUBJECT TEXT," +
-                "CATALOG_NUMBER INTEGER," +
+                "CATALOG_NUMBER TEXT," +
                 "UNITS_NUMBER TEXT," +
                 "TITLE TEXT," +
                 "SECTION TEXT," +
@@ -116,6 +117,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public List<String> getAllTitle(String sub, String course_num){
+
         List<String> title_from_db = new ArrayList<String>();
         String selectQuery = "SELECT title FROM " + CLASS_TABLE + " WHERE subject = " + sub + " AND course_num = " + course_num;
 
@@ -145,6 +147,57 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return course_from_db;
+    }
+
+    public ArrayList<CourseInfo> getCourseDetails(String sub, String course_num) {
+        ArrayList<CourseInfo> courseDetails = new ArrayList<>();
+        String subject = "\""+ sub + "\"";
+        String selectQuery = "SELECT * FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject + " AND CATALOG_NUMBER = " + course_num;
+        System.out.println(selectQuery);
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        while (cursor.moveToNext()) {
+            CourseInfo courseInfo = new CourseInfo(sub, course_num);
+            courseInfo.section = cursor.getString(cursor.getColumnIndex("SECTION"));
+            courseInfo.title = cursor.getString(cursor.getColumnIndex("TITLE"));
+            courseInfo.capacity = cursor.getString(cursor.getColumnIndex("ENROLLMENT_CAPACITY"));
+            courseInfo.enrollmentNum = cursor.getString(cursor.getColumnIndex("ENROLLMENT_TOTLE"));
+            courseInfo.instructor = cursor.getString(cursor.getColumnIndex("INSTRUCTOR"));
+            courseInfo.location = cursor.getString(cursor.getColumnIndex("BUILDING")) + cursor.getString(cursor.getColumnIndex("ROOM"));
+            courseInfo.startTime = cursor.getString(cursor.getColumnIndex("START_TIME"));
+            courseInfo.endTime = cursor.getString(cursor.getColumnIndex("END_TIME"));
+            courseInfo.weekdays = cursor.getString(cursor.getColumnIndex("WEEKDAYS"));
+            courseDetails.add(courseInfo);
+        }
+        cursor.close();
+        db.close();
+        return courseDetails;
+    }
+
+    public ArrayList<CourseInfo> getCourseDetails(String sub, String course_num, String section) {
+        ArrayList<CourseInfo> courseDetails = new ArrayList<>();
+        String subject = "\""+ sub + "\"";
+        String selectQuery = "SELECT * FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject + " AND CATALOG_NUMBER = " + course_num + " AND SECTION = \'" + section +"\'";
+        System.out.println(selectQuery);
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        while (cursor.moveToNext()) {
+            CourseInfo courseInfo = new CourseInfo(sub, course_num);
+            courseInfo.title = cursor.getString(cursor.getColumnIndex("TITLE"));
+            courseInfo.capacity = cursor.getString(cursor.getColumnIndex("ENROLLMENT_CAPACITY"));
+            courseInfo.enrollmentNum = cursor.getString(cursor.getColumnIndex("ENROLLMENT_TOTLE"));
+            courseInfo.instructor = cursor.getString(cursor.getColumnIndex("INSTRUCTOR"));
+            courseInfo.location = cursor.getString(cursor.getColumnIndex("BUILDING")) + cursor.getString(cursor.getColumnIndex("ROOM"));
+            courseInfo.startTime = cursor.getString(cursor.getColumnIndex("START_TIME"));
+            courseInfo.endTime = cursor.getString(cursor.getColumnIndex("END_TIME"));
+            courseInfo.weekdays = cursor.getString(cursor.getColumnIndex("WEEKDAYs"));
+            courseDetails.add(courseInfo);
+        }
+        cursor.close();
+        db.close();
+        return courseDetails;
     }
 
 
@@ -346,7 +399,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // add column values into this contentValues
         contentValues.put(CLASS_TABLE_COL_1, Integer.parseInt(class_number));
         contentValues.put(CLASS_TABLE_COL_2, subject);
-        contentValues.put(CLASS_TABLE_COL_3, Integer.parseInt(catalog_number));
+        contentValues.put(CLASS_TABLE_COL_3, catalog_number);
         contentValues.put(CLASS_TABLE_COL_4, units_number);
         contentValues.put(CLASS_TABLE_COL_5, title);
         contentValues.put(CLASS_TABLE_COL_6, section);
