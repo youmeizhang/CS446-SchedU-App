@@ -15,10 +15,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<String> subAdapter;
     private ArrayAdapter<String> couAdapter;
     private ArrayAdapter<String> sesAdapter;
+
+    public static DatabaseManager databaseManager;
 
     String string_subject;
     String string_course;
@@ -65,11 +63,12 @@ public class MainActivity extends AppCompatActivity {
         textView1 = (TextView)findViewById(R.id.display_info);
         textView2 = (TextView)findViewById(R.id.display_read);
 
-        final DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
-        //fetchData process = new fetchData(databaseHelper);
-        //process.execute();
+        // get database manger
+        databaseManager = DatabaseManager.getHelper(this);
+        FetchAllCourse process = new FetchAllCourse(databaseManager);
+        process.execute(); //fill all class information into classTable
 
-        final List<String> sub_from_db = databaseHelper.getAllLabels();
+        final List<String> sub_from_db = databaseManager.getAllLabels();
         System.out.println("all subjects are here: " + sub_from_db);
 
         subAdapter = new ArrayAdapter<String>(MainActivity.this,
@@ -80,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 string_subject = parent.getItemAtPosition(position).toString();
-                course_from_db = databaseHelper.getAllCourse(string_subject);
+                course_from_db = databaseManager.getAllCourse(string_subject);
                 System.out.println(course_from_db);
 
                 couAdapter = new ArrayAdapter<String>(MainActivity.this,
@@ -107,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                 String courseNumber = list[0];
                 System.out.println(courseNumber);
 
-                section_from_db = databaseHelper.getAllSection(string_subject, courseNumber);
+                section_from_db = databaseManager.getAllSection(string_subject, courseNumber);
 
                 System.out.println(section_from_db);
 

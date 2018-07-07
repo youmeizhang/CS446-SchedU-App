@@ -1,11 +1,9 @@
-package com.example.gg.jsonfetch;
-
-import android.os.AsyncTask;
-//import android.support.annotation.WorkerThread;
+package com.example.schedu;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import android.os.AsyncTask;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package com.example.gg.jsonfetch;
+package com.example.schedu;
 
 import org.json.JSONArray;
 import org.json.JSONException;

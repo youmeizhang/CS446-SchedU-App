@@ -175,31 +175,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return courseDetails;
     }
 
-    public ArrayList<CourseInfo> getCourseDetails(String sub, String course_num, String section) {
-        ArrayList<CourseInfo> courseDetails = new ArrayList<>();
-        String subject = "\""+ sub + "\"";
-        String selectQuery = "SELECT * FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject + " AND CATALOG_NUMBER = " + course_num + " AND SECTION = \'" + section +"\'";
-        System.out.println(selectQuery);
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
-
-        while (cursor.moveToNext()) {
-            CourseInfo courseInfo = new CourseInfo(sub, course_num);
-            courseInfo.title = cursor.getString(cursor.getColumnIndex("TITLE"));
-            courseInfo.capacity = cursor.getString(cursor.getColumnIndex("ENROLLMENT_CAPACITY"));
-            courseInfo.enrollmentNum = cursor.getString(cursor.getColumnIndex("ENROLLMENT_TOTLE"));
-            courseInfo.instructor = cursor.getString(cursor.getColumnIndex("INSTRUCTOR"));
-            courseInfo.location = cursor.getString(cursor.getColumnIndex("BUILDING")) + cursor.getString(cursor.getColumnIndex("ROOM"));
-            courseInfo.startTime = cursor.getString(cursor.getColumnIndex("START_TIME"));
-            courseInfo.endTime = cursor.getString(cursor.getColumnIndex("END_TIME"));
-            courseInfo.weekdays = cursor.getString(cursor.getColumnIndex("WEEKDAYs"));
-            courseDetails.add(courseInfo);
-        }
-        cursor.close();
-        db.close();
-        return courseDetails;
-    }
-
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
