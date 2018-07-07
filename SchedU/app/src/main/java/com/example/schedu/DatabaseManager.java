@@ -51,8 +51,8 @@ public class DatabaseManager extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //only run once when database is created.
         db.execSQL("create table " + CLASS_TABLE + " (CLASS_NUMBER INTEGER PRIMARY KEY," +
-                "SUBJECT TEXT," +
-                "CATALOG_NUMBER TEXT," +
+                "subject TEXT," +
+                "catalog_number TEXT," +
                 "UNITS_NUMBER TEXT," +
                 "TITLE TEXT," +
                 "SECTION TEXT," +
@@ -145,23 +145,23 @@ public class DatabaseManager extends SQLiteOpenHelper {
         db.close();
         return sub_from_db;
     }
-
     public List<String> getAllCourseNum(String sub) {
         List<String> course_with_num = new ArrayList<>();
 
         String subject = "\""+ sub + "\"";
-        String selectQuery = "SELECT CATALOG_NUMBER, TITLE FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject;
+        String selectQuery = "SELECT catalog_number, TITLE FROM " + CLASS_TABLE + " WHERE subject = " + subject;
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         while (cursor.moveToNext()) {
-            course_with_num.add(cursor.getString(cursor.getColumnIndex("CATALOG_NUMBER")));
+            course_with_num.add(cursor.getString(cursor.getColumnIndex("catalog_number")));
         }
         cursor.close();
         db.close();
         return course_with_num;
     }
+
 
     public List<String> getAllCourse(String sub) {
         List<String> course_from_db = new ArrayList<String>();
@@ -180,6 +180,22 @@ public class DatabaseManager extends SQLiteOpenHelper {
         return course_from_db;
     }
 
+    public List<String> getAllTitle(String sub, String course_num){
+
+        List<String> title_from_db = new ArrayList<String>();
+        String selectQuery = "SELECT title FROM " + CLASS_TABLE + " WHERE subject = " + sub + " AND course_num = " + course_num;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        while (cursor.moveToNext()) {
+            title_from_db.add(cursor.getString(cursor.getColumnIndex("TITLE")));
+        }
+        cursor.close();
+        db.close();
+        return title_from_db;
+    }
+
     public List<String> getAllSection(String sub, String course_num) {
         List<String> course_from_db = new ArrayList<String>();
         course_from_db.add("ALL");
@@ -196,6 +212,33 @@ public class DatabaseManager extends SQLiteOpenHelper {
         db.close();
         return course_from_db;
     }
+
+    public ArrayList<CourseInfo> getCourseDetails(String sub, String course_num) {
+        ArrayList<CourseInfo> courseDetails = new ArrayList<>();
+        String subject = "\""+ sub + "\"";
+        String selectQuery = "SELECT * FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject + " AND CATALOG_NUMBER = " + course_num;
+        System.out.println(selectQuery);
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        while (cursor.moveToNext()) {
+            CourseInfo courseInfo = new CourseInfo(sub, course_num);
+            courseInfo.section = cursor.getString(cursor.getColumnIndex("SECTION"));
+            courseInfo.title = cursor.getString(cursor.getColumnIndex("TITLE"));
+            courseInfo.capacity = cursor.getString(cursor.getColumnIndex("ENROLLMENT_CAPACITY"));
+            courseInfo.enrollmentNum = cursor.getString(cursor.getColumnIndex("ENROLLMENT_TOTLE"));
+            courseInfo.instructor = cursor.getString(cursor.getColumnIndex("INSTRUCTOR"));
+            courseInfo.location = cursor.getString(cursor.getColumnIndex("BUILDING")) + cursor.getString(cursor.getColumnIndex("ROOM"));
+            courseInfo.startTime = cursor.getString(cursor.getColumnIndex("START_TIME"));
+            courseInfo.endTime = cursor.getString(cursor.getColumnIndex("END_TIME"));
+            courseInfo.weekdays = cursor.getString(cursor.getColumnIndex("WEEKDAYS"));
+            courseDetails.add(courseInfo);
+        }
+        cursor.close();
+        db.close();
+        return courseDetails;
+    }
+
     public static void main(String [] args) {
 
         System.out.println("hello");
