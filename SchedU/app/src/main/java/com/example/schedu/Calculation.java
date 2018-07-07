@@ -9,6 +9,7 @@ public class Calculation {
     public static long timeDifference(String start, String end){
         SimpleDateFormat format = new SimpleDateFormat("HHmm");
         long difference = 0;
+        
         try {
             Date s = format.parse(start);
             Date e = format.parse(end);
