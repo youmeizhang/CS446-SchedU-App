@@ -132,6 +132,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
     public List<String> getAllLabels(){
         List<String> sub_from_db = new ArrayList<String>();
         String selectQuery = "SELECT DISTINCT subject FROM " + CLASS_TABLE;
+        System.out.println(selectQuery);
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);

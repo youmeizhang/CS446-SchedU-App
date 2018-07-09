@@ -22,6 +22,10 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 import android.view.View.OnTouchListener;
 import android.view.MotionEvent;
+
+import org.w3c.dom.Text;
+
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -31,6 +35,7 @@ public class Main2Activity extends AppCompatActivity {
     private Context mContext;
     private Activity mActivity;
     private Button like;
+    private TextView M0830;
     private ArrayList<TextView> tvList;
     private TableLayout tableLayout;
     private ArrayList<Integer> colorList;
@@ -161,7 +166,7 @@ public class Main2Activity extends AppCompatActivity {
             int duration_end = (int) Calculation.timeDifference(start, end) / 30;
 
 
-            View.OnClickListener myClickListener = new View.OnClickListener() {
+            final View.OnClickListener myClickListener = new View.OnClickListener() {
                 String coursename_tmp = coursename;
                 String capacity_tmp = capacity;
                 String enrollmentNumber_tmp = enrollmentNumber;
@@ -174,6 +179,13 @@ public class Main2Activity extends AppCompatActivity {
                     intent.putExtra("EnrollmentNumber", enrollmentNumber_tmp);
                     intent.putExtra("Location", location_tmp);
                     intent.putExtra("Title", title_tmp);
+                    startActivity(intent);
+                }
+            };
+
+            final View.OnClickListener todoList = new View.OnClickListener() {
+                public void onClick(View view) {
+                    Intent intent = new Intent(Main2Activity.this, TodoList.class);
                     startActivity(intent);
                 }
             };
@@ -245,6 +257,22 @@ public class Main2Activity extends AppCompatActivity {
             }
             curColor++;
 
+            M0830 = (TextView) findViewById(R.id.M0830);
+            M0830.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    String tmp = M0830.getText().toString();
+                    System.out.println(tmp);
+                    if(!tmp.matches(""))
+                    {
+                        M0830.setOnClickListener(myClickListener);
+                    }else {
+                        M0830.setOnClickListener(todoList);
+                    }
+
+                }
+
+            });
+
         }
 
         mContext = getApplicationContext();
@@ -258,6 +286,7 @@ public class Main2Activity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 
 }

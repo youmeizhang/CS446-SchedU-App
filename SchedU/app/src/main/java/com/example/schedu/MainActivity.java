@@ -65,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
 
         // get database manger
         databaseManager = DatabaseManager.getHelper(this);
-        FetchAllCourse process = new FetchAllCourse(databaseManager);
-        process.execute(); //fill all class information into classTable
+        //FetchAllCourse process = new FetchAllCourse(databaseManager);
+        //process.execute(); //fill all class information into classTable
 
         final List<String> sub_from_db = databaseManager.getAllLabels();
         System.out.println("all subjects are here: " + sub_from_db);

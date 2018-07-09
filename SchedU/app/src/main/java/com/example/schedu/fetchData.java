@@ -62,7 +62,7 @@ public class fetchData extends AsyncTask<DatabaseHelper, Void, Void> {
             JSONArray JA = new JSONArray(courseList);
             int ct = 0;
             //for (int i = 0; i < JA.length(); i++) {
-            for (int i = 100; i < JA.length(); i++) {
+            for (int i = 70; i < 200; i++) {
                 JSONObject courseObj = (JSONObject) JA.get(i);
                 subject  = courseObj.getString("subject");
                 catalog_number  = courseObj.getString("catalog_number");

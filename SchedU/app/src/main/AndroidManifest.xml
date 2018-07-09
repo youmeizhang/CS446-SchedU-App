@@ -21,12 +21,16 @@
         <activity android:name=".Main2Activity" />
         <activity android:name=".DetailsActivity" />
         <activity android:name=".CalenderVersion" />
+
         <activity
             android:name=".CourseDetail"
             android:theme="@style/AppTheme.CustomTheme" />
+        <activity android:name=".TodoList" />
+
         <activity android:name=".CustomPagerAdapter" />
         <activity android:name=".ModelObject" />
         <activity android:name=".MainActivity" />
+
         <activity
             android:name=".CalendarVersion"
             android:label="@string/title_activity_calendar_version"
