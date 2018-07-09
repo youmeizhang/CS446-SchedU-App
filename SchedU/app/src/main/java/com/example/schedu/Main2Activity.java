@@ -35,6 +35,7 @@ public class Main2Activity extends AppCompatActivity {
     private Context mContext;
     private Activity mActivity;
     private Button like;
+    private Button todo;
     private TextView M0830;
     private ArrayList<TextView> tvList;
     private TableLayout tableLayout;
@@ -273,7 +274,15 @@ public class Main2Activity extends AppCompatActivity {
 
             });
 
+            todo = (Button) findViewById(R.id.todo);
+            todo.setOnClickListener(todoList);
+
         }
+
+        String todolist = getIntent().getStringExtra("content")+ "\n"+
+                getIntent().getStringExtra("start_time")+ "\n"+
+                getIntent().getStringExtra("end_time")+ "\n";
+        System.out.println(todolist);
 
         mContext = getApplicationContext();
         mActivity = Main2Activity.this;

@@ -1478,9 +1478,10 @@
                 android:background="@drawable/heart" />
 
             <Button
-                android:id="@+id/new_button"
+                android:id="@+id/todo"
                 android:layout_width="30dp"
-                android:layout_height="50dp" />
+                android:layout_height="50dp"
+                android:text="todo"/>
 
             <Button
                 android:id="@+id/delete"
