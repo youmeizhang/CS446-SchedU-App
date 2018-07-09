@@ -11,10 +11,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-/**
- * Created by Herrrlyn on 2018-06-20.
- */
-
 public class CourseDetail extends Activity {
 
     private ArrayList<TextView> tvList;

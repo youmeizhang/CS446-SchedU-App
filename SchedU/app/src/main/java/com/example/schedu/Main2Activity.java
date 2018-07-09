@@ -45,6 +45,7 @@ public class Main2Activity extends AppCompatActivity {
     private String enrollmentNumber;
     private String location;
     private String title;
+    private int id;
 
     public ArrayList<TimeTable> findCourse(){
         DbHandler dbHandler = new DbHandler(Main2Activity.this);
@@ -117,16 +118,19 @@ public class Main2Activity extends AppCompatActivity {
 
     public void initColors(){
         colorList = new ArrayList<>();
-        int c1 = getResources().getColor(R.color.lightBlue);
-        int c2 = getResources().getColor(R.color.lightGrey);
-        int c3 = getResources().getColor(R.color.lightPink);
-        int c4 = getResources().getColor(R.color.lightGreen);
-        int c5 = getResources().getColor(R.color.lightPurple);
-        colorList.add(c1);
-        colorList.add(c2);
-        colorList.add(c3);
-        colorList.add(c4);
-        colorList.add(c5);
+
+        colorList.add(getResources().getColor(R.color.lightBlue));
+        colorList.add(getResources().getColor(R.color.lightGrey));
+        colorList.add(getResources().getColor(R.color.lightPink));
+        colorList.add(getResources().getColor(R.color.lightGreen));
+        colorList.add(getResources().getColor(R.color.lightPurple));
+        colorList.add(getResources().getColor(R.color.greenBlue));
+        colorList.add(getResources().getColor(R.color.darkPink));
+        colorList.add(getResources().getColor(R.color.darkPurple));
+        colorList.add(getResources().getColor(R.color.myOrange));
+        colorList.add(getResources().getColor(R.color.yellow));
+        colorList.add(getResources().getColor(R.color.darkBlue));
+        colorList.add(getResources().getColor(R.color.greenYellow));
     }
 
     @Override
@@ -138,12 +142,9 @@ public class Main2Activity extends AppCompatActivity {
         initColors();
 
         int curColor = 0;
+        id = getIntent().getIntExtra("idNumber", 0);
 
-        ArrayList<TimeTable> allTimeTables = findCourse();
-        System.out.println("number of possible combinations: " + allTimeTables.size());
-        TimeTable timeTable = allTimeTables.get(1);
-
-        System.out.println("items in timetable " + timeTable.contents.size());
+        TimeTable timeTable = MainActivity.allTimetables.get(id);
 
         for (CourseInfo i : timeTable.contents) {
             final String courseName = i.name + i.number + " " + i.section;

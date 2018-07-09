@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<String> subAdapter;
     private ArrayAdapter<String> couAdapter;
     private ArrayAdapter<String> sesAdapter;
+
+    public static ArrayList<TimeTable> allTimetables = new ArrayList<>();
 
     public static DatabaseManager databaseManager;
 
@@ -152,7 +155,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent i = new Intent(MainActivity.this, Main2Activity.class);
 
-                i.putExtra("getData", s);
+                allTimetables = findCourse();
+                System.out.println("Total " + allTimetables.size() + " is generated");
+                i.putExtra("idNumber", 2);
 
                 startActivity(i);
             }
@@ -179,4 +184,69 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    public ArrayList<TimeTable> findCourse(){
+        DbHandler dbHandler = new DbHandler(MainActivity.this);
+        DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
+        ArrayList<TimeTable> allTimeTables = new ArrayList<>();
+
+        ArrayList<Course> data = dbHandler.GetCourses();
+
+        System.out.println("selected courses: ");
+
+        for (Course c: data){
+            System.out.println("=====" + c.name + " " + c.number + " " + c.sectionNumber + " " + c.priority + "=====");
+
+            ArrayList<CourseInfo> courseInfos = databaseHelper.getCourseDetails(c.name, c.number);
+            if (c.sectionNumber.contains("ALL")) {
+                for (CourseInfo courseInfo: courseInfos){
+                    if (courseInfo.section.toLowerCase().contains("lec"))
+                        c.lectures.add(courseInfo);
+                    if (courseInfo.section.toLowerCase().contains("tut"))
+                        c.tutorials.add(courseInfo);
+                }
+            } else {
+                for (CourseInfo courseInfo: courseInfos){
+                    if (courseInfo.section.contains(c.sectionNumber) || c.sectionNumber.contains(courseInfo.section)){
+                        if (c.sectionNumber.toLowerCase().contains("lec"))
+                            c.lectures.add(courseInfo);
+                        if (c.sectionNumber.toLowerCase().contains("tut"))
+                            c.tutorials.add(courseInfo);
+                    }
+                }
+            }
+
+            c.printCourseSummary();
+            System.out.println("=============================================");
+        }
+
+        PermutationGenerator pg = new PermutationGenerator();
+        ArrayList<ArrayList<CourseInfo>> input = new ArrayList<>();
+
+        for(Course c: data){
+            if (c.lectures.size() != 0)
+                input.add(c.lectures);
+            if (c.tutorials.size() != 0)
+                input.add(c.tutorials);
+        }
+
+        ArrayList<TimeTable> output = pg.permutate(input);
+        for (TimeTable t : output) {
+            for(CourseInfo c : t.contents){
+                System.out.println(c.name + " " + c.section);
+            }
+            System.out.println("---------------------------------");
+        }
+        System.out.println("TOTAL: " + output.size());
+
+        for(TimeTable t: output){
+            // validated schedules
+            if (pg.validate(t.contents))
+                allTimeTables.add(t);
+
+        }
+
+        return allTimeTables;
+    }
+
+
 }
