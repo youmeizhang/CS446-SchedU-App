@@ -8,7 +8,8 @@
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="30dp"
+        android:textSize = "13dp">
 
         <TableRow
             android:layout_width="match_parent"
@@ -17,7 +18,9 @@
             <TextView
                 android:id="@+id/TextView1"
                 android:layout_width="58dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="Time"
                 android:textAlignment="center" />
 
@@ -25,14 +28,18 @@
                 android:id="@+id/Mon"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="Mon"
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Tue"
                 android:layout_width="63dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
 
                 android:text="Tue"
                 android:textAlignment="center" />
@@ -40,7 +47,9 @@
             <TextView
                 android:id="@+id/Wed"
                 android:layout_width="63dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
 
                 android:text="Wed"
                 android:textAlignment="center" />
@@ -48,7 +57,9 @@
             <TextView
                 android:id="@+id/Thu"
                 android:layout_width="63dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
 
                 android:text="Thu"
                 android:textAlignment="center" />
@@ -56,7 +67,9 @@
             <TextView
                 android:id="@+id/Fri"
                 android:layout_width="63dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
 
                 android:text="Fri"
                 android:textAlignment="center" />
@@ -68,7 +81,9 @@
             <TextView
                 android:id="@+id/time0830"
                 android:layout_width="2dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="08:30"
                 android:textAlignment="center" />
 
@@ -76,40 +91,49 @@
                 android:id="@+id/M0830"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T0830"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W0830"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th0830"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F0830"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -119,7 +143,9 @@
             <TextView
                 android:id="@+id/time0900"
                 android:layout_width="2dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="09:00"
                 android:textAlignment="center" />
 
@@ -127,40 +153,50 @@
                 android:id="@+id/M0900"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T0900"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W0900"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th0900"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F0900"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -170,7 +206,9 @@
             <TextView
                 android:id="@+id/time0930"
                 android:layout_width="2dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="09:30"
                 android:textAlignment="center" />
 
@@ -178,40 +216,50 @@
                 android:id="@+id/M0930"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T0930"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W0930"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th0930"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F0930"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -221,7 +269,9 @@
             <TextView
                 android:id="@+id/time1000"
                 android:layout_width="2dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="10:00"
                 android:textAlignment="center" />
 
@@ -229,40 +279,50 @@
                 android:id="@+id/M1000"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T1000"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W1000"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th1000"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F1000"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -272,7 +332,9 @@
             <TextView
                 android:id="@+id/time1030"
                 android:layout_width="2dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="10:30"
                 android:textAlignment="center" />
 
@@ -280,40 +342,50 @@
                 android:id="@+id/M1030"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T1030"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W1030"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th1030"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F1030"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -323,7 +395,9 @@
             <TextView
                 android:id="@+id/time1100"
                 android:layout_width="2dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="11:00"
                 android:textAlignment="center" />
 
@@ -331,40 +405,50 @@
                 android:id="@+id/M1100"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T1100"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W1100"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th1100"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F1100"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -376,7 +460,9 @@
             <TextView
                 android:id="@+id/time1130"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="11:30"
                 android:textAlignment="center" />
 
@@ -384,40 +470,50 @@
                 android:id="@+id/M1130"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T1130"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W1130"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th1130"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F1130"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -427,7 +523,9 @@
             <TextView
                 android:id="@+id/time1200"
                 android:layout_width="2dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="12:00"
                 android:textAlignment="center" />
 
@@ -435,40 +533,50 @@
                 android:id="@+id/M1200"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T1200"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W1200"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th1200"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F1200"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -480,7 +588,9 @@
             <TextView
                 android:id="@+id/time1230"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="12:30"
                 android:textAlignment="center" />
 
@@ -488,40 +598,50 @@
                 android:id="@+id/M1230"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T1230"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W1230"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th1230"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F1230"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -531,7 +651,9 @@
             <TextView
                 android:id="@+id/time1300"
                 android:layout_width="2dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="13:00"
                 android:textAlignment="center" />
 
@@ -539,40 +661,50 @@
                 android:id="@+id/M1300"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T1300"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W1300"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th1300"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F1300"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -584,7 +716,9 @@
             <TextView
                 android:id="@+id/time1330"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="13:30"
                 android:textAlignment="center" />
 
@@ -592,40 +726,50 @@
                 android:id="@+id/M1330"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T1330"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W1330"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th1330"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F1330"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -635,7 +779,9 @@
             <TextView
                 android:id="@+id/time1400"
                 android:layout_width="2dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="14:00"
                 android:textAlignment="center" />
 
@@ -643,40 +789,50 @@
                 android:id="@+id/M1400"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T1400"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W1400"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th1400"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F1400"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -688,7 +844,9 @@
             <TextView
                 android:id="@+id/time1430"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="14:30"
                 android:textAlignment="center" />
 
@@ -696,40 +854,50 @@
                 android:id="@+id/M1430"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T1430"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W1430"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th1430"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F1430"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -739,7 +907,9 @@
             <TextView
                 android:id="@+id/time1500"
                 android:layout_width="2dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="15:00"
                 android:textAlignment="center" />
 
@@ -747,40 +917,50 @@
                 android:id="@+id/M1500"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T1500"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W1500"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th1500"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F1500"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -792,7 +972,9 @@
             <TextView
                 android:id="@+id/time1530"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="15:30"
                 android:textAlignment="center" />
 
@@ -800,40 +982,50 @@
                 android:id="@+id/M1530"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T1530"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W1530"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th1530"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F1530"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -843,7 +1035,9 @@
             <TextView
                 android:id="@+id/time1600"
                 android:layout_width="2dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="16:00"
                 android:textAlignment="center" />
 
@@ -851,40 +1045,50 @@
                 android:id="@+id/M1600"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T1600"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W1600"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th1600"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F1600"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -896,7 +1100,9 @@
             <TextView
                 android:id="@+id/time1630"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="16:30"
                 android:textAlignment="center" />
 
@@ -904,40 +1110,50 @@
                 android:id="@+id/M1630"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T1630"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W1630"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th1630"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F1630"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -947,7 +1163,9 @@
             <TextView
                 android:id="@+id/time1700"
                 android:layout_width="2dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="17:00"
                 android:textAlignment="center" />
 
@@ -955,40 +1173,50 @@
                 android:id="@+id/M1700"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T1700"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W1700"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th1700"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F1700"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -1000,7 +1228,9 @@
             <TextView
                 android:id="@+id/time1730"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="17:30"
                 android:textAlignment="center" />
 
@@ -1008,40 +1238,50 @@
                 android:id="@+id/M1730"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T1730"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W1730"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th1730"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F1730"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -1051,7 +1291,9 @@
             <TextView
                 android:id="@+id/time1800"
                 android:layout_width="2dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="18:00"
                 android:textAlignment="center" />
 
@@ -1059,40 +1301,50 @@
                 android:id="@+id/M1800"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T1800"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W1800"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th1800"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F1800"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -1104,7 +1356,9 @@
             <TextView
                 android:id="@+id/time1830"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="18:30"
                 android:textAlignment="center" />
 
@@ -1112,40 +1366,50 @@
                 android:id="@+id/M1830"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T1830"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W1830"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th1830"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F1830"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -1155,7 +1419,9 @@
             <TextView
                 android:id="@+id/time1900"
                 android:layout_width="2dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="19:00"
                 android:textAlignment="center" />
 
@@ -1163,40 +1429,50 @@
                 android:id="@+id/M1900"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T1900"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W1900"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th1900"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F1900"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -1208,7 +1484,9 @@
             <TextView
                 android:id="@+id/time1930"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="19:30"
                 android:textAlignment="center" />
 
@@ -1216,40 +1494,50 @@
                 android:id="@+id/M1930"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T1930"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W1930"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th1930"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F1930"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -1259,7 +1547,9 @@
             <TextView
                 android:id="@+id/time2000"
                 android:layout_width="2dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="20:00"
                 android:textAlignment="center" />
 
@@ -1267,40 +1557,50 @@
                 android:id="@+id/M2000"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T2000"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W2000"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th2000"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F2000"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -1312,7 +1612,9 @@
             <TextView
                 android:id="@+id/time2030"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="20:30"
                 android:textAlignment="center" />
 
@@ -1320,40 +1622,50 @@
                 android:id="@+id/M2030"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T2030"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W2030"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th2030"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F2030"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -1363,7 +1675,9 @@
             <TextView
                 android:id="@+id/time2100"
                 android:layout_width="2dp"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="21:00"
                 android:textAlignment="center" />
 
@@ -1371,40 +1685,50 @@
                 android:id="@+id/M2100"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T2100"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W2100"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th2100"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F2100"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>
@@ -1416,7 +1740,9 @@
             <TextView
                 android:id="@+id/time2130"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
                 android:text="21:30"
                 android:textAlignment="center" />
 
@@ -1424,40 +1750,50 @@
                 android:id="@+id/M2130"
                 android:layout_width="62dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/T2130"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/W2130"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/Th2130"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/F2130"
                 android:layout_width="63dp"
 
-                android:layout_height="wrap_content"
-                
+                android:layout_height="30dp"
+                android:textSize = "13dp"
+                android:background="@drawable/cell_shape"
+
                 android:textAlignment="center" />
 
         </TableRow>

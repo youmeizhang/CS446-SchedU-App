@@ -9,6 +9,13 @@
     <color name="lightPink">#FFE4E1</color>
     <color name="lightGreen">#F0FFF0</color>
     <color name="lightPurple">#E6E6FA</color>
+    <color name="greenBlue">#afeeee</color>
+    <color name="greenYellow">#adff2f</color>
+    <color name="darkPink">#ffb6c1</color>
+    <color name="darkPurple">#d8bfd8</color>
+    <color name="myOrange">#ffa500</color>
+    <color name="yellow">#ffff00</color>
+    <color name="darkBlue">#6495ed</color>
 
 
 </resources>

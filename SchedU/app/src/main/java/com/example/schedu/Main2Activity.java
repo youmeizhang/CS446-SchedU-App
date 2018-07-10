@@ -5,29 +5,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
-import android.support.v4.view.ViewPager;
+import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Layout;
-import android.util.DisplayMetrics;
-import android.view.Gravity;
-import android.view.LayoutInflater;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
+
 import android.widget.TableLayout;
 import android.widget.TextView;
-import android.view.View.OnTouchListener;
-import android.view.MotionEvent;
-
-import org.w3c.dom.Text;
-
-import java.security.PublicKey;
 import java.util.ArrayList;
-import java.util.HashMap;
+import com.example.schedu.SimpleGestureFilter.SimpleGestureListener;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -46,105 +35,61 @@ public class Main2Activity extends AppCompatActivity {
     private String enrollmentNumber;
     private String location;
     private String title;
+    private int id;
 
-    public ArrayList<TimeTable> findCourse(){
-        DbHandler dbHandler = new DbHandler(Main2Activity.this);
-        DatabaseHelper databaseHelper = new DatabaseHelper(Main2Activity.this);
-        ArrayList<TimeTable> allTimeTables = new ArrayList<>();
+    private GestureDetectorCompat mDetector;
 
-        ArrayList<Course> data = dbHandler.GetCourses();
 
-        System.out.println("selected courses: ");
+    @Override
+    public boolean onTouchEvent(MotionEvent event){
+        this.mDetector.onTouchEvent(event);
+        return super.onTouchEvent(event);
+    }
+    class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
+        private static final String DEBUG_TAG = "Gestures";
 
-        for (Course c: data){
-            System.out.println("=====" + c.name + " " + c.number + " " + c.sectionNumber + " " + c.priority + "=====");
-
-            ArrayList<CourseInfo> courseInfos = databaseHelper.getCourseDetails(c.name, c.number);
-            if (c.sectionNumber.contains("ALL")) {
-                for (CourseInfo courseInfo: courseInfos){
-                    if (courseInfo.section.toLowerCase().contains("lec"))
-                        c.lectures.add(courseInfo);
-                    if (courseInfo.section.toLowerCase().contains("tut"))
-                        c.tutorials.add(courseInfo);
-                }
-            } else {
-                for (CourseInfo courseInfo: courseInfos){
-                    if (courseInfo.section.contains(c.sectionNumber) || c.sectionNumber.contains(courseInfo.section)){
-                        if (c.sectionNumber.toLowerCase().contains("lec"))
-                            c.lectures.add(courseInfo);
-                        if (c.sectionNumber.toLowerCase().contains("tut"))
-                            c.tutorials.add(courseInfo);
-                    }
-                }
-            }
-
-            c.printCourseSummary();
-            System.out.println("=============================================");
+        @Override
+        public boolean onDown(MotionEvent event) {
+            return true;
         }
 
-        PermutationGenerator pg = new PermutationGenerator();
-        ArrayList<ArrayList<CourseInfo>> input = new ArrayList<>();
-
-        for(Course c: data){
-            if (c.lectures.size() != 0)
-                input.add(c.lectures);
-            if (c.tutorials.size() != 0)
-                input.add(c.tutorials);
+        @Override
+        public boolean onFling(MotionEvent event1, MotionEvent event2, float velocityX, float velocityY) {
+            return true;
         }
 
-        ArrayList<TimeTable> output = pg.permutate(input);
-        for (TimeTable t : output) {
-            for(CourseInfo c : t.contents){
-                System.out.println(c.name + " " + c.section);
-            }
-            System.out.println("---------------------------------");
-        }
-        System.out.println("TOTAL: " + output.size());
-
-        for(TimeTable t: output){
-            // validated schedules
-            if (pg.validate(t.contents))
-                allTimeTables.add(t);
-
-        }
-        // selected courses
-        SelectedCoures sc = new SelectedCoures();
-        sc.add(data);
-
-        TimeTable t = sc.hardCode();
-
-        return allTimeTables;
     }
 
     public void initColors(){
         colorList = new ArrayList<>();
-        int c1 = getResources().getColor(R.color.lightBlue);
-        int c2 = getResources().getColor(R.color.lightGrey);
-        int c3 = getResources().getColor(R.color.lightPink);
-        int c4 = getResources().getColor(R.color.lightGreen);
-        int c5 = getResources().getColor(R.color.lightPurple);
-        colorList.add(c1);
-        colorList.add(c2);
-        colorList.add(c3);
-        colorList.add(c4);
-        colorList.add(c5);
+
+        colorList.add(getResources().getColor(R.color.lightBlue));
+        colorList.add(getResources().getColor(R.color.lightGrey));
+        colorList.add(getResources().getColor(R.color.lightPink));
+        colorList.add(getResources().getColor(R.color.lightGreen));
+        colorList.add(getResources().getColor(R.color.lightPurple));
+        colorList.add(getResources().getColor(R.color.greenBlue));
+        colorList.add(getResources().getColor(R.color.darkPink));
+        colorList.add(getResources().getColor(R.color.darkPurple));
+        colorList.add(getResources().getColor(R.color.myOrange));
+        colorList.add(getResources().getColor(R.color.yellow));
+        colorList.add(getResources().getColor(R.color.darkBlue));
+        colorList.add(getResources().getColor(R.color.greenYellow));
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        mDetector = new GestureDetectorCompat(this, new MyGestureListener());
 
         tvList = new ArrayList<>();
         initColors();
 
         int curColor = 0;
+        id = getIntent().getIntExtra("idNumber", 0);
 
-        ArrayList<TimeTable> allTimeTables = findCourse();
-        System.out.println("number of possible combinations: " + allTimeTables.size());
-        TimeTable timeTable = allTimeTables.get(1);
-
-        System.out.println("items in timetable " + timeTable.contents.size());
+        TimeTable timeTable = MainActivity.allTimetables.get(id);
 
         for (CourseInfo i : timeTable.contents) {
             final String courseName = i.name + i.number + " " + i.section;
@@ -296,7 +241,9 @@ public class Main2Activity extends AppCompatActivity {
             }
         });
 
+
     }
+
 
 }
 

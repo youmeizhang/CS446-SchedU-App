@@ -131,8 +131,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
     public List<String> getAllLabels(){
         List<String> sub_from_db = new ArrayList<String>();
-        String selectQuery = "SELECT DISTINCT subject FROM " + CLASS_TABLE;
-        System.out.println(selectQuery);
+        String selectQuery = "SELECT DISTINCT subject FROM " + CLASS_TABLE + " ORDER BY subject ASC";
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -146,6 +145,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         db.close();
         return sub_from_db;
     }
+
     public List<String> getAllCourseNum(String sub) {
         List<String> course_with_num = new ArrayList<>();
 
