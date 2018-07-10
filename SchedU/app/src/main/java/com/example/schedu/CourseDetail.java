@@ -56,13 +56,16 @@ public class CourseDetail extends Activity {
 
         TextView tv4 = new TextView(this);
         tv4 = (TextView)findViewById(R.id.coursename);
-        tv4.setText(getIntent().getStringExtra("CourseName"));
+        tv4.setText(getIntent().getStringExtra("CourseName") + "\n" +
+                getIntent().getStringExtra("StartTime") + " - " +
+                getIntent().getStringExtra("EndTime"));
         tvList.add(tv4);
 
         TextView tv5 = new TextView(this);
         tv5 = (TextView)findViewById(R.id.capacity);
         tv5.setText("Course Capacity: " + getIntent().getStringExtra("Capacity"));
         tvList.add(tv5);
+
 
         getWindow().setLayout((int) (width*.6), (int) (height*.45));
 

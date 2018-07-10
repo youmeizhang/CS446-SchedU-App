@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<String> sesAdapter;
 
     public static ArrayList<TimeTable> allTimetables = new ArrayList<>();
+    public static ArrayList<Integer> colorList = new ArrayList<>();
 
     public static DatabaseManager databaseManager;
 
@@ -153,11 +155,12 @@ public class MainActivity extends AppCompatActivity {
         btn_gen = (Button)findViewById(R.id.generate);
         btn_gen.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent i = new Intent(MainActivity.this, Main2Activity.class);
 
+                initColors();
                 allTimetables = findCourse();
                 System.out.println("Total " + allTimetables.size() + " is generated");
-                i.putExtra("idNumber", 2);
+                Intent i = new Intent(MainActivity.this, Main2Activity.class);
+                i.putExtra("idNumber", 0);
 
                 startActivity(i);
             }
@@ -248,5 +251,22 @@ public class MainActivity extends AppCompatActivity {
         return allTimeTables;
     }
 
+    // colors for each course in timetable
+    public void initColors(){
+        colorList = new ArrayList<>();
+
+        colorList.add(getResources().getColor(R.color.lightBlue));
+        colorList.add(getResources().getColor(R.color.lightGrey));
+        colorList.add(getResources().getColor(R.color.lightPink));
+        colorList.add(getResources().getColor(R.color.lightGreen));
+        colorList.add(getResources().getColor(R.color.lightPurple));
+        colorList.add(getResources().getColor(R.color.greenBlue));
+        colorList.add(getResources().getColor(R.color.darkPink));
+        colorList.add(getResources().getColor(R.color.darkPurple));
+        colorList.add(getResources().getColor(R.color.myOrange));
+        colorList.add(getResources().getColor(R.color.yellow));
+        colorList.add(getResources().getColor(R.color.darkBlue));
+        colorList.add(getResources().getColor(R.color.greenYellow));
+    }
 
 }

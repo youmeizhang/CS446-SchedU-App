@@ -54,4 +54,5 @@
         android:layout_alignStart="@+id/enrollment"
         android:layout_below="@+id/enrollment"
         android:layout_marginTop="21dp" />
+
 </RelativeLayout>

@@ -15,7 +15,6 @@ public class Calculation {
             Date e = format.parse(end);
             difference = e.getTime() - s.getTime();
             difference = difference /(60 * 1000);
-            System.out.println("start: " + s + " end: " + e + " diff: " + difference);
         }catch (ParseException e){
             e.printStackTrace();
         }

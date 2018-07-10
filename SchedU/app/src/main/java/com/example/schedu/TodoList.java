@@ -23,11 +23,12 @@ public class TodoList extends Activity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
+            setContentView(R.layout.todolist);
 
             final EditText edit_todo = (EditText) findViewById(R.id.edit_todo);
             final EditText show_Time = (EditText) findViewById(R.id.show_time);
 
+            System.out.println("text for show_time is " + show_Time.getText());
             show_Time.setOnClickListener(new View.OnClickListener() {
 
                 @Override
