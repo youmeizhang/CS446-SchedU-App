@@ -17,5 +17,20 @@
     <color name="yellow">#ffff00</color>
     <color name="darkBlue">#6495ed</color>
 
+    <integer-array name="todoListcolors">
+        <item>@color/blue</item>
+        <item>@color/darkPurple</item>
+        <item>@color/green</item>
+        <item>@color/orange</item>
+        <item>@color/darkPink</item>
+        <item>@color/darkBlue</item>
+        <item>@color/yellow</item>
+        <item>@color/greenBlue</item>
+        <item>@color/lightPurple</item>
+        <item>@color/light_pink</item>
+        <item>@color/light_orange</item>
+        <item>@color/lightGreen</item>
+        <item>@color/lightBlue</item>
+    </integer-array>
 
 </resources>
