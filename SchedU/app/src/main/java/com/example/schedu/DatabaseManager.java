@@ -137,7 +137,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(selectQuery, null);
         int i = 0;
         while (cursor.moveToNext()) {
-            sub_from_db.add(cursor.getString(cursor.getColumnIndex("SUBJECT")));
+            sub_from_db.add(cursor.getString(cursor.getColumnIndex("subject")));
             i++;
         }
         //System.out.println("Total rows in table: " + i);
@@ -174,7 +174,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         while (cursor.moveToNext()) {
-            course_from_db.add(cursor.getString(cursor.getColumnIndex("CATALOG_NUMBER")) + " " + cursor.getString(cursor.getColumnIndex("TITLE")));
+            course_from_db.add(cursor.getString(cursor.getColumnIndex("catalog_number")) + " " + cursor.getString(cursor.getColumnIndex("TITLE")));
         }
         cursor.close();
         db.close();
