@@ -51,6 +51,13 @@ public class Main2Activity extends AppCompatActivity implements SimpleGestureLis
         id = getIntent().getIntExtra("idNumber", 0);
         TimeTable timeTable = MainActivity.allTimetables.get(id);
 
+        final View.OnClickListener todoList = new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(Main2Activity.this, TodoList.class);
+                startActivity(intent);
+            }
+        };
+
         for (CourseInfo i : timeTable.contents) {
             String courseName = i.name + i.number;
             String start = i.startTime.replace(":", "");
@@ -88,13 +95,6 @@ public class Main2Activity extends AppCompatActivity implements SimpleGestureLis
                     intent.putExtra("EnrollmentNumber", enrollmentNumber_tmp);
                     intent.putExtra("Location", location_tmp);
                     intent.putExtra("Title", title_tmp);
-                    startActivity(intent);
-                }
-            };
-
-            final View.OnClickListener todoList = new View.OnClickListener() {
-                public void onClick(View view) {
-                    Intent intent = new Intent(Main2Activity.this, TodoList.class);
                     startActivity(intent);
                 }
             };
@@ -175,34 +175,104 @@ public class Main2Activity extends AppCompatActivity implements SimpleGestureLis
                 duration_start++;
             }
             curColor++;
-/*
-            M0830 = (TextView) findViewById(R.id.M0830);
-            M0830.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    String tmp = M0830.getText().toString();
-                    System.out.println(tmp);
-                    if(!tmp.matches(""))
-                    {
-                        M0830.setOnClickListener(myClickListener);
-                    }else {
-                        M0830.setOnClickListener(todoList);
-                    }
 
-                }
-
-            });
-
-            todo = (Button) findViewById(R.id.todo);
-            todo.setOnClickListener(todoList);
-*/
         }
+        todo = (Button) findViewById(R.id.todo);
+        todo.setOnClickListener(todoList);
 
+        String content = getIntent().getStringExtra("content");
+        String weekday_begin = getIntent().getStringExtra("weekday_begin");
+        String weekday_end = getIntent().getStringExtra("weekday_end");
+        String hour_minute = getIntent().getStringExtra("hour_minute");
+        String hour_minute_end = getIntent().getStringExtra("hour_minute_end");
+        System.out.println("show content:" + content);
 
-        String todolist = getIntent().getStringExtra("content")+ "\n"+
-                getIntent().getStringExtra("start_time")+ "\n"+
-                getIntent().getStringExtra("end_time")+ "\n";
-        System.out.println("DEBUG MSG" + todolist);
+        if(content != null){
+            String begin = hour_minute.replace(":", "");
+            String end = hour_minute_end.replace(":", "");
+            int duration_end_time = (int) Calculation.timeDifference(begin, end) / 30;
+            System.out.println("begin" + begin);
+            System.out.println("end" + end);
+            System.out.println("duration is:" + duration_end_time);
+            System.out.println("weekday_begin is: " + weekday_begin);
+            // boolean tmp = weekday_begin.equals("4");
 
+            // System.out.println(tmp);
+
+            if(weekday_begin.equals("1")) {
+                String textViewId = "M" + begin;
+                int resID = getResources().getIdentifier(textViewId, "id", getPackageName());
+
+                TextView textView = new TextView(this);
+                textView = (TextView) findViewById(resID);
+                //if (duration_end_time == 0)
+                    //textView.setText(content);
+                //if (duration_end_time == 1)
+                textView.setText(content);
+                textView.setBackgroundColor(getResources().getColor(R.color.light_orange));
+                //textView.setOnClickListener(myClickListener);
+                //tvList.add(textView);
+            }
+            if(weekday_begin == "2") {
+                String textViewId = "T" + begin;
+                int resID = getResources().getIdentifier(textViewId, "id", getPackageName());
+
+                TextView textView = new TextView(this);
+                textView = (TextView) findViewById(resID);
+                //if (duration_end_time == 0)
+                //textView.setText(content);
+                //if (duration_end_time == 1)
+                textView.setText(content);
+                textView.setBackgroundColor(getResources().getColor(R.color.light_orange));
+                //textView.setOnClickListener(myClickListener);
+                //tvList.add(textView);
+            }
+            if(weekday_begin == "3") {
+                String textViewId = "W" + begin;
+                int resID = getResources().getIdentifier(textViewId, "id", getPackageName());
+                System.out.println(resID);
+
+                TextView textView = new TextView(this);
+                textView = (TextView) findViewById(resID);
+                //if (duration_end_time == 0)
+                //textView.setText(content);
+                //if (duration_end_time == 1)
+                textView.setText(content);
+                textView.setBackgroundColor(getResources().getColor(R.color.light_orange));
+                //textView.setOnClickListener(myClickListener);
+                //tvList.add(textView);
+            }
+            if(weekday_begin == "4") {
+                String textViewId = "Th" + begin;
+
+                int resID = getResources().getIdentifier(textViewId, "id", getPackageName());
+
+                TextView textView = new TextView(this);
+                textView = (TextView) findViewById(resID);
+                //if (duration_end_time == 0)
+                //textView.setText(content);
+                //if (duration_end_time == 1)
+                textView.setText(content);
+                textView.setBackgroundColor(getResources().getColor(R.color.light_orange));
+                //textView.setOnClickListener(myClickListener);
+                //tvList.add(textView);
+            }
+            if(weekday_begin == "5") {
+                String textViewId = "F" + begin;
+                int resID = getResources().getIdentifier(textViewId, "id", getPackageName());
+
+                TextView textView = new TextView(this);
+                textView = (TextView) findViewById(resID);
+                //if (duration_end_time == 0)
+                //textView.setText(content);
+                //if (duration_end_time == 1)
+                textView.setText(content);
+                textView.setBackgroundColor(getResources().getColor(R.color.light_orange));
+                //textView.setOnClickListener(myClickListener);
+                //tvList.add(textView);
+            }
+
+        }
 
         like = (Button)findViewById(R.id.like);
         like.setOnClickListener(new View.OnClickListener() {
