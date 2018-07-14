@@ -11,6 +11,8 @@
     <color name="light_pink">#FADBD8</color>
     <color name="light_orange">#FAD7A0</color>
     <string name="title_activity_calendar_version">CalendarVersion</string>
+    <string name="title_activity_google_calendar">GoogleCalendar</string>
+    <string name="title_activity_new_google_calendar">NewGoogleCalendar</string>
 
 
 </resources>

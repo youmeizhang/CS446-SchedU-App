@@ -16,10 +16,25 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
+
+    private static final int PROFILE_PIC_SIZE = 400;
+    private static final int RC_SIGN_IN = 0;
+    private GoogleApiClient mGoogleApiClient;
+    private boolean mIntentInProgress;
+    private boolean mShouldResolve;
+    private ConnectionResult connectionResult;
+
     private TextView textView1;
     private TextView textView2;
     private Spinner subject;
@@ -47,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     String string_session;
     String string_priority;
     String s;
+    Button login;
 
     long int_course;
 
@@ -67,6 +83,15 @@ public class MainActivity extends AppCompatActivity {
 
         textView1 = (TextView)findViewById(R.id.display_info);
         textView2 = (TextView)findViewById(R.id.display_read);
+
+        login = (Button) findViewById(R.id.login);
+
+        login.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent i = new Intent(MainActivity.this, GoogleCalendar.class);
+                startActivity(i);
+            }
+        });
 
         // get database manger
         databaseManager = DatabaseManager.getHelper(this);

@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.schedu">
+    package="com.example.schedu"
+    android:name=".NewGoogleCalendar">
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+
 
     <application
         android:allowBackup="true"
@@ -20,20 +27,23 @@
         <activity android:name=".Main2Activity" />
         <activity android:name=".DetailsActivity" />
         <activity android:name=".CalenderVersion" />
-
         <activity
             android:name=".CourseDetail"
             android:theme="@style/AppTheme.CustomTheme" />
         <activity android:name=".TodoList" />
-
-        <activity android:name=".CustomPagerAdapter" />
-        <activity android:name=".ModelObject" />
         <activity android:name=".MainActivity" />
-
         <activity
             android:name=".CalendarVersion"
             android:label="@string/title_activity_calendar_version"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".GoogleCalendar"
+            android:label="@string/title_activity_google_calendar"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>
