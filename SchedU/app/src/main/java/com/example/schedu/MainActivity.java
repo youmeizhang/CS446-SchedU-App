@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ListAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -52,6 +53,12 @@ public class MainActivity extends AppCompatActivity  {
     private ArrayAdapter<String> couAdapter;
     private ArrayAdapter<String> sesAdapter;
 
+    private boolean[] filters = {false, false, false, false, false};
+    private boolean gotofilter;
+    private Button btn_filter;
+    private CheckBox cb_filter;
+    private boolean flag;
+
     public static ArrayList<TimeTable> allTimetables = new ArrayList<>();
     public static ArrayList<Integer> colorList = new ArrayList<>();
 
@@ -83,6 +90,8 @@ public class MainActivity extends AppCompatActivity  {
 
         textView1 = (TextView)findViewById(R.id.display_info);
         textView2 = (TextView)findViewById(R.id.display_read);
+
+        cb_filter = findViewById(R.id.needfilter);
 
         login = (Button) findViewById(R.id.login);
 
@@ -202,6 +211,30 @@ public class MainActivity extends AppCompatActivity  {
 
             }
         });
+
+
+
+
+
+        btn_filter = (Button)findViewById(R.id.btn_filter);
+        btn_filter.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                flag = true;
+                //filters = getIntent().getBooleanArrayExtra("filters");
+                cb_filter.setChecked(true);
+                System.out.println("User is going to add Filter...");
+
+                Intent i = new Intent(MainActivity.this, AddFilters.class);
+                i.putExtra("filters",filters);
+                startActivity(i);
+            }
+        });
+
+
+
+        gotofilter = getIntent().getBooleanExtra("needed", false);
+        //filters = getIntent().getBooleanArrayExtra("filters");
+        cb_filter.setChecked(gotofilter);
 
         btn_finish_new = (Button)findViewById(R.id.btn_finish);
         btn_finish_new.setOnClickListener(new View.OnClickListener() {

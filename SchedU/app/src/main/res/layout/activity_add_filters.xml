@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15px"
+        android:text="Choose any filter(s) satisfied you preference:"
+        android:textColor="#c1abe9"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <CheckBox
+        android:id="@+id/filter1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NO classes before 10am."
+        android:padding="15dp"/>
+
+    <CheckBox
+        android:id="@+id/filter2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NO classes between 12pm to 1pm."
+        android:padding="15dp"/>
+
+    <CheckBox
+        android:id="@+id/filter3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NO evening classes."
+        android:padding="15dp"/>
+
+    <CheckBox
+        android:id="@+id/filter4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gap longer than 30 minutes."
+
+        android:padding="15dp"/>
+
+    <CheckBox
+        android:id="@+id/filter5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Continued duration less than 3 hours ."
+        android:padding="15dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/filter_cleared"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="#e6ccff"
+            android:text="Clear Filters"
+            android:textColor="#ffffff"
+
+            android:textSize="12sp" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/back_to_main"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="#e6ccff"
+            android:text="Back."
+            android:textColor="#ffffff"
+
+            android:textSize="12sp" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/filter_finished"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="#e6ccff"
+            android:text="Finish"
+            android:textColor="#ffffff"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</LinearLayout>
