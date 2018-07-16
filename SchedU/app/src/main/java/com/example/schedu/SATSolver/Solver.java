@@ -11,16 +11,15 @@ import java.util.Scanner;
 
 public final class Solver {
 
-    //public static String filePath = "app/src/main/java/com/example/schedu/SATSolver/SATcoursefile";
-    public static void main(String[] arg){
-        //SATSolver("/data/user/0/com.example.schedu/files/SATcoursefile");
-    }
+    public static String header = "";
+    public static String data = "";
 
-    public static void SATSolver(String filePath) {
-        ArrayList<String> allSolutions = new ArrayList<>();
 
+    public static ArrayList<ArrayList<Integer>> runSolver() {
+        ArrayList<ArrayList<Integer>> allSolutions = new ArrayList<>();
+        long startTime = System.nanoTime();
         while (true) {
-            final Formula formula = new Formula(filePath);
+            final Formula formula = new Formula(header + data);
             try {
                 while (!formula.validSolution()) {
                     if (formula.getCachedClauseSizeZeroResult()) {
@@ -30,64 +29,42 @@ public final class Solver {
                     }
                 }
                 String newSolution = formula.printSolution();
-                allSolutions.add(banSolution(newSolution, filePath));
+                allSolutions.add(banSolution(newSolution));
             } catch (NoSuchElementException e) {
-                for(String solution : allSolutions) {
-                    System.out.println(solution);
-                }
 
-                System.out.println("Unsolvable Solution");
-                return;
+                long endTime   = System.nanoTime();
+                long totalTime = endTime - startTime;
+                System.out.println(totalTime);
+                return allSolutions;
             }
         }
     }
 
-    public static String banSolution(String solution, String filePath){
+    public static ArrayList<Integer> banSolution(String solution){
         Scanner scanner = new Scanner(solution).useDelimiter(" ");;
         StringBuilder sb = new StringBuilder();
-        StringBuilder retval = new StringBuilder();
+        ArrayList<Integer> retval = new ArrayList<Integer>();
         while(scanner.hasNextInt()) {
             int element = scanner.nextInt();
             if (element > 0) {
                 sb.append(-element + " ");
-                retval.append(element + " ");
+                retval.add(element);
             }
         }
         sb.append(0);
-        updateClauses(sb.toString(), filePath);
-        return retval.toString();
+        sb.append("\n");
+        updateClauses(sb.toString());
+        return retval;
     }
 
-    public static void updateClauses(String newClause, String filePath) {
-        try {
-            InputStreamReader isr = new InputStreamReader(MainActivity.mainContext.openFileInput(filePath), "UTF-8");
-            BufferedReader file = new BufferedReader(isr);
-            String line;
-            StringBuffer inputBuffer = new StringBuffer();
+    public static void updateClauses(String newClause) {
 
-            while ((line = file.readLine()) != null) {
-                if (line.contains("p cnf")){
-                    String[] tmp = line.split(" ");
-                    int clauseNum = Integer.parseInt(tmp[tmp.length-1]);
-                    tmp[tmp.length-1] = String.valueOf(clauseNum+1);
-                    line = String.join(" ", tmp);
-                }
+        String[] tmp = header.split(" ");
+        int clauseNum = Integer.parseInt(tmp[tmp.length-1]);
+        tmp[tmp.length-1] = String.valueOf(clauseNum+1);
+        header = String.join(" ", tmp);
+        data += newClause;
 
-                inputBuffer.append(line);
-                inputBuffer.append('\n');
-            }
-            file.close();
-
-            inputBuffer.append(newClause);
-            String inputStr = inputBuffer.toString();
-
-            FileOutputStream outputStream = MainActivity.mainContext.openFileOutput(filePath, Context.MODE_PRIVATE);
-            outputStream.write(inputStr.getBytes());
-            outputStream.close();
-
-        } catch (Exception e) {
-            System.out.println("Problem reading file.");
-        }
     }
 
 }

@@ -38,6 +38,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static com.example.schedu.FindConstrains.executeSATSolver;
+
 public class MainActivity extends AppCompatActivity  {
 
     private static final int PROFILE_PIC_SIZE = 400;
@@ -265,10 +267,10 @@ public class MainActivity extends AppCompatActivity  {
 
         ArrayList<Course> data = dbHandler.GetCourses();
 
-        System.out.println("selected courses: ");
+        //System.out.println("selected courses: ");
 
         for (Course c: data){
-            System.out.println("=====" + c.name + " " + c.number + " " + c.sectionNumber + " " + c.priority + "=====");
+            //System.out.println("=====" + c.name + " " + c.number + " " + c.sectionNumber + " " + c.priority + "=====");
 
             ArrayList<CourseInfo> courseInfos = databaseHelper.getCourseDetails(c.name, c.number);
             if (c.sectionNumber.contains("ALL")) {
@@ -289,75 +291,11 @@ public class MainActivity extends AppCompatActivity  {
                 }
             }
 
-            c.printCourseSummary();
-            System.out.println("=============================================");
+            //System.out.println("=============================================");
         }
+        FindConstrains.executeSATSolver(data);
 
-        HashMap<Integer, CourseInfo> myHashMap = new HashMap<>();
-        StringBuilder SATinput  = new StringBuilder();
-        int countCourse = 1;
-        int countClause = 0;
-
-        PermutationGenerator pg = new PermutationGenerator();
-        ArrayList<ArrayList<CourseInfo>> input = new ArrayList<>();
-
-        for(Course c: data){
-
-            for(CourseInfo courseInfo : c.lectures){
-                myHashMap.put(countCourse, courseInfo);
-                SATinput.append(countCourse + " ");
-                countCourse++;
-            }
-            if (c.lectures.size() != 0) {
-                SATinput.append(0);
-                SATinput.append("\n");
-                countClause++;
-            }
-
-            for(CourseInfo courseInfo : c.tutorials){
-                myHashMap.put(countCourse, courseInfo);
-                SATinput.append(countCourse + " ");
-                countCourse++;
-            }
-            if (c.tutorials.size() != 0) {
-                SATinput.append(0);
-                SATinput.append("\n");
-                countClause++;
-            }
-        }
-
-        String header = "p cnf " + String.valueOf(countCourse-1) + " " + String.valueOf(countClause) + "\n";
-        System.out.println("SAT " + SATinput.toString());
-        if (!writeToSATfile("SATcoursefile", header + SATinput.toString()))
-            System.exit(0);
-
-        Solver.SATSolver("SATcoursefile");
-        //System.out.println(getFilesDir().getPath()+ "/SATcoursefile");
-        System.out.println("what I got is " + readFromFile("SATcoursefile"));
-
-        for(Course c: data){
-            if (c.lectures.size() != 0)
-                input.add(c.lectures);
-            if (c.tutorials.size() != 0)
-                input.add(c.tutorials);
-        }
-
-        ArrayList<TimeTable> output = pg.permutate(input);
-        for (TimeTable t : output) {
-            for(CourseInfo c : t.contents){
-                System.out.println(c.name + " " + c.section);
-            }
-        }
-
-
-        for(TimeTable t: output){
-            // validated schedules
-            if (pg.validate(t.contents))
-                allTimeTables.add(t);
-
-        }
-
-        return allTimeTables;
+        return FindConstrains.allTimetables;
     }
 
     // colors for each course in timetable
@@ -379,7 +317,7 @@ public class MainActivity extends AppCompatActivity  {
     }
 
 
-    public boolean writeToSATfile(String filename, String fileContent){
+    private boolean writeToSATfile(String filename, String fileContent){
         FileOutputStream outputStream;
         boolean retval = true;
         try {
@@ -393,7 +331,6 @@ public class MainActivity extends AppCompatActivity  {
 
         return retval;
     }
-
 
     private String readFromFile(String filename) {
 

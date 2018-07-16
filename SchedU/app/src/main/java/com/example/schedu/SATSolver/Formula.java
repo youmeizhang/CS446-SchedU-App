@@ -1,10 +1,6 @@
 package com.example.schedu.SATSolver;
-
-import android.content.Context;
-
-import com.example.schedu.MainActivity;
-
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import java.util.HashMap;
@@ -56,17 +52,15 @@ public class Formula {
      * Import cnf file and store clauses in
      * clauseList.
      *
-     * @param fileName the file name
      */
-    private void importCNF(final String fileName) {
+    private void importCNF(String data) {
         Scanner sc = null;
         try {
-            sc = new Scanner(new BufferedInputStream(MainActivity.mainContext.openFileInput(fileName)), "UTF-8");
-            System.out.println("lalalalalllll1");
-        } catch (FileNotFoundException e) {
+            sc = new Scanner(data);
+        } catch (Exception e) {
             System.exit(1);
         }
-        System.out.println("lalalalalllll2");
+
         if(sc.findWithinHorizon("p cnf", 0) == null)
             System.exit(2);
 
@@ -186,7 +180,7 @@ public class Formula {
         Double tmp = powerMap.get(exponent);
         if(tmp == null) {
             tmp = Math.pow(2, (-exponent));
-             powerMap.put(exponent, tmp);
+            powerMap.put(exponent, tmp);
         }
         return tmp;
     }
@@ -216,67 +210,67 @@ public class Formula {
     /**
      * Forward tracks down the tree.
      */
-   public void forwardTrack() {
-       Clause clause;
-       HashObject nextVarObj;
-       boolean booleanValue;
-       int var, absKey, actualSize, j, i, opsitListSize, listSize, varNeg, key;
+    public void forwardTrack() {
+        Clause clause;
+        HashObject nextVarObj;
+        boolean booleanValue;
+        int var, absKey, actualSize, j, i, opsitListSize, listSize, varNeg, key;
 
-       var = unitPropCheck();
-       if (var != 0) {
-           absKey = abs(var);
-       } else {
-           reRankVariables();
-           var = (int) rankArray[0][shift];
-           absKey = abs(var);
-       }
-       
-       nextVarObj =  hashMap.get(absKey);
-       hashMap.remove(absKey);
-       
-       /*
-        * This statement determines whether
-        * to branch true or false by checking if it has
-        * just back tracked or not.
-        */
-       booleanValue = (!justBackTracked && var > 0);
-       var = absKey; //abs(var); // always positive: p or n
-       varNeg = booleanValue ? -var : var;//var * -1 : var; //flip for negitive: pos * -1 = n : neg * -1 = p
-       if (booleanValue) {
-           listSize = nextVarObj.posSize();
-           opsitListSize = nextVarObj.negSize();
-       } else {
-           listSize = nextVarObj.negSize();
-           opsitListSize = nextVarObj.posSize();
-       }
+        var = unitPropCheck();
+        if (var != 0) {
+            absKey = abs(var);
+        } else {
+            reRankVariables();
+            var = (int) rankArray[0][shift];
+            absKey = abs(var);
+        }
 
-       for (i = 0; i < listSize; i++) {
-           clause = (booleanValue) ? nextVarObj.getP(i) : nextVarObj.getN(i);
-           actualSize = clause.actualSize();
-           for (j = 0; j < actualSize; j++) {
-               key = clause.get(j);
-               if (key != 0 && (absKey = abs(key)) != var) {
-                   hashObj = (HashObject) hashMap.get(absKey);
-                   if (hashObj != null) {
-                       hashObj.removeClause(clause);
-                   }
-               }
-           }
-       }
+        nextVarObj =  hashMap.get(absKey);
+        hashMap.remove(absKey);
 
-       /*
-        * This loop removes all varNeg occurrences
-        * from all clauses in clauseList.
-        */
-       for (i = 0; i < opsitListSize; i++) {
-          ( (booleanValue) ? nextVarObj.getN(i) : nextVarObj.getP(i) ).removeVar(varNeg);
-       }
+        /*
+         * This statement determines whether
+         * to branch true or false by checking if it has
+         * just back tracked or not.
+         */
+        booleanValue = (!justBackTracked && var > 0);
+        var = absKey; //abs(var); // always positive: p or n
+        varNeg = booleanValue ? -var : var;//var * -1 : var; //flip for negitive: pos * -1 = n : neg * -1 = p
+        if (booleanValue) {
+            listSize = nextVarObj.posSize();
+            opsitListSize = nextVarObj.negSize();
+        } else {
+            listSize = nextVarObj.negSize();
+            opsitListSize = nextVarObj.posSize();
+        }
 
-       hashObjectStack.addFirst(nextVarObj);
-       booleanStack.addFirst(booleanValue);
-       justBackTracked = false;
-       shift++;
-   }
+        for (i = 0; i < listSize; i++) {
+            clause = (booleanValue) ? nextVarObj.getP(i) : nextVarObj.getN(i);
+            actualSize = clause.actualSize();
+            for (j = 0; j < actualSize; j++) {
+                key = clause.get(j);
+                if (key != 0 && (absKey = abs(key)) != var) {
+                    hashObj = (HashObject) hashMap.get(absKey);
+                    if (hashObj != null) {
+                        hashObj.removeClause(clause);
+                    }
+                }
+            }
+        }
+
+        /*
+         * This loop removes all varNeg occurrences
+         * from all clauses in clauseList.
+         */
+        for (i = 0; i < opsitListSize; i++) {
+            ( (booleanValue) ? nextVarObj.getN(i) : nextVarObj.getP(i) ).removeVar(varNeg);
+        }
+
+        hashObjectStack.addFirst(nextVarObj);
+        booleanStack.addFirst(booleanValue);
+        justBackTracked = false;
+        shift++;
+    }
 
     /**
      * Back tracks up the tree.
@@ -314,11 +308,11 @@ public class Formula {
                     if (var != 0) {
                         hashObj = hashMap.get(abs(var));
                         if (hashObj != null){
-                          if(var > 0) {
-                              hashObj.addClausePos(clause);
-                          } else {
-                              hashObj.addClauseNeg(clause);
-                          }
+                            if(var > 0) {
+                                hashObj.addClausePos(clause);
+                            } else {
+                                hashObj.addClauseNeg(clause);
+                            }
                         }
                     }
                 }
@@ -339,11 +333,11 @@ public class Formula {
                     if (var != 0) {
                         hashObj = hashMap.get(abs(var));
                         if (hashObj != null){
-                           if( var > 0) {
-                             hashObj.addClausePos(clause);
-                           } else {
-                             hashObj.addClauseNeg(clause);
-                           }
+                            if( var > 0) {
+                                hashObj.addClausePos(clause);
+                            } else {
+                                hashObj.addClauseNeg(clause);
+                            }
                         }
                     }
                 }
@@ -452,7 +446,6 @@ public class Formula {
             }
             sb.append(space);
         }
-        //System.out.println(sb.toString());
         return sb.toString();
     }
 }
