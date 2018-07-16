@@ -17,6 +17,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.schedu.SATSolver.Solver;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -24,7 +25,17 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity  {
@@ -35,6 +46,7 @@ public class MainActivity extends AppCompatActivity  {
     private boolean mIntentInProgress;
     private boolean mShouldResolve;
     private ConnectionResult connectionResult;
+    public static Context mainContext;
 
     private TextView textView1;
     private TextView textView2;
@@ -82,6 +94,7 @@ public class MainActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mainContext = getApplicationContext();
 
         subject = (Spinner)findViewById(R.id.spinner_subject);
         course = (Spinner)findViewById(R.id.spinner_course);
@@ -280,8 +293,47 @@ public class MainActivity extends AppCompatActivity  {
             System.out.println("=============================================");
         }
 
+        HashMap<Integer, CourseInfo> myHashMap = new HashMap<>();
+        StringBuilder SATinput  = new StringBuilder();
+        int countCourse = 1;
+        int countClause = 0;
+
         PermutationGenerator pg = new PermutationGenerator();
         ArrayList<ArrayList<CourseInfo>> input = new ArrayList<>();
+
+        for(Course c: data){
+
+            for(CourseInfo courseInfo : c.lectures){
+                myHashMap.put(countCourse, courseInfo);
+                SATinput.append(countCourse + " ");
+                countCourse++;
+            }
+            if (c.lectures.size() != 0) {
+                SATinput.append(0);
+                SATinput.append("\n");
+                countClause++;
+            }
+
+            for(CourseInfo courseInfo : c.tutorials){
+                myHashMap.put(countCourse, courseInfo);
+                SATinput.append(countCourse + " ");
+                countCourse++;
+            }
+            if (c.tutorials.size() != 0) {
+                SATinput.append(0);
+                SATinput.append("\n");
+                countClause++;
+            }
+        }
+
+        String header = "p cnf " + String.valueOf(countCourse-1) + " " + String.valueOf(countClause) + "\n";
+        System.out.println("SAT " + SATinput.toString());
+        if (!writeToSATfile("SATcoursefile", header + SATinput.toString()))
+            System.exit(0);
+
+        Solver.SATSolver("SATcoursefile");
+        //System.out.println(getFilesDir().getPath()+ "/SATcoursefile");
+        System.out.println("what I got is " + readFromFile("SATcoursefile"));
 
         for(Course c: data){
             if (c.lectures.size() != 0)
@@ -295,9 +347,8 @@ public class MainActivity extends AppCompatActivity  {
             for(CourseInfo c : t.contents){
                 System.out.println(c.name + " " + c.section);
             }
-            System.out.println("---------------------------------");
         }
-        System.out.println("TOTAL: " + output.size());
+
 
         for(TimeTable t: output){
             // validated schedules
@@ -325,6 +376,53 @@ public class MainActivity extends AppCompatActivity  {
         colorList.add(getResources().getColor(R.color.yellow));
         colorList.add(getResources().getColor(R.color.darkBlue));
         colorList.add(getResources().getColor(R.color.greenYellow));
+    }
+
+
+    public boolean writeToSATfile(String filename, String fileContent){
+        FileOutputStream outputStream;
+        boolean retval = true;
+        try {
+            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+            outputStream.write(fileContent.getBytes());
+            outputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            retval = false;
+        }
+
+        return retval;
+    }
+
+
+    private String readFromFile(String filename) {
+
+        String ret = "";
+
+        try {
+            InputStream inputStream = openFileInput(filename);
+
+            if ( inputStream != null ) {
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String receiveString = "";
+                StringBuilder stringBuilder = new StringBuilder();
+
+                while ( (receiveString = bufferedReader.readLine()) != null ) {
+                    stringBuilder.append(receiveString + "\n");
+                }
+
+                inputStream.close();
+                ret = stringBuilder.toString();
+            }
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return ret;
     }
 
 }

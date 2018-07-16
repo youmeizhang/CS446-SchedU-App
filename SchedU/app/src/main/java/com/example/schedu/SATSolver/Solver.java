@@ -1,5 +1,9 @@
 package com.example.schedu.SATSolver;
 
+import android.content.Context;
+
+import com.example.schedu.MainActivity;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
@@ -7,11 +11,13 @@ import java.util.Scanner;
 
 public final class Solver {
 
-    public static String filePath = "app/src/main/java/com/example/schedu/SATSolver/SATcoursefile";
+    //public static String filePath = "app/src/main/java/com/example/schedu/SATSolver/SATcoursefile";
+    public static void main(String[] arg){
+        //SATSolver("/data/user/0/com.example.schedu/files/SATcoursefile");
+    }
 
-    public static void main(final String[] args) {
+    public static void SATSolver(String filePath) {
         ArrayList<String> allSolutions = new ArrayList<>();
-
 
         while (true) {
             final Formula formula = new Formula(filePath);
@@ -24,19 +30,19 @@ public final class Solver {
                     }
                 }
                 String newSolution = formula.printSolution();
-                allSolutions.add(banSolution(newSolution));
+                allSolutions.add(banSolution(newSolution, filePath));
             } catch (NoSuchElementException e) {
                 for(String solution : allSolutions) {
                     System.out.println(solution);
                 }
 
                 System.out.println("Unsolvable Solution");
-                System.exit(0);
+                return;
             }
         }
     }
 
-    public static String banSolution(String solution){
+    public static String banSolution(String solution, String filePath){
         Scanner scanner = new Scanner(solution).useDelimiter(" ");;
         StringBuilder sb = new StringBuilder();
         StringBuilder retval = new StringBuilder();
@@ -48,13 +54,14 @@ public final class Solver {
             }
         }
         sb.append(0);
-        updateClauses(sb.toString());
+        updateClauses(sb.toString(), filePath);
         return retval.toString();
     }
 
-    public static void updateClauses(String newClause) {
+    public static void updateClauses(String newClause, String filePath) {
         try {
-            BufferedReader file = new BufferedReader(new FileReader(filePath));
+            InputStreamReader isr = new InputStreamReader(MainActivity.mainContext.openFileInput(filePath), "UTF-8");
+            BufferedReader file = new BufferedReader(isr);
             String line;
             StringBuffer inputBuffer = new StringBuffer();
 
@@ -73,9 +80,10 @@ public final class Solver {
 
             inputBuffer.append(newClause);
             String inputStr = inputBuffer.toString();
-            FileOutputStream fileOut = new FileOutputStream(filePath);
-            fileOut.write(inputStr.getBytes());
-            fileOut.close();
+
+            FileOutputStream outputStream = MainActivity.mainContext.openFileOutput(filePath, Context.MODE_PRIVATE);
+            outputStream.write(inputStr.getBytes());
+            outputStream.close();
 
         } catch (Exception e) {
             System.out.println("Problem reading file.");

@@ -1,5 +1,9 @@
 package com.example.schedu.SATSolver;
 
+import android.content.Context;
+
+import com.example.schedu.MainActivity;
+
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
@@ -57,11 +61,12 @@ public class Formula {
     private void importCNF(final String fileName) {
         Scanner sc = null;
         try {
-            sc = new Scanner(new BufferedInputStream(new FileInputStream(fileName)), "UTF-8");
+            sc = new Scanner(new BufferedInputStream(MainActivity.mainContext.openFileInput(fileName)), "UTF-8");
+            System.out.println("lalalalalllll1");
         } catch (FileNotFoundException e) {
             System.exit(1);
         }
-
+        System.out.println("lalalalalllll2");
         if(sc.findWithinHorizon("p cnf", 0) == null)
             System.exit(2);
 
