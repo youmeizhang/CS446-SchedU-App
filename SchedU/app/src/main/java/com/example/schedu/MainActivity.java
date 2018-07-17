@@ -22,9 +22,22 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.api.client.util.DateTime;
+import com.google.api.services.calendar.model.EventAttendee;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
+
+import com.google.api.services.calendar.model.Event;
+import com.google.api.services.calendar.model.EventDateTime;
+import com.google.api.services.calendar.model.EventReminder;
+import com.google.api.services.calendar.Calendar.Events.Insert;
+
 
 public class MainActivity extends AppCompatActivity  {
 
@@ -56,6 +69,7 @@ public class MainActivity extends AppCompatActivity  {
     public static ArrayList<Integer> colorList = new ArrayList<>();
 
     public static DatabaseManager databaseManager;
+    public static com.google.api.services.calendar.Calendar service;
 
     String string_subject;
     String string_course;
@@ -63,6 +77,7 @@ public class MainActivity extends AppCompatActivity  {
     String string_priority;
     String s;
     Button login;
+    Button add_event;
 
     long int_course;
 
@@ -91,6 +106,17 @@ public class MainActivity extends AppCompatActivity  {
                 Intent i = new Intent(MainActivity.this, GoogleCalendar.class);
                 startActivity(i);
             }
+        });
+
+        add_event = (Button) findViewById(R.id.add_event);
+        add_event.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View v) {
+
+            }
+
         });
 
         // get database manger

@@ -90,10 +90,13 @@ public class GoogleCalendar extends Activity {
     }
 
 
+
+
     /**
      * Called whenever this activity is pushed to the foreground, such as after
      * a call to onCreate().
      */
+
     @Override
     protected void onResume() {
         super.onResume();
