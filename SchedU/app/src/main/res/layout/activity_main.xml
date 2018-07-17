@@ -209,6 +209,26 @@
         android:layout_toLeftOf="@+id/generate"
         app:srcCompat="@drawable/finish" />
 
+    <CheckBox
+        android:id="@+id/needfilter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/display_read"
+        android:layout_alignStart="@+id/textView2"
+        android:text="Need More Info"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/btn_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignBottom="@+id/display_read"
+        android:layout_alignEnd="@+id/spinner_subject"
+        android:background="#e4d9ff"
+        android:text="Add Filter"
+
+        android:textColor="#717D7E" />
+
     <Button
         android:id="@+id/login"
         android:layout_width="wrap_content"

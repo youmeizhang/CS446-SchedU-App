@@ -11,11 +11,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ListAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.schedu.SATSolver.Solver;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -25,11 +27,25 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.api.client.util.DateTime;
 import com.google.api.services.calendar.model.EventAttendee;
 
+<<<<<<< HEAD
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+=======
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+>>>>>>> c06c64762e9a18f36c29cfb18c538b8b8ab77112
 import java.util.List;
 import java.util.TimeZone;
 
@@ -39,6 +55,8 @@ import com.google.api.services.calendar.model.EventReminder;
 import com.google.api.services.calendar.Calendar.Events.Insert;
 
 
+import static com.example.schedu.FindConstrains.executeSATSolver;
+
 public class MainActivity extends AppCompatActivity  {
 
     private static final int PROFILE_PIC_SIZE = 400;
@@ -47,6 +65,7 @@ public class MainActivity extends AppCompatActivity  {
     private boolean mIntentInProgress;
     private boolean mShouldResolve;
     private ConnectionResult connectionResult;
+    public static Context mainContext;
 
     private TextView textView1;
     private TextView textView2;
@@ -64,6 +83,12 @@ public class MainActivity extends AppCompatActivity  {
     private ArrayAdapter<String> subAdapter;
     private ArrayAdapter<String> couAdapter;
     private ArrayAdapter<String> sesAdapter;
+
+    private boolean[] filters = {false, false, false, false, false};
+    private boolean gotofilter;
+    private Button btn_filter;
+    private CheckBox cb_filter;
+    private boolean flag;
 
     public static ArrayList<TimeTable> allTimetables = new ArrayList<>();
     public static ArrayList<Integer> colorList = new ArrayList<>();
@@ -90,6 +115,7 @@ public class MainActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mainContext = getApplicationContext();
 
         subject = (Spinner)findViewById(R.id.spinner_subject);
         course = (Spinner)findViewById(R.id.spinner_course);
@@ -98,6 +124,8 @@ public class MainActivity extends AppCompatActivity  {
 
         textView1 = (TextView)findViewById(R.id.display_info);
         textView2 = (TextView)findViewById(R.id.display_read);
+
+        cb_filter = findViewById(R.id.needfilter);
 
         login = (Button) findViewById(R.id.login);
 
@@ -229,6 +257,30 @@ public class MainActivity extends AppCompatActivity  {
             }
         });
 
+
+
+
+
+        btn_filter = (Button)findViewById(R.id.btn_filter);
+        btn_filter.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                flag = true;
+                //filters = getIntent().getBooleanArrayExtra("filters");
+                cb_filter.setChecked(true);
+                System.out.println("User is going to add Filter...");
+
+                Intent i = new Intent(MainActivity.this, AddFilters.class);
+                i.putExtra("filters",filters);
+                startActivity(i);
+            }
+        });
+
+
+
+        gotofilter = getIntent().getBooleanExtra("needed", false);
+        //filters = getIntent().getBooleanArrayExtra("filters");
+        cb_filter.setChecked(gotofilter);
+
         btn_finish_new = (Button)findViewById(R.id.btn_finish);
         btn_finish_new.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -245,10 +297,10 @@ public class MainActivity extends AppCompatActivity  {
 
         ArrayList<Course> data = dbHandler.GetCourses();
 
-        System.out.println("selected courses: ");
+        //System.out.println("selected courses: ");
 
         for (Course c: data){
-            System.out.println("=====" + c.name + " " + c.number + " " + c.sectionNumber + " " + c.priority + "=====");
+            //System.out.println("=====" + c.name + " " + c.number + " " + c.sectionNumber + " " + c.priority + "=====");
 
             ArrayList<CourseInfo> courseInfos = databaseHelper.getCourseDetails(c.name, c.number);
             if (c.sectionNumber.contains("ALL")) {
@@ -269,37 +321,11 @@ public class MainActivity extends AppCompatActivity  {
                 }
             }
 
-            c.printCourseSummary();
-            System.out.println("=============================================");
+            //System.out.println("=============================================");
         }
+        FindConstrains.executeSATSolver(data);
 
-        PermutationGenerator pg = new PermutationGenerator();
-        ArrayList<ArrayList<CourseInfo>> input = new ArrayList<>();
-
-        for(Course c: data){
-            if (c.lectures.size() != 0)
-                input.add(c.lectures);
-            if (c.tutorials.size() != 0)
-                input.add(c.tutorials);
-        }
-
-        ArrayList<TimeTable> output = pg.permutate(input);
-        for (TimeTable t : output) {
-            for(CourseInfo c : t.contents){
-                System.out.println(c.name + " " + c.section);
-            }
-            System.out.println("---------------------------------");
-        }
-        System.out.println("TOTAL: " + output.size());
-
-        for(TimeTable t: output){
-            // validated schedules
-            if (pg.validate(t.contents))
-                allTimeTables.add(t);
-
-        }
-
-        return allTimeTables;
+        return FindConstrains.allTimetables;
     }
 
     // colors for each course in timetable
@@ -318,6 +344,52 @@ public class MainActivity extends AppCompatActivity  {
         colorList.add(getResources().getColor(R.color.yellow));
         colorList.add(getResources().getColor(R.color.darkBlue));
         colorList.add(getResources().getColor(R.color.greenYellow));
+    }
+
+
+    private boolean writeToSATfile(String filename, String fileContent){
+        FileOutputStream outputStream;
+        boolean retval = true;
+        try {
+            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+            outputStream.write(fileContent.getBytes());
+            outputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            retval = false;
+        }
+
+        return retval;
+    }
+
+    private String readFromFile(String filename) {
+
+        String ret = "";
+
+        try {
+            InputStream inputStream = openFileInput(filename);
+
+            if ( inputStream != null ) {
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String receiveString = "";
+                StringBuilder stringBuilder = new StringBuilder();
+
+                while ( (receiveString = bufferedReader.readLine()) != null ) {
+                    stringBuilder.append(receiveString + "\n");
+                }
+
+                inputStream.close();
+                ret = stringBuilder.toString();
+            }
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return ret;
     }
 
 }

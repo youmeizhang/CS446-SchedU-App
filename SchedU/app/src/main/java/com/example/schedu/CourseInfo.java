@@ -18,6 +18,8 @@ public class CourseInfo {
     String endTime;
     String weekdays;
 
+    int id;
+
     // constructor
     public CourseInfo(String name, String number){
         this.name = name;
