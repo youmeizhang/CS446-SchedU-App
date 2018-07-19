@@ -14,7 +14,7 @@ public class AddFilters extends AppCompatActivity {
     private CheckBox filter1, filter2, filter3, filter4, filter5;
     private Button clear_filter, finish, back;
     private boolean f1, f2, f3, f4, f5, needed;
-    private boolean[] filters;
+    private boolean[] filters = {false, false, false, false, false};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +26,17 @@ public class AddFilters extends AppCompatActivity {
         filter3 = findViewById(R.id.filter3);
         filter4 = findViewById(R.id.filter4);
         filter5 = findViewById(R.id.filter5);
+
         clear_filter = findViewById(R.id.filter_cleared);
         finish = findViewById(R.id.filter_finished);
         //back = findViewById(R.id.back_to_main);
 
-        filters = getIntent().getBooleanArrayExtra("filters");
+        // filters = getIntent().getBooleanArrayExtra("filters");
+
+        if(filter1.isChecked()) {
+            // no class before 10am
+
+        }
 
         filter1.setChecked(filters[0]);
         filter2.setChecked(filters[1]);
@@ -61,6 +67,7 @@ public class AddFilters extends AppCompatActivity {
                 filters[2] = filter3.isChecked();
                 filters[3] = filter4.isChecked();
                 filters[4] = filter5.isChecked();
+                // System.out.println("content of filters 0-4 are: " + filters[0]);
                 needed = true;
                 i.putExtra("needed", needed);
                 i.putExtra("filters", filters);

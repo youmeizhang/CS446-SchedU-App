@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.google.android.gms.vision.text.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -131,7 +133,8 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
     public List<String> getAllLabels(){
         List<String> sub_from_db = new ArrayList<String>();
-        String selectQuery = "SELECT DISTINCT subject FROM " + CLASS_TABLE;
+
+        String selectQuery = "SELECT DISTINCT subject FROM " + CLASS_TABLE + " ORDER BY subject";
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -165,10 +168,12 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
     public List<String> getAllCourse(String sub) {
         List<String> course_from_db = new ArrayList<String>();
-
+        String selectQuery;
+        // boolean filters0
         String subject = "\""+ sub + "\"";
-        String selectQuery = "SELECT DISTINCT CATALOG_NUMBER, TITLE FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject;
-
+        // String selectQuery = "SELECT DISTINCT CATALOG_NUMBER, TITLE FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject;
+        selectQuery = "SELECT DISTINCT CATALOG_NUMBER, TITLE FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject + " AND strftime('%H:%M:%S', START_TIME) > '10:00:00' ";
+        System.out.println("selected course number and title with filters: " + selectQuery);
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
@@ -196,17 +201,36 @@ public class DatabaseManager extends SQLiteOpenHelper {
         return title_from_db;
     }
 
-    public List<String> getAllSection(String sub, String course_num) {
+    public List<String> getAllSection(String sub, String course_num, boolean[] filters) {
         List<String> course_from_db = new ArrayList<String>();
+        String query_laterthan10 = "";
+        String query_indaytime = "";
+        String final_query = "";
+        String query_notbetween = "";
+        String query_notbetween2="";
         course_from_db.add("ALL");
         String subject = "\""+ sub + "\"";
-        String selectQuery = "SELECT SECTION FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject + " AND CATALOG_NUMBER = " + course_num;
-        System.out.println(selectQuery);
+        if(filters != null) {
+            if (filters[0]) {
+                query_laterthan10 = " AND strftime('%H:%M:%S', START_TIME) > '10:00:00'";
+            }
+            if (filters[1]) {
+                query_notbetween = " AND (strftime('%H:%M:%S', START_TIME) NOT BETWEEN '12:00:00' AND '13:00:00')";
+                query_notbetween2 = " AND (strftime('%H:%M:%S', END_TIME) NOT BETWEEN '13:00:00' AND '13:59:00')";
+            }
+            if (filters[2]) {
+                query_indaytime = " AND (strftime('%H:%M:%S', START_TIME) NOT BETWEEN '19:00:00' AND '23:00:00')";
+            }
+            final_query = "SELECT SECTION, WEEKDAYS, START_TIME, END_TIME FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject + " AND CATALOG_NUMBER = " + course_num + query_laterthan10 + query_indaytime + query_notbetween + query_notbetween2;
+        }else{
+            final_query = "SELECT SECTION, WEEKDAYS, START_TIME, END_TIME FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject + " AND CATALOG_NUMBER = " + course_num;
+
+        }
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
+        Cursor cursor = db.rawQuery(final_query, null);
 
         while (cursor.moveToNext()) {
-            course_from_db.add(cursor.getString(cursor.getColumnIndex("SECTION")));
+            course_from_db.add(cursor.getString(cursor.getColumnIndex("SECTION")) + " " + cursor.getString(cursor.getColumnIndex("WEEKDAYS")) + " " + cursor.getString(cursor.getColumnIndex("START_TIME")) + "-" + cursor.getString(cursor.getColumnIndex("END_TIME")));
         }
         cursor.close();
         db.close();

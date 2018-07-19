@@ -1,6 +1,4 @@
 package com.example.schedu;
-
-<<<<<<< HEAD
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
 import com.google.api.client.http.HttpTransport;
@@ -8,12 +6,12 @@ import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.DateTime;
 import com.google.api.services.calendar.model.CalendarListEntry;
-=======
+
 import android.os.AsyncTask;
 
 import com.google.api.client.util.DateTime;
 import com.google.api.services.calendar.Calendar;
->>>>>>> 781be9654c84c627a6392d5a0dce2a93e6519707
+
 import com.google.api.services.calendar.model.Event;
 import com.google.api.services.calendar.model.EventAttendee;
 import com.google.api.services.calendar.model.EventDateTime;
@@ -22,13 +20,9 @@ import com.google.api.services.calendar.Calendar;
 
 import java.io.IOException;
 import java.util.Arrays;
-<<<<<<< HEAD
+
 import java.util.Date;
 import java.util.TimeZone;
-
-public class AddEvents {
-    public com.google.api.services.calendar.Calendar mService;
-=======
 
 public class AddEvents extends AsyncTask<Void, Void, Void> {
     Calendar mService;
@@ -42,7 +36,6 @@ public class AddEvents extends AsyncTask<Void, Void, Void> {
         addCalendarEvent();
         return null;
     }
->>>>>>> 781be9654c84c627a6392d5a0dce2a93e6519707
 
     public void addCalendarEvent() {
         Event event = new Event()
@@ -80,8 +73,8 @@ public class AddEvents extends AsyncTask<Void, Void, Void> {
                 .setOverrides(Arrays.asList(reminderOverrides));
         event.setReminders(reminders);
 
-<<<<<<< HEAD
 
+/*
     public void createEvent(Calendar cal) throws IOException {
 
         Event event = new Event();
@@ -106,13 +99,12 @@ public class AddEvents extends AsyncTask<Void, Void, Void> {
 
 
 }
-=======
         String calendarId = "primary";
         try {
             mService.events().insert(calendarId, event).execute();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        */
     }
 }
->>>>>>> 781be9654c84c627a6392d5a0dce2a93e6519707

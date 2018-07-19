@@ -270,15 +270,6 @@ public class GoogleCalendar extends Activity {
          */
         private List<String> getDataFromApi() throws IOException {
 
-            AddEvents a = new AddEvents();
-            try {
-                a.createEvent(a.mService);
-            }catch (Exception e) {
-                e.printStackTrace();
-
-            }
-
-
             // List the next 10 events from the primary calendar.
             DateTime now = new DateTime(System.currentTimeMillis());
             List<String> eventStrings = new ArrayList<String>();

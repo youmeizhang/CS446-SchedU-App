@@ -19,8 +19,11 @@ import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-<<<<<<< HEAD
+
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -31,14 +34,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
-=======
->>>>>>> 781be9654c84c627a6392d5a0dce2a93e6519707
 import java.io.IOException;
 import java.util.ArrayList;
-<<<<<<< HEAD
 import java.util.HashMap;
-=======
->>>>>>> 781be9654c84c627a6392d5a0dce2a93e6519707
 import java.util.List;
 
 
@@ -64,6 +62,7 @@ public class MainActivity extends AppCompatActivity  {
     private ArrayAdapter<String> sesAdapter;
 
     private boolean[] filters = {false, false, false, false, false};
+    //private boolean[] filters;
     private boolean gotofilter;
     private Button btn_filter;
     private CheckBox cb_filter;
@@ -104,41 +103,25 @@ public class MainActivity extends AppCompatActivity  {
         textView2 = (TextView)findViewById(R.id.display_read);
 
         cb_filter = findViewById(R.id.needfilter);
-/*
-        login = (Button) findViewById(R.id.login);
 
-        login.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                Intent i = new Intent(MainActivity.this, Main4Activity.class);
-                startActivity(i);
-            }
-        });*/
 
-<<<<<<< HEAD
-        add_event = (Button) findViewById(R.id.add_event);
-        add_event.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AddEvents a = new AddEvents();
-                try {
-                    a.createEvent(a.mService);
-                }catch (Exception e) {
-                    e.printStackTrace();
 
-                }
-            }
-
-        });
-=======
->>>>>>> 781be9654c84c627a6392d5a0dce2a93e6519707
 
         // get database manger
         databaseManager = DatabaseManager.getHelper(this);
         //FetchAllCourse process = new FetchAllCourse(databaseManager);
         //process.execute(); //fill all class information into classTable
 
+        filters = getIntent().getBooleanArrayExtra("filters");
+        if(filters != null) {
+            System.out.println("content of filters_new is :" + filters[0] + filters[1] + filters[2] + filters[3] + filters[4]);
+        }
+
+
+        gotofilter = getIntent().getBooleanExtra("needed", false);
+
+
         final List<String> sub_from_db = databaseManager.getAllLabels();
-        System.out.println("all subjects are here: " + sub_from_db);
 
         subAdapter = new ArrayAdapter<String>(MainActivity.this,
                 android.R.layout.simple_spinner_item, sub_from_db);
@@ -149,14 +132,11 @@ public class MainActivity extends AppCompatActivity  {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 string_subject = parent.getItemAtPosition(position).toString();
                 course_from_db = databaseManager.getAllCourse(string_subject);
-                System.out.println(course_from_db);
+                System.out.println("all course with filters are here" + course_from_db);
 
                 couAdapter = new ArrayAdapter<String>(MainActivity.this,
                         android.R.layout.simple_spinner_item, course_from_db);
                 course.setAdapter(couAdapter);
-
-                //String[] subject = getResources().getStringArray(R.array.subjects);
-                //textView.setText("the subject you choose is:" + subject[position]);
             }
 
             @Override
@@ -170,19 +150,34 @@ public class MainActivity extends AppCompatActivity  {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //string_course = parent.getItemAtPosition(position).toString();
                 string_course = parent.getItemAtPosition(position).toString();
+                List<String> final_section = new ArrayList<String>();;
 
                 String[] list = string_course.split(" ");
                 String courseNumber = list[0];
                 System.out.println(courseNumber);
 
-                section_from_db = databaseManager.getAllSection(string_subject, courseNumber);
+                section_from_db = databaseManager.getAllSection(string_subject, courseNumber, filters);
 
-                System.out.println(section_from_db);
-
+                System.out.println(section_from_db); // section are here
+                for (int i=1; i < section_from_db.size(); i++) {
+                    String[] tmp = section_from_db.get(i).split(" ")[3].split("-");
+                    String startTime = tmp[0].replace(":", "");
+                    String endTime = tmp[1].replace(":", "");
+                    int s_tmp = Integer.parseInt(startTime);
+                    int e_tmp = Integer.parseInt(endTime);
+                    long duration = Calculation.timeDifference(startTime, endTime);
+                    if (s_tmp < 1200 && e_tmp > 1300){
+                        continue;
+                    }else if(filters != null && duration > 120 && filters[4]){
+                        continue;
+                    }else {
+                        final_section.add(section_from_db.get(i));
+                    }
+                }
+                System.out.println(final_section);
                 sesAdapter = new ArrayAdapter<String>(MainActivity.this,
-                        android.R.layout.simple_spinner_item, section_from_db);
+                        android.R.layout.simple_spinner_item, final_section);
                 session.setAdapter(sesAdapter);
-                //s = string_subject + string_course;
             }
 
             @Override
@@ -250,12 +245,12 @@ public class MainActivity extends AppCompatActivity  {
                 System.out.println("User is going to add Filter...");
 
                 Intent i = new Intent(MainActivity.this, AddFilters.class);
-                i.putExtra("filters",filters);
+                //i.putExtra("filters",filters);
                 startActivity(i);
             }
         });
 
-        gotofilter = getIntent().getBooleanExtra("needed", false);
+
         //filters = getIntent().getBooleanArrayExtra("filters");
         cb_filter.setChecked(gotofilter);
 
@@ -274,8 +269,6 @@ public class MainActivity extends AppCompatActivity  {
         ArrayList<TimeTable> allTimeTables = new ArrayList<>();
 
         ArrayList<Course> data = dbHandler.GetCourses();
-
-        //System.out.println("selected courses: ");
 
         for (Course c: data){
 

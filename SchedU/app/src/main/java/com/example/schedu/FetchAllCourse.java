@@ -22,7 +22,7 @@ public class FetchAllCourse extends AsyncTask<DatabaseManager, Void, Void> {
     String catalog_number = "";
     DatabaseManager databaseManager = null;
     final int NUM_TRY_MAX = 5;
-    final int NUM_THREAD = 150;
+    final int NUM_THREAD = 10;
     final int TIME_OUT = 30000; //milliseconds.
     public static int tt = 0;
     public static synchronized void increment() {

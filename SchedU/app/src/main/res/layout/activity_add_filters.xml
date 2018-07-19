@@ -50,7 +50,7 @@
         android:id="@+id/filter5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Continued duration less than 3 hours ."
+        android:text="Continued duration less than 2 hours ."
         android:padding="15dp"/>
 
     <LinearLayout
