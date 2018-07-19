@@ -1,5 +1,6 @@
 package com.example.schedu;
 
+<<<<<<< HEAD
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
 import com.google.api.client.http.HttpTransport;
@@ -7,6 +8,12 @@ import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.DateTime;
 import com.google.api.services.calendar.model.CalendarListEntry;
+=======
+import android.os.AsyncTask;
+
+import com.google.api.client.util.DateTime;
+import com.google.api.services.calendar.Calendar;
+>>>>>>> 781be9654c84c627a6392d5a0dce2a93e6519707
 import com.google.api.services.calendar.model.Event;
 import com.google.api.services.calendar.model.EventAttendee;
 import com.google.api.services.calendar.model.EventDateTime;
@@ -15,40 +22,65 @@ import com.google.api.services.calendar.Calendar;
 
 import java.io.IOException;
 import java.util.Arrays;
+<<<<<<< HEAD
 import java.util.Date;
 import java.util.TimeZone;
 
 public class AddEvents {
     public com.google.api.services.calendar.Calendar mService;
+=======
 
-    public void insertEvent(String summary, String location, String des, DateTime startDate, DateTime endDate, EventAttendee[] eventAttendees) throws IOException {
+public class AddEvents extends AsyncTask<Void, Void, Void> {
+    Calendar mService;
+
+    AddEvents(Calendar mService) {
+        this.mService = mService;
+    }
+
+    @Override
+    protected Void doInBackground(Void... params) {
+        addCalendarEvent();
+        return null;
+    }
+>>>>>>> 781be9654c84c627a6392d5a0dce2a93e6519707
+
+    public void addCalendarEvent() {
         Event event = new Event()
-                .setSummary(summary)
-                .setLocation(location)
-                .setDescription(des);     EventDateTime start = new EventDateTime()
-                .setDateTime(startDate)
-                .setTimeZone("America/Los_Angeles");
+                .setSummary("CS341")
+                .setLocation("University of Waterloo")
+                .setDescription("Algorithm");
 
-        event.setStart(start);     EventDateTime end = new EventDateTime()
-                .setDateTime(endDate)
+        DateTime startDateTime = new DateTime("2018-07-20T14:30:00-04:00");
+        EventDateTime start = new EventDateTime()
+                .setDateTime(startDateTime)
                 .setTimeZone("America/Los_Angeles");
-        event.setEnd(end);     String[] recurrence = new String[] {"RRULE:FREQ=DAILY;COUNT=1"};
-        event.setRecurrence(Arrays.asList(recurrence));     event.setAttendees(Arrays.asList(eventAttendees));     EventReminder[] reminderOverrides = new EventReminder[] {
+        event.setStart(start);
+
+        DateTime endDateTime = new DateTime("2018-07-20T15:50:00-04:00");
+        EventDateTime end = new EventDateTime()
+                .setDateTime(endDateTime)
+                .setTimeZone("America/Los_Angeles");
+        event.setEnd(end);
+
+        String[] recurrence = new String[]{"RRULE:FREQ=WEEKLY;UNTIL=20180811T170000Z"};
+        event.setRecurrence(Arrays.asList(recurrence));
+
+        EventAttendee[] attendees = new EventAttendee[]{
+                new EventAttendee().setEmail("test@example.com"),
+                new EventAttendee().setEmail("sbrin@example.com"),
+        };
+        event.setAttendees(Arrays.asList(attendees));
+
+        EventReminder[] reminderOverrides = new EventReminder[]{
                 new EventReminder().setMethod("email").setMinutes(24 * 60),
                 new EventReminder().setMethod("popup").setMinutes(10),
         };
         Event.Reminders reminders = new Event.Reminders()
                 .setUseDefault(false)
                 .setOverrides(Arrays.asList(reminderOverrides));
-        event.setReminders(reminders);     String calendarId = "primary";
-        //event.send
-        if(mService!=null)
-            mService.events().insert(calendarId, event).setSendNotifications(true).execute();
-    }
+        event.setReminders(reminders);
 
-    // another one example
-    // unsure why this happens
-
+<<<<<<< HEAD
 
     public void createEvent(Calendar cal) throws IOException {
 
@@ -74,3 +106,13 @@ public class AddEvents {
 
 
 }
+=======
+        String calendarId = "primary";
+        try {
+            mService.events().insert(calendarId, event).execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+>>>>>>> 781be9654c84c627a6392d5a0dce2a93e6519707

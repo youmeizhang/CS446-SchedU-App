@@ -81,8 +81,7 @@ public class FetchAllCourse extends AsyncTask<DatabaseManager, Void, Void> {
 
             // all course info obtained. Get individual course info by threadpool
             ExecutorService executor = Executors.newFixedThreadPool(NUM_THREAD);
-            // JA.length()
-            for (int i = 0; i < 500; i++) {
+            for (int i = 0; i < JA.length(); i++) {
                 JSONObject courseObj = (JSONObject) JA.get(i);
                 subject  = courseObj.getString("subject");
                 catalog_number  = courseObj.getString("catalog_number");

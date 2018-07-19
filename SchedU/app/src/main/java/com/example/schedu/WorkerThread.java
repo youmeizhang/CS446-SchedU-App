@@ -49,6 +49,7 @@ public class WorkerThread implements Runnable {
         //System.out.println("Worker. dojob head ");
         boolean retval = false;
         HttpURLConnection courseHttpURLConnection = null;
+        InputStream courseInputStream = null;
         try {
             URL courseUrl = new URL("https://api.uwaterloo.ca/v2/courses/"+this.subject+"/"+this.catalog_number+"/schedule.json?key=6e9e2a8c5b5114e5b4fe9d30387fec4d");
             //URL courseUrl = new URL("https://api.uwaterloo.ca/v2/courses/cs/446/schedule.json?key=6e9e2a8c5b5114e5b4fe9d30387fec4d");
@@ -57,7 +58,7 @@ public class WorkerThread implements Runnable {
 
             courseHttpURLConnection.setConnectTimeout(TIME_OUT); // timeout 30 sec
             courseHttpURLConnection.setReadTimeout(TIME_OUT);    // readtimeout 30 sec
-            InputStream courseInputStream = courseHttpURLConnection.getInputStream();
+            courseInputStream = courseHttpURLConnection.getInputStream();
             BufferedReader courseBufferedReader = new BufferedReader(new InputStreamReader(courseInputStream));
             String courseLine = "";
             String totalLine = "";
@@ -131,6 +132,8 @@ public class WorkerThread implements Runnable {
 
             }
             retval = true;
+            courseInputStream.close();
+
 
         } catch (java.net.SocketTimeoutException e) {
             e.printStackTrace();
@@ -145,6 +148,8 @@ public class WorkerThread implements Runnable {
         } catch (JSONException e) {
             e.printStackTrace();
             System.out.println("AAAAA44 " + subject + " " + catalog_number + ". " + e);
+        }catch (Exception e) {
+            e.printStackTrace();
         }finally {
             courseHttpURLConnection.disconnect();
         }

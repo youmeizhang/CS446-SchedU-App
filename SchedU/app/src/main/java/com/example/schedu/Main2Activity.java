@@ -269,8 +269,8 @@ public class Main2Activity extends AppCompatActivity implements SimpleGestureLis
         like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Main2Activity.this, CalenderVersion.class);
-                startActivity(intent);
+                Intent i = new Intent(Main2Activity.this, Main4Activity.class);
+                startActivity(i);
             }
         });
 
