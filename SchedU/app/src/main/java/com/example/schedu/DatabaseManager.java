@@ -43,7 +43,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
 
     public DatabaseManager(Context context) {
-        super(context, "UWCourseDB", null, 44);
+        super(context, "UWCourseDB", null, 45);
         SQLiteDatabase db = this.getWritableDatabase();
     }
 
@@ -131,7 +131,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
     public List<String> getAllLabels(){
         List<String> sub_from_db = new ArrayList<String>();
-        String selectQuery = "SELECT DISTINCT subject FROM " + CLASS_TABLE + " ORDER BY subject ASC";
+        String selectQuery = "SELECT DISTINCT subject FROM " + CLASS_TABLE;
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -145,7 +145,6 @@ public class DatabaseManager extends SQLiteOpenHelper {
         db.close();
         return sub_from_db;
     }
-
     public List<String> getAllCourseNum(String sub) {
         List<String> course_with_num = new ArrayList<>();
 
@@ -168,8 +167,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         List<String> course_from_db = new ArrayList<String>();
 
         String subject = "\""+ sub + "\"";
-        String selectQuery = "SELECT DISTINCT catalog_number, TITLE FROM " + CLASS_TABLE + " WHERE subject = " + subject + " ORDER BY catalog_number ASC";
-        System.out.println(selectQuery);
+        String selectQuery = "SELECT DISTINCT CATALOG_NUMBER, TITLE FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject;
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -185,7 +183,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
     public List<String> getAllTitle(String sub, String course_num){
 
         List<String> title_from_db = new ArrayList<String>();
-        String selectQuery = "SELECT TITLE FROM " + CLASS_TABLE + " WHERE subject = " + sub + " AND course_num = " + course_num + " ORDER BY TITLE ASC";
+        String selectQuery = "SELECT title FROM " + CLASS_TABLE + " WHERE subject = " + sub + " AND course_num = " + course_num;
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -202,7 +200,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         List<String> course_from_db = new ArrayList<String>();
         course_from_db.add("ALL");
         String subject = "\""+ sub + "\"";
-        String selectQuery = "SELECT SECTION FROM " + CLASS_TABLE + " WHERE subject = " + subject + " AND catalog_number = " + course_num;
+        String selectQuery = "SELECT SECTION FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject + " AND CATALOG_NUMBER = " + course_num;
         System.out.println(selectQuery);
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -218,7 +216,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
     public ArrayList<CourseInfo> getCourseDetails(String sub, String course_num) {
         ArrayList<CourseInfo> courseDetails = new ArrayList<>();
         String subject = "\""+ sub + "\"";
-        String selectQuery = "SELECT * FROM " + CLASS_TABLE + " WHERE subject = " + subject + " AND catalog_number = " + course_num;
+        String selectQuery = "SELECT * FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject + " AND CATALOG_NUMBER = " + course_num;
         System.out.println(selectQuery);
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);

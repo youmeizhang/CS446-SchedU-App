@@ -40,10 +40,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
 public class GoogleCalendar extends Activity {
     GoogleAccountCredential mCredential;
     private TextView mOutputText;
     ProgressDialog mProgress;
+    public static com.google.api.services.calendar.Calendar mService;
+
 
     static final int REQUEST_ACCOUNT_PICKER = 1000;
     static final int REQUEST_AUTHORIZATION = 1001;
@@ -87,6 +90,7 @@ public class GoogleCalendar extends Activity {
                 getApplicationContext(), Arrays.asList(SCOPES))
                 .setBackOff(new ExponentialBackOff())
                 .setSelectedAccountName(settings.getString(PREF_ACCOUNT_NAME, null));
+        new MakeRequestTask(mCredential).execute();
     }
 
 
@@ -121,8 +125,10 @@ public class GoogleCalendar extends Activity {
     @Override
     protected void onActivityResult(
             int requestCode, int resultCode, Intent data) {
+
         super.onActivityResult(requestCode, resultCode, data);
         switch(requestCode) {
+
             case REQUEST_GOOGLE_PLAY_SERVICES:
                 if (resultCode != RESULT_OK) {
                     isGooglePlayServicesAvailable();
@@ -231,7 +237,6 @@ public class GoogleCalendar extends Activity {
      * Placing the API calls in their own task ensures the UI stays responsive.
      */
     private class MakeRequestTask extends AsyncTask<Void, Void, List<String>> {
-        private com.google.api.services.calendar.Calendar mService = null;
         private Exception mLastError = null;
 
         public MakeRequestTask(GoogleAccountCredential credential) {

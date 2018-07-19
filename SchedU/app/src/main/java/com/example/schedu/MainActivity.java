@@ -16,55 +16,16 @@ import android.widget.ListAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.schedu.SATSolver.Solver;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.api.client.util.DateTime;
-import com.google.api.services.calendar.model.EventAttendee;
 
-<<<<<<< HEAD
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
-=======
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashMap;
->>>>>>> c06c64762e9a18f36c29cfb18c538b8b8ab77112
 import java.util.List;
-import java.util.TimeZone;
 
-import com.google.api.services.calendar.model.Event;
-import com.google.api.services.calendar.model.EventDateTime;
-import com.google.api.services.calendar.model.EventReminder;
-import com.google.api.services.calendar.Calendar.Events.Insert;
-
-
-import static com.example.schedu.FindConstrains.executeSATSolver;
 
 public class MainActivity extends AppCompatActivity  {
 
-    private static final int PROFILE_PIC_SIZE = 400;
-    private static final int RC_SIGN_IN = 0;
-    private GoogleApiClient mGoogleApiClient;
-    private boolean mIntentInProgress;
-    private boolean mShouldResolve;
-    private ConnectionResult connectionResult;
     public static Context mainContext;
 
     private TextView textView1;
@@ -88,7 +49,6 @@ public class MainActivity extends AppCompatActivity  {
     private boolean gotofilter;
     private Button btn_filter;
     private CheckBox cb_filter;
-    private boolean flag;
 
     public static ArrayList<TimeTable> allTimetables = new ArrayList<>();
     public static ArrayList<Integer> colorList = new ArrayList<>();
@@ -102,9 +62,6 @@ public class MainActivity extends AppCompatActivity  {
     String string_priority;
     String s;
     Button login;
-    Button add_event;
-
-    long int_course;
 
     List<String> course_from_db;
     List<String> section_from_db;
@@ -126,26 +83,16 @@ public class MainActivity extends AppCompatActivity  {
         textView2 = (TextView)findViewById(R.id.display_read);
 
         cb_filter = findViewById(R.id.needfilter);
-
+/*
         login = (Button) findViewById(R.id.login);
 
         login.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent i = new Intent(MainActivity.this, GoogleCalendar.class);
+                Intent i = new Intent(MainActivity.this, Main4Activity.class);
                 startActivity(i);
             }
-        });
+        });*/
 
-        add_event = (Button) findViewById(R.id.add_event);
-        add_event.setOnClickListener(new View.OnClickListener() {
-
-
-            @Override
-            public void onClick(View v) {
-
-            }
-
-        });
 
         // get database manger
         databaseManager = DatabaseManager.getHelper(this);
@@ -257,14 +204,9 @@ public class MainActivity extends AppCompatActivity  {
             }
         });
 
-
-
-
-
         btn_filter = (Button)findViewById(R.id.btn_filter);
         btn_filter.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                flag = true;
                 //filters = getIntent().getBooleanArrayExtra("filters");
                 cb_filter.setChecked(true);
                 System.out.println("User is going to add Filter...");
@@ -274,8 +216,6 @@ public class MainActivity extends AppCompatActivity  {
                 startActivity(i);
             }
         });
-
-
 
         gotofilter = getIntent().getBooleanExtra("needed", false);
         //filters = getIntent().getBooleanArrayExtra("filters");
@@ -300,7 +240,6 @@ public class MainActivity extends AppCompatActivity  {
         //System.out.println("selected courses: ");
 
         for (Course c: data){
-            //System.out.println("=====" + c.name + " " + c.number + " " + c.sectionNumber + " " + c.priority + "=====");
 
             ArrayList<CourseInfo> courseInfos = databaseHelper.getCourseDetails(c.name, c.number);
             if (c.sectionNumber.contains("ALL")) {
@@ -320,8 +259,8 @@ public class MainActivity extends AppCompatActivity  {
                     }
                 }
             }
+            c.printCourseSummary();
 
-            //System.out.println("=============================================");
         }
         FindConstrains.executeSATSolver(data);
 
@@ -346,50 +285,5 @@ public class MainActivity extends AppCompatActivity  {
         colorList.add(getResources().getColor(R.color.greenYellow));
     }
 
-
-    private boolean writeToSATfile(String filename, String fileContent){
-        FileOutputStream outputStream;
-        boolean retval = true;
-        try {
-            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
-            outputStream.write(fileContent.getBytes());
-            outputStream.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-            retval = false;
-        }
-
-        return retval;
-    }
-
-    private String readFromFile(String filename) {
-
-        String ret = "";
-
-        try {
-            InputStream inputStream = openFileInput(filename);
-
-            if ( inputStream != null ) {
-                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String receiveString = "";
-                StringBuilder stringBuilder = new StringBuilder();
-
-                while ( (receiveString = bufferedReader.readLine()) != null ) {
-                    stringBuilder.append(receiveString + "\n");
-                }
-
-                inputStream.close();
-                ret = stringBuilder.toString();
-            }
-        }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return ret;
-    }
 
 }
