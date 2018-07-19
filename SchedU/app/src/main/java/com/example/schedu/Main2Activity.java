@@ -264,7 +264,7 @@ public class Main2Activity extends AppCompatActivity implements SimpleGestureLis
 
         }
 
-
+        // change to calendar version
         like = (Button)findViewById(R.id.like);
         like.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -273,6 +273,9 @@ public class Main2Activity extends AppCompatActivity implements SimpleGestureLis
                 startActivity(intent);
             }
         });
+
+        //
+        
     }
 
 
@@ -314,6 +317,7 @@ public class Main2Activity extends AppCompatActivity implements SimpleGestureLis
 
 
 }
+
 
 
 

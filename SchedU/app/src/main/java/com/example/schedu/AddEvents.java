@@ -1,19 +1,25 @@
 package com.example.schedu;
 
+import com.google.api.client.extensions.android.http.AndroidHttp;
+import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
+import com.google.api.client.http.HttpTransport;
+import com.google.api.client.json.JsonFactory;
+import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.DateTime;
+import com.google.api.services.calendar.model.CalendarListEntry;
 import com.google.api.services.calendar.model.Event;
 import com.google.api.services.calendar.model.EventAttendee;
 import com.google.api.services.calendar.model.EventDateTime;
 import com.google.api.services.calendar.model.EventReminder;
+import com.google.api.services.calendar.Calendar;
 
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
 public class AddEvents {
-    private com.google.api.services.calendar.Calendar mService = null;
+    public com.google.api.services.calendar.Calendar mService;
 
     public void insertEvent(String summary, String location, String des, DateTime startDate, DateTime endDate, EventAttendee[] eventAttendees) throws IOException {
         Event event = new Event()
@@ -43,6 +49,7 @@ public class AddEvents {
     // another one example
     // unsure why this happens
 
+
     public void createEvent(Calendar cal) throws IOException {
 
         Event event = new Event();
@@ -56,8 +63,14 @@ public class AddEvents {
         DateTime end = new DateTime(endDate, TimeZone.getTimeZone("UTC"));
         event.setEnd(new EventDateTime().setDateTime(end));
 
+        //get calendar id
+
+        //CalendarListEntry calendarListEntry = mService.calendarList().get("calendarId").execute();
+        //System.out.println(calendarListEntry.getSummary());
+
         Event createdEvent = cal.events().insert("primary", event).execute();
         System.out.println("Created event id: " + createdEvent.getId());
     }
+
 
 }

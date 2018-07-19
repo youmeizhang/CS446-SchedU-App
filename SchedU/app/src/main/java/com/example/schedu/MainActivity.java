@@ -27,13 +27,11 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.api.client.util.DateTime;
 import com.google.api.services.calendar.model.EventAttendee;
 
-<<<<<<< HEAD
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
-=======
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -45,7 +43,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
->>>>>>> c06c64762e9a18f36c29cfb18c538b8b8ab77112
 import java.util.List;
 import java.util.TimeZone;
 
@@ -113,6 +110,9 @@ public class MainActivity extends AppCompatActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        GoogleCalendar a = new GoogleCalendar();
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mainContext = getApplicationContext();
@@ -138,18 +138,22 @@ public class MainActivity extends AppCompatActivity  {
 
         add_event = (Button) findViewById(R.id.add_event);
         add_event.setOnClickListener(new View.OnClickListener() {
-
-
             @Override
             public void onClick(View v) {
+                AddEvents a = new AddEvents();
+                try {
+                    a.createEvent(a.mService);
+                }catch (Exception e) {
+                    e.printStackTrace();
 
+                }
             }
 
         });
 
         // get database manger
         databaseManager = DatabaseManager.getHelper(this);
-        FetchAllCourse process = new FetchAllCourse(databaseManager);
+        //FetchAllCourse process = new FetchAllCourse(databaseManager);
         //process.execute(); //fill all class information into classTable
 
         final List<String> sub_from_db = databaseManager.getAllLabels();
