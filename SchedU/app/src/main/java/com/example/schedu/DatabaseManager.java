@@ -45,7 +45,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
 
     public DatabaseManager(Context context) {
-        super(context, "UWCourseDB", null, 45);
+        super(context, "UWCourseDB", null, 52);
         SQLiteDatabase db = this.getWritableDatabase();
     }
 
@@ -69,12 +69,20 @@ public class DatabaseManager extends SQLiteOpenHelper {
                 "INSTRUCTOR TEXT," +
                 "INSTRUCTOR_RATING TEXT," +
                 "ACADEMIC_LEVEL TEXT)");
+
+        db.execSQL("create table " + "prof_ratings" + " (TID INTEGER PRIMARY KEY," +
+                "DEPARTMENT TEXT," +
+                "FIRST_NAME TEXT," +
+                "MIDDLE_NAME TEXT," +
+                "LAST_NAME TEXT," +
+                "RATING TEXT)");
         //fillClassTable();
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + CLASS_TABLE);
+        db.execSQL("DROP TABLE IF EXISTS " + "prof_ratings");
         onCreate(db);
     }
     // to insert or update a row of data. Thread safe.
@@ -117,6 +125,59 @@ public class DatabaseManager extends SQLiteOpenHelper {
             if (rev == -1) System.out.println("DatabaseManager.java " + subject + " " + catalog_number + " " + section + " update failed.");
         }
         return -1 != rev;
+    }
+
+    public boolean fillProfRatings (String tid, String department, String firstName, String middleName,
+                                    String lastName, String rating) {
+        SQLiteDatabase db = this.getWritableDatabase(); // use this sqlitedatabase instance to insert data into this db.
+
+        ContentValues contentValues = new ContentValues(); // instance of a row of values, used to insert row into table
+        // add column values into this contentValues
+        contentValues.put("TID", Integer.parseInt(tid));
+        contentValues.put("DEPARTMENT", department);
+        contentValues.put("FIRST_NAME", firstName);
+        contentValues.put("MIDDLE_NAME", middleName);
+        contentValues.put("LAST_NAME", lastName);
+        contentValues.put("RATING", rating);
+
+        boolean profExist = false;
+        String Query = "Select * from " + "prof_ratings" + " where TID = " + tid;
+        Cursor cursor = db.rawQuery(Query, null);
+        if(cursor.getCount() > 0){
+            profExist = true;
+        }
+
+        // insert or update this row in the table prof_ratings
+        long rev = 0;
+        if (profExist == true) {
+            rev = db.update("prof_ratings", contentValues, "TID="+tid, null);
+            if (rev == -1) System.out.println("DatabaseManager.java, prof_rating: " + firstName + " " + lastName + " " + " insertion failed.");
+        } else {
+            rev = db.insert("prof_ratings", null, contentValues);
+            if (rev == -1) System.out.println("DatabaseManager.java, prof_rating: " + firstName + " " + lastName + " " + " update failed.");
+        }
+        cursor.close();
+        db.close();
+        return -1 != rev;
+    }
+
+    public String getRating(String firstName, String lastName) {
+        String retval = "N/A";
+        SQLiteDatabase db = this.getWritableDatabase();
+        String Query = "Select * from " + "prof_ratings" + " where FIRST_NAME = '" + firstName + "' AND LAST_NAME = '"+lastName+"'";
+        Cursor cursor = db.rawQuery(Query, null);
+        if(cursor.getCount() <= 0){
+            System.out.println("Prof " + firstName + " " + lastName + "was not in ratemyprofessors database.");
+        } else if (cursor.getCount() == 1){
+            cursor.moveToNext();
+            //System.out.println("DDDFFF" + cursor.getString(cursor.getColumnIndex("rating")));
+            retval = cursor.getString(cursor.getColumnIndex("RATING"));
+
+        } else {
+            System.out.println("More than one " + firstName + " " + lastName);
+        }
+        cursor.close();
+        return retval;
     }
 
     public boolean CheckIsDataAlreadyInDBorNot(String class_number) {
