@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity  {
     private Button btn_filter;
     private CheckBox cb_filter;
 
+    public static TimeTable curTimeTable;
     public static ArrayList<TimeTable> allTimetables = new ArrayList<>();
     public static ArrayList<Integer> colorList = new ArrayList<>();
 
