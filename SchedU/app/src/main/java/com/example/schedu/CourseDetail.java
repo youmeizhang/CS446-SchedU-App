@@ -10,17 +10,25 @@ import android.util.DisplayMetrics;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CourseDetail extends Activity {
 
     private ArrayList<TextView> tvList;
     private Context mContext;
     private Activity mActivity;
+    private String catalogNumber;
+    private String subjectName;
+    private String sectionNumber;
+    public static DatabaseManager databaseManager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.coursedetail);
+
+
+        databaseManager = DatabaseManager.getHelper(this);
 
         tvList = new ArrayList<>();
 
@@ -37,6 +45,18 @@ public class CourseDetail extends Activity {
 
         int width = dm.widthPixels;
         int height = dm.heightPixels;
+
+        sectionNumber = getIntent().getStringExtra("CourseName").split("\n")[1];
+        catalogNumber = getIntent().getStringExtra("catalogNumber");
+        subjectName = getIntent().getStringExtra("subjectName");
+
+        System.out.println("subjectName is:" + subjectName);
+        System.out.println("catalogNumber is:" + catalogNumber);
+        System.out.println("sectionNumber is: " + sectionNumber);
+
+        List<String> rating = databaseManager.getProfRating(catalogNumber, subjectName, sectionNumber);
+        //String tmp = rating.get(0);
+        //System.out.println("get rating here: " + rating);
 
 
         TextView tv1 = new TextView(this);
@@ -67,7 +87,8 @@ public class CourseDetail extends Activity {
         tvList.add(tv5);
 
 
-        getWindow().setLayout((int) (width*.6), (int) (height*.45));
+
+        getWindow().setLayout((int) (width*.6), (int) (height*.60));
 
         mContext = getApplicationContext();
         mActivity = CourseDetail.this;

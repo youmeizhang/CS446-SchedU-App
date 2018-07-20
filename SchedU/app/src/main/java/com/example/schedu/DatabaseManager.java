@@ -226,6 +226,28 @@ public class DatabaseManager extends SQLiteOpenHelper {
         return course_with_num;
     }
 
+    public List<String> getProfRating(String catalogNumber, String subjectName, String sectionNumber) {
+        List<String> prof_rating = new ArrayList<String>();
+
+        String new_sub = "\""+ subjectName + "\"";
+        String sess = "\"" + sectionNumber +"\"";
+        System.out.println("new sess is here: " + sess);
+        String selectQuery = "SELECT INSTRUCTOR_RATING FROM " + CLASS_TABLE + " WHERE subject = " + new_sub + " AND CATALOG_NUMBER = " + catalogNumber + " AND SECTION = " + sess;
+        System.out.println("prof rating query is: " + selectQuery);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        while (cursor.moveToNext()) {
+            prof_rating.add(cursor.getString(cursor.getColumnIndex("INSTRUCTOR_RATING")));
+        }
+        cursor.close();
+        db.close();
+
+        return prof_rating;
+    }
+
 
     public List<String> getAllCourse(String sub) {
         List<String> course_from_db = new ArrayList<String>();

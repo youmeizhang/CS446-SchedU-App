@@ -43,6 +43,8 @@ public class Main2Activity extends AppCompatActivity implements SimpleGestureLis
     private String title;
     private int id;
 
+    private String subjectName;
+    private String catalogNumber;
     private SimpleGestureFilter detector;
 
 
@@ -67,6 +69,9 @@ public class Main2Activity extends AppCompatActivity implements SimpleGestureLis
         };
 
         for (CourseInfo i : timeTable.contents) {
+            catalogNumber = i.number;
+            subjectName = i.name;
+
             String courseName = i.name + i.number;
             String start = i.startTime.replace(":", "");
             String end = i.endTime.replace(":", "");
@@ -94,6 +99,7 @@ public class Main2Activity extends AppCompatActivity implements SimpleGestureLis
                 String enrollmentNumber_tmp = enrollmentNumber;
                 String location_tmp = location;
                 String title_tmp = title;
+                //String catalogNumber_tmp = catalogNumber;
                 public void onClick(View view) {
                     Intent intent = new Intent(Main2Activity.this, CourseDetail.class);
                     intent.putExtra("CourseName", coursename_tmp);
@@ -103,6 +109,8 @@ public class Main2Activity extends AppCompatActivity implements SimpleGestureLis
                     intent.putExtra("EnrollmentNumber", enrollmentNumber_tmp);
                     intent.putExtra("Location", location_tmp);
                     intent.putExtra("Title", title_tmp);
+                    intent.putExtra("catalogNumber", catalogNumber);
+                    intent.putExtra("subjectName", subjectName);
                     startActivity(intent);
                 }
             };

@@ -55,4 +55,15 @@
         android:layout_below="@+id/enrollment"
         android:layout_marginTop="21dp" />
 
+    <TextView
+        android:id="@+id/prof_rating"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/location"
+        android:layout_alignStart="@+id/location"
+        android:layout_below="@+id/location"
+        android:textSize="25dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="21dp" />
+
 </RelativeLayout>
