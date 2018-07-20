@@ -42,6 +42,21 @@ public class FetchAllCourse extends AsyncTask<DatabaseManager, Void, Void> {
     protected Void doInBackground(DatabaseManager... args) {
         int time = (int) (System.currentTimeMillis());
         int numTry = 0;
+
+        System.out.println("WILL BE FILLING RATING");
+        while (fillInProfRatingsTable() == false) {
+            numTry ++;
+            if (numTry == NUM_TRY_MAX) break;
+            System.out.println("Prof rating filling failed. Will retry");
+        }
+
+        if (numTry == NUM_TRY_MAX) {
+            System.out.println("Prof rating filling finally failed");
+        } else {
+            System.out.println("Prof rating filling done successfully");
+        }
+        numTry = 0;
+
         while (doJob() == false) {// try to get the whole course info,
             numTry ++;
             if (numTry == NUM_TRY_MAX) break;
@@ -52,6 +67,84 @@ public class FetchAllCourse extends AsyncTask<DatabaseManager, Void, Void> {
         System.out.println("TIME USED: " + diff);
         return null;
     }
+
+    private boolean fillInProfRatingsTable() {
+        boolean retval = true;
+        HttpURLConnection httpURLConnection = null;
+        int page = 1;
+        int ct = 0;
+        while (true) {
+            try {
+                URL url = new URL("http://www.ratemyprofessors.com/find/professor/?department=&institution=University+of+Waterloo%2C&page="+page+"&query=*%3A*&queryoption=TEACHER&queryBy=schoolId&sid=1490&sortBy=");
+                httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setConnectTimeout(TIME_OUT); // timeout 30 sec
+                httpURLConnection.setReadTimeout(TIME_OUT);    // readtimeout 30 sec
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                String line = "";
+                String buffer = "";
+                String professors = "";
+                while (line != null) {
+                    line = bufferedReader.readLine();
+                    buffer = buffer + line;
+                }
+                //double totalclass = 0;
+                JSONObject JO = new JSONObject(buffer);
+                professors  = JO.getString("professors");
+                JSONArray JA = new JSONArray(professors);
+                int ttl = JA.length();
+                ct += ttl; // update total number of professors
+                if (ttl == 0) break;
+                //System.out.println("page "+page+" has " + ttl + " professors");
+                for ( int i = 0; i < ttl; i++)     {
+                    // General information of a course
+                    JSONObject profObj = (JSONObject) JA.get(i);
+                    String tid = (String) profObj.getString("tid");
+                    String department = (String)profObj.getString("tDept");
+                    String firstName = (String)profObj.getString("tFname");
+                    String middleName = (String)profObj.getString("tMiddlename");
+                    String lastName = (String)profObj.getString("tLname");
+                    String rating =  (profObj.get("overall_rating") instanceof Double) ? Double.toString((Double)profObj.getDouble("overall_rating")) : (String) profObj.getString("overall_rating");
+
+                    boolean insertRatingSuccess = false;
+                    insertRatingSuccess = databaseManager.fillProfRatings(tid, department, firstName,
+                            middleName, lastName, rating);
+
+                    // Getting course info failed      insertion failed      time out
+                    if (insertRatingSuccess == false) {
+                        System.out.println("Prof rating "+ firstName + " " + lastName + " insertion failed.");
+                    } else {
+                        //System.out.println("Prof rating " + firstName + " " + lastName + " inserted");
+                    }
+                }
+                //System.out.println("Page "+page+" filling is done");
+                page ++;
+            } catch (MalformedURLException e) {
+                retval = false;
+                e.printStackTrace();
+            } catch (java.net.SocketTimeoutException e) {
+                retval = false;
+                e.printStackTrace();
+                System.out.println("filling prof rating: time out");
+            }   catch (IOException e) {
+                retval = false;
+                e.printStackTrace();
+            } catch (JSONException e) {
+                retval = false;
+                e.printStackTrace();
+            }  finally {
+                httpURLConnection.disconnect();
+                if (retval == false) break;
+            }
+        }
+        if (retval == true) {
+            System.out.println("All prof ratings inserted");
+            System.out.println("total number of prof: " + ct);
+        }
+        return retval;
+    }
+
+
 
     // Get the whole course info.
     private boolean doJob() {

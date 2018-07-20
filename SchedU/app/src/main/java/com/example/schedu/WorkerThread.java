@@ -111,6 +111,14 @@ public class WorkerThread implements Runnable {
                 String instructor = (String) classInfo.getString("instructors").toString();
                 String instructor_rating = "N/A";
 
+                if (instructor.length() >5) {
+                    System.out.println(instructor);
+                    String fullname = instructor.substring(2,instructor.length()-2);
+                    String firstname = fullname.split(",")[1].replace("\"","");
+                    String lastname  = fullname.split(",")[0].replace("\"","");
+                    instructor_rating = databaseManager.getRating(firstname, lastname);
+                }
+
                 boolean DBretval = false;
                 //System.out.println("Worker time. Start inserting "+subject + " " + catalog_number + " " + section);
                 //int time = (int) (System.currentTimeMillis());

@@ -109,8 +109,8 @@ public class MainActivity extends AppCompatActivity  {
 
         // get database manger
         databaseManager = DatabaseManager.getHelper(this);
-        //FetchAllCourse process = new FetchAllCourse(databaseManager);
-        //process.execute(); //fill all class information into classTable
+        FetchAllCourse process = new FetchAllCourse(databaseManager);
+        process.execute(); //fill all class information into classTable
 
         filters = getIntent().getBooleanArrayExtra("filters");
         if(filters != null) {
