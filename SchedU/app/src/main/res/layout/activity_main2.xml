@@ -1803,27 +1803,38 @@
             <TextView
                 android:text=""
                 android:padding="5dip"/>
-            <TextView
-                android:text=""
-                android:padding="5dip"/>
 
             <Button
                 android:id="@+id/like"
                 android:layout_width="56dp"
                 android:layout_height="50dp"
-                android:background="@drawable/heart" />
+                android:text="SAVE"
+                android:background="@color/mdtp_white"
+                android:textColor="@color/orange"/>
+
+            <TextView
+                android:text=""
+                android:padding="5dip"/>
 
             <Button
                 android:id="@+id/todo"
                 android:layout_width="30dp"
                 android:layout_height="50dp"
-                android:text="todo"/>
+                android:text="TODO"
+                android:background="@color/mdtp_white"
+                android:textColor="@color/green"/>
+            <TextView
+                android:text=""
+                android:padding="5dip"/>
 
             <Button
                 android:id="@+id/delete"
-                android:layout_width="30dp"
+                android:layout_width="77dp"
                 android:layout_height="50dp"
-                android:background="@drawable/ic_delete" />
+                android:text="DELETE"
+                android:background="@color/mdtp_white"
+                android:textColor="@color/darkPurple" />
+
             <TextView
                 android:text=""
                 android:padding="5dip"/>
