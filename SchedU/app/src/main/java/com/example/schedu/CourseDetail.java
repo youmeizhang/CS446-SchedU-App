@@ -86,7 +86,9 @@ public class CourseDetail extends Activity {
         tv5.setText("Course Capacity: " + getIntent().getStringExtra("Capacity"));
         tvList.add(tv5);
 
-
+        TextView tv_rating = new TextView(this);
+        tv_rating = (TextView) findViewById(R.id.prof_rating);
+        tv_rating.setText("Prof Rating: " + rating.get(0));
 
         getWindow().setLayout((int) (width*.6), (int) (height*.60));
 
