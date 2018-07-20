@@ -99,7 +99,11 @@ public class Main2Activity extends AppCompatActivity implements SimpleGestureLis
                 String enrollmentNumber_tmp = enrollmentNumber;
                 String location_tmp = location;
                 String title_tmp = title;
+<<<<<<< HEAD
                 //String catalogNumber_tmp = catalogNumber;
+=======
+
+>>>>>>> 8eba068e3eec0dcba33f8081802bbaa247f4f0d1
                 public void onClick(View view) {
                     Intent intent = new Intent(Main2Activity.this, CourseDetail.class);
                     intent.putExtra("CourseName", coursename_tmp);
@@ -282,8 +286,7 @@ public class Main2Activity extends AppCompatActivity implements SimpleGestureLis
             }
         });
 
-        //
-        
+
     }
 
 
@@ -313,6 +316,7 @@ public class Main2Activity extends AppCompatActivity implements SimpleGestureLis
 
         if (id > 0 && id < MainActivity.allTimetables.size()){
             Intent i = new Intent(Main2Activity.this, Main2Activity.class);
+            MainActivity.curTimeTable = MainActivity.allTimetables.get(id);
             i.putExtra("idNumber", id);
             startActivity(i);
         }
@@ -320,7 +324,7 @@ public class Main2Activity extends AppCompatActivity implements SimpleGestureLis
 
     @Override
     public void onDoubleTap() {
-        Toast.makeText(this, "Double Tap", Toast.LENGTH_SHORT).show();
+
     }
 
 

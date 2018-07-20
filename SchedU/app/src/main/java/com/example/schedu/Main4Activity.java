@@ -38,6 +38,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import java.io.IOException;
@@ -93,7 +94,7 @@ public class Main4Activity extends Activity {
 
         btnEvent = new Button(this);
         btnEvent.setId(R.id.btnEvent);
-        btnEvent.setText("Create event");
+        btnEvent.setText("Export To Google Calendar");
         activityLayout.addView(btnEvent);
         btnEvent.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -116,7 +117,7 @@ public class Main4Activity extends Activity {
         activityLayout.addView(mResultsText);
 
         mProgress = new ProgressDialog(this);
-        mProgress.setMessage("Calling Google Calendar API ...");
+        mProgress.setMessage("Retrieving data from google calendar...");
 
         setContentView(activityLayout);
 
