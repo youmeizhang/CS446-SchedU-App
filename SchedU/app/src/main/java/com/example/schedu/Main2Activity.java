@@ -99,11 +99,7 @@ public class Main2Activity extends AppCompatActivity implements SimpleGestureLis
                 String enrollmentNumber_tmp = enrollmentNumber;
                 String location_tmp = location;
                 String title_tmp = title;
-<<<<<<< HEAD
                 //String catalogNumber_tmp = catalogNumber;
-=======
-
->>>>>>> 8eba068e3eec0dcba33f8081802bbaa247f4f0d1
                 public void onClick(View view) {
                     Intent intent = new Intent(Main2Activity.this, CourseDetail.class);
                     intent.putExtra("CourseName", coursename_tmp);

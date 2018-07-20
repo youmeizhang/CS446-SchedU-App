@@ -45,7 +45,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
 
     public DatabaseManager(Context context) {
-        super(context, "UWCourseDB", null, 46);
+        super(context, "UWCourseDB", null, 52);
         SQLiteDatabase db = this.getWritableDatabase();
     }
 
@@ -255,7 +255,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         // boolean filters0
         String subject = "\""+ sub + "\"";
         // String selectQuery = "SELECT DISTINCT CATALOG_NUMBER, TITLE FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject;
-        selectQuery = "SELECT DISTINCT CATALOG_NUMBER, TITLE FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject + " AND strftime('%H:%M:%S', START_TIME) > '10:00:00' ";
+        selectQuery = "SELECT DISTINCT CATALOG_NUMBER, TITLE FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject + " ORDER BY CATALOG_NUMBER";
         System.out.println("selected course number and title with filters: " + selectQuery);
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -286,12 +286,13 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
     public List<String> getAllSection(String sub, String course_num, boolean[] filters) {
         List<String> course_from_db = new ArrayList<String>();
+        course_from_db.add("ALL");
+
         String query_laterthan10 = "";
         String query_indaytime = "";
         String final_query = "";
         String query_notbetween = "";
         String query_notbetween2="";
-        course_from_db.add("ALL");
         String subject = "\""+ sub + "\"";
         if(filters != null) {
             if (filters[0]) {

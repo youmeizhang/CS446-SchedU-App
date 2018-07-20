@@ -133,6 +133,7 @@ public class MainActivity extends AppCompatActivity  {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 string_subject = parent.getItemAtPosition(position).toString();
                 course_from_db = databaseManager.getAllCourse(string_subject);
+
                 System.out.println("all course with filters are here" + course_from_db);
 
                 couAdapter = new ArrayAdapter<String>(MainActivity.this,
@@ -151,7 +152,8 @@ public class MainActivity extends AppCompatActivity  {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //string_course = parent.getItemAtPosition(position).toString();
                 string_course = parent.getItemAtPosition(position).toString();
-                List<String> final_section = new ArrayList<String>();;
+                List<String> final_section = new ArrayList<String>();
+                final_section.add("ALL");
 
                 String[] list = string_course.split(" ");
                 String courseNumber = list[0];
