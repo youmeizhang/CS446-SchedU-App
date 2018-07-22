@@ -307,10 +307,14 @@ public class Main2Activity extends AppCompatActivity implements SimpleGestureLis
                     id++;
                 break;
         }
+        if (id == 0)
+            str = "This is the first schedule!";
+        if (id == MainActivity.allTimetables.size())
+            str = "This is the last schedule!";
 
         Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
 
-        if (id > 0 && id < MainActivity.allTimetables.size()){
+        if (id >= 0 && id < MainActivity.allTimetables.size()){
             Intent i = new Intent(Main2Activity.this, Main2Activity.class);
             MainActivity.curTimeTable = MainActivity.allTimetables.get(id);
             i.putExtra("idNumber", id);
@@ -319,9 +323,7 @@ public class Main2Activity extends AppCompatActivity implements SimpleGestureLis
     }
 
     @Override
-    public void onDoubleTap() {
-
-    }
+    public void onDoubleTap() { }
 
 
 }

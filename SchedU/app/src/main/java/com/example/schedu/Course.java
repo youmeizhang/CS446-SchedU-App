@@ -29,6 +29,7 @@ public class Course {
     public void InitValue() {
 
         printLectureInfo();
+
     }
 
     public void printLectureInfo() {

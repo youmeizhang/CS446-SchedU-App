@@ -88,7 +88,10 @@ public class CourseDetail extends Activity {
 
         TextView tv_rating = new TextView(this);
         tv_rating = (TextView) findViewById(R.id.prof_rating);
-        tv_rating.setText("Prof Rating: " + rating.get(0));
+        if (rating.size() > 0)
+            tv_rating.setText("Prof Rating: " + rating.get(0));
+        else
+            tv_rating.setText("Prof Rating: NA");
 
         getWindow().setLayout((int) (width*.6), (int) (height*.60));
 

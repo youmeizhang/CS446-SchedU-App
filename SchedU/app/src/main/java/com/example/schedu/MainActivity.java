@@ -106,8 +106,6 @@ public class MainActivity extends AppCompatActivity  {
         cb_filter = findViewById(R.id.needfilter);
 
 
-
-
         // get database manger
         databaseManager = DatabaseManager.getHelper(this);
         //FetchAllCourse process = new FetchAllCourse(databaseManager);
@@ -221,10 +219,13 @@ public class MainActivity extends AppCompatActivity  {
                 initColors();
                 allTimetables = findCourse();
                 System.out.println("Total " + allTimetables.size() + " is generated");
-                Intent i = new Intent(MainActivity.this, Main2Activity.class);
-                i.putExtra("idNumber", 0);
+                if (allTimetables.size() > 0) {
+                    curTimeTable = allTimetables.get(0);
+                    Intent i = new Intent(MainActivity.this, Main2Activity.class);
+                    i.putExtra("idNumber", 0);
 
-                startActivity(i);
+                    startActivity(i);
+                }
             }
         });
 
