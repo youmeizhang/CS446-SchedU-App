@@ -17,10 +17,13 @@ public class FindConstrains {
     public static StringBuilder SATinput  = new StringBuilder();
     public static int countCourse = 1;
     public static int countClause = 0;
+    public static boolean onlyOne = true;
 
     public static void executeSATSolver(ArrayList<Course> data){
         resetConstrains();
         for(Course c: data){
+            if (c.lectures.size() > 1 || c.tutorials.size() >1)
+                onlyOne = false;
 
             for(CourseInfo courseInfo : c.lectures){
                 allCourses.add(courseInfo);
@@ -58,10 +61,17 @@ public class FindConstrains {
 
         Solver.header = header;
         Solver.data = rules + constrains;
-        if (countClause == 1){
+        if (onlyOne){
+            System.out.println("there's only one timetable");
             TimeTable curTimeTable = new TimeTable(1);
-            for(CourseInfo c: allCourses){
-                curTimeTable.contents.add(c);
+
+            for (Course c: data){
+                for (CourseInfo courseInfo : c.lectures) {
+                    curTimeTable.contents.add(courseInfo);
+                }
+                for (CourseInfo courseInfo : c.tutorials){
+                    curTimeTable.contents.add(courseInfo);
+                }
             }
             allTimetables.add(curTimeTable);
             return;

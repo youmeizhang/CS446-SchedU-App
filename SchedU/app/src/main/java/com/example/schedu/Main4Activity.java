@@ -99,6 +99,8 @@ public class Main4Activity extends Activity {
         btnEvent.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 new AddEvents(mService).execute();
+                Toast.makeText(getApplicationContext(), "Exported to Google Calendar successfully!", Toast.LENGTH_SHORT).show();
+                refreshResults();
             }
         });
 
@@ -114,6 +116,7 @@ public class Main4Activity extends Activity {
         mResultsText.setPadding(16, 16, 16, 16);
         mResultsText.setVerticalScrollBarEnabled(true);
         mResultsText.setMovementMethod(new ScrollingMovementMethod());
+        mResultsText.setBackgroundColor(getResources().getColor(R.color.lightBlue));
         activityLayout.addView(mResultsText);
 
         mProgress = new ProgressDialog(this);

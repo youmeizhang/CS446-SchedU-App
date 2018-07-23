@@ -346,10 +346,14 @@ public class Main2Activity extends AppCompatActivity implements SimpleGestureLis
                     id++;
                 break;
         }
-        if (id == 0)
-            str = "This is the first schedule!";
-        if (id == MainActivity.allTimetables.size())
-            str = "This is the last schedule!";
+        if (id == 0) {
+            Toast.makeText(this, "This is the first schedule!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (id == MainActivity.allTimetables.size()) {
+            Toast.makeText(this, "This is the last schedule!", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
 

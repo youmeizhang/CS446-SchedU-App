@@ -80,7 +80,7 @@ public class ApiAsyncTask extends AsyncTask<Void, Void, Void> {
                 start = event.getStart().getDate();
             }
             eventStrings.add(
-                    String.format("%s (%s)", event.getSummary(), start));
+                    String.format("%s %s (%s)", event.getSummary(), event.getLocation(), start));
         }
         return eventStrings;
     }
