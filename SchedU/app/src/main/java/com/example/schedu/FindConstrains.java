@@ -52,15 +52,15 @@ public class FindConstrains {
         String constrains = findConstrains(allCourses);
         String header = "p cnf " + String.valueOf(countCourse-1) + " " + String.valueOf(countClause);
         String rules = "\n" + SATinput.toString() + "\n";
-        System.out.println("header " + header);
-        System.out.println("data " + SATinput.toString());
-        System.out.println("constrains " + constrains);
+        //System.out.println("header " + header);
+        //System.out.println("data " + SATinput.toString());
+        //System.out.println("constrains " + constrains);
 
         Solver.header = header;
         Solver.data = rules + constrains;
         convertTimetable(Solver.runSolver());
 
-        System.out.println("final data " + Solver.data);
+        //System.out.println("final data " + Solver.data);
     }
 
     public static void filterFull(){
@@ -108,7 +108,7 @@ public class FindConstrains {
                     if (Calculation.isOverlapping(start1, end1, start2, end2)) {
                         retval += String.valueOf(-c1.id) + " " + String.valueOf(-c2.id) + " 0\n";
                         countClause++;
-                        System.out.println("conflict course " + c1.getName() + " and " + c2.getName() + " -> " + retval);
+                        //System.out.println("conflict course " + c1.getName() + " and " + c2.getName() + " -> " + retval);
                     }
                 }
             }

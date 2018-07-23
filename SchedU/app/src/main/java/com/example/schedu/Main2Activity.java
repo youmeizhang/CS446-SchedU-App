@@ -30,6 +30,7 @@ import android.widget.Toast;
 public class Main2Activity extends AppCompatActivity implements SimpleGestureListener{
 
     private Button like;
+    private Button delete;
     private Button todo;
     private ArrayList<TextView> tvList;
     private TableLayout tableLayout;
@@ -59,7 +60,7 @@ public class Main2Activity extends AppCompatActivity implements SimpleGestureLis
 
         int curColor = 0;
         id = getIntent().getIntExtra("idNumber", 0);
-        TimeTable timeTable = MainActivity.allTimetables.get(id);
+        TimeTable timeTable = MainActivity.curTimeTable;
 
         final View.OnClickListener todoList = new View.OnClickListener() {
             public void onClick(View view) {
@@ -201,7 +202,7 @@ public class Main2Activity extends AppCompatActivity implements SimpleGestureLis
         String weekday_end = getIntent().getStringExtra("weekday_end");
         String hour_minute = getIntent().getStringExtra("hour_minute");
         String hour_minute_end = getIntent().getStringExtra("hour_minute_end");
-        System.out.println("show content:" + content);
+        //System.out.println("show content:" + content);
 
 
         int[] todoListColors = getResources().getIntArray(R.array.todoListcolors);
@@ -215,10 +216,10 @@ public class Main2Activity extends AppCompatActivity implements SimpleGestureLis
 
             int duration_end_time = (int) Calculation.timeDifference(begin, end) / 30;
 
-            System.out.println("begin" + begin);
-            System.out.println("end" + end);
-            System.out.println("duration is:" + duration_end_time);
-            System.out.println("weekday_begin is: " + weekday_begin);
+            //System.out.println("begin" + begin);
+            //System.out.println("end" + end);
+            //System.out.println("duration is:" + duration_end_time);
+            //System.out.println("weekday_begin is: " + weekday_begin);
 
             Map<String, String> dictionary = new HashMap<String, String>();
             dictionary.put("1", "M");
@@ -272,13 +273,49 @@ public class Main2Activity extends AppCompatActivity implements SimpleGestureLis
 
         }
 
-        // change to calendar version
+        // export to google calendar
         like = (Button)findViewById(R.id.like);
         like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Main2Activity.this, Main4Activity.class);
                 startActivity(i);
+            }
+        });
+
+        // remove the timetable
+        delete = (Button)findViewById(R.id.delete);
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (MainActivity.allTimetables.size() <= 1){
+                    Toast.makeText(getApplicationContext(),"There's no more schedules",Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(Main2Activity.this, MainActivity.class);
+                    MainActivity.curTimeTable = null;
+                    MainActivity.allTimetables.remove(id);
+                    startActivity(i);
+                } else {
+                    if (id > 0){
+                        Toast.makeText(getApplicationContext(),"Delete schedule No." + id,Toast.LENGTH_SHORT).show();
+                        id--;
+                        //System.out.println("remove one schedule 1 " + MainActivity.allTimetables.size());
+                        MainActivity.curTimeTable = MainActivity.allTimetables.get(id);
+                        MainActivity.allTimetables.remove(id);
+                        //System.out.println("remove one schedule 2 " + MainActivity.allTimetables.size());
+                        Intent i = new Intent(Main2Activity.this, Main2Activity.class);
+                        i.putExtra("idNumber", id);
+                        startActivity(i);
+                    } else {
+                        //System.out.println("remove one schedule 1 " + MainActivity.allTimetables.size());
+                        Toast.makeText(getApplicationContext(),"Delete schedule No." + id,Toast.LENGTH_SHORT).show();
+                        MainActivity.allTimetables.remove(id);
+                        //System.out.println("remove one schedule 2 " + MainActivity.allTimetables.size());
+                        MainActivity.curTimeTable = MainActivity.allTimetables.get(id);
+                        Intent i = new Intent(Main2Activity.this, Main2Activity.class);
+                        i.putExtra("idNumber", id);
+                    }
+
+                }
             }
         });
 

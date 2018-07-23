@@ -164,15 +164,19 @@ public class MainActivity extends AppCompatActivity  {
                     String[] tmp = section_from_db.get(i).split(" ")[3].split("-");
                     String startTime = tmp[0].replace(":", "");
                     String endTime = tmp[1].replace(":", "");
-                    int s_tmp = Integer.parseInt(startTime);
-                    int e_tmp = Integer.parseInt(endTime);
-                    long duration = Calculation.timeDifference(startTime, endTime);
-                    if (s_tmp < 1200 && e_tmp > 1300){
+                    try {
+                        int s_tmp = Integer.parseInt(startTime);
+                        int e_tmp = Integer.parseInt(endTime);
+                        long duration = Calculation.timeDifference(startTime, endTime);
+                        if (s_tmp < 1200 && e_tmp > 1300) {
+                            continue;
+                        } else if (filters != null && duration > 120 && filters[4]) {
+                            continue;
+                        } else {
+                            final_section.add(section_from_db.get(i));
+                        }
+                    } catch (Exception e){
                         continue;
-                    }else if(filters != null && duration > 120 && filters[4]){
-                        continue;
-                    }else {
-                        final_section.add(section_from_db.get(i));
                     }
                 }
                 System.out.println(final_section);
