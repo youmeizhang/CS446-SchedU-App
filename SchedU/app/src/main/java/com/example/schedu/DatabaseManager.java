@@ -232,7 +232,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         String new_sub = "\""+ subjectName + "\"";
         String sess = "\"" + sectionNumber +"\"";
         System.out.println("new sess is here: " + sess);
-        String selectQuery = "SELECT INSTRUCTOR_RATING FROM " + CLASS_TABLE + " WHERE subject = " + new_sub + " AND CATALOG_NUMBER = " + catalogNumber + " AND SECTION = " + sess;
+        String selectQuery = "SELECT INSTRUCTOR, INSTRUCTOR_RATING FROM " + CLASS_TABLE + " WHERE subject = " + new_sub + " AND CATALOG_NUMBER = " + catalogNumber + " AND SECTION = " + sess;
         System.out.println("prof rating query is: " + selectQuery);
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -240,7 +240,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         while (cursor.moveToNext()) {
-            prof_rating.add(cursor.getString(cursor.getColumnIndex("INSTRUCTOR_RATING")));
+            prof_rating.add(cursor.getString(cursor.getColumnIndex("INSTRUCTOR")) + " " + cursor.getString(cursor.getColumnIndex("INSTRUCTOR_RATING")));
         }
         cursor.close();
         db.close();

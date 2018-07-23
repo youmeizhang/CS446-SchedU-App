@@ -50,14 +50,18 @@ public class CourseDetail extends Activity {
         catalogNumber = getIntent().getStringExtra("catalogNumber");
         subjectName = getIntent().getStringExtra("subjectName");
 
-        System.out.println("subjectName is:" + subjectName);
-        System.out.println("catalogNumber is:" + catalogNumber);
-        System.out.println("sectionNumber is: " + sectionNumber);
-
         List<String> rating = databaseManager.getProfRating(catalogNumber, subjectName, sectionNumber);
-        //String tmp = rating.get(0);
-        //System.out.println("get rating here: " + rating);
+        System.out.println("original format: " + rating);
+        String get_rating = rating.get(0);
+        //prof_rating = rating.get(1);
+        String name = get_rating.split("]")[0];
+        String prof_rating = get_rating.split("]")[1];
 
+        name = name.replace("\"", "");
+        name = name.replace("[", "");
+        name = name.replace(",", " ");
+        System.out.println("clean name is here: " + name);
+        System.out.println("prof rating is: " + prof_rating);
 
         TextView tv1 = new TextView(this);
         tv1 = (TextView)findViewById(R.id.title);
@@ -89,9 +93,7 @@ public class CourseDetail extends Activity {
         TextView tv_rating = new TextView(this);
         tv_rating = (TextView) findViewById(R.id.prof_rating);
         if (rating.size() > 0)
-            tv_rating.setText("Prof Rating: " + rating.get(0));
-        else
-            tv_rating.setText("Prof Rating: NA");
+            tv_rating.setText(name + " " + prof_rating);
 
         getWindow().setLayout((int) (width*.6), (int) (height*.60));
 
