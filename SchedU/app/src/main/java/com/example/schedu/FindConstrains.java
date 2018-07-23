@@ -19,7 +19,7 @@ public class FindConstrains {
     public static int countClause = 0;
 
     public static void executeSATSolver(ArrayList<Course> data){
-
+        resetConstrains();
         for(Course c: data){
 
             for(CourseInfo courseInfo : c.lectures){
@@ -52,15 +52,23 @@ public class FindConstrains {
         String constrains = findConstrains(allCourses);
         String header = "p cnf " + String.valueOf(countCourse-1) + " " + String.valueOf(countClause);
         String rules = "\n" + SATinput.toString() + "\n";
-        //System.out.println("header " + header);
-        //System.out.println("data " + SATinput.toString());
-        //System.out.println("constrains " + constrains);
+        System.out.println("header " + header);
+        System.out.println("data " + SATinput.toString());
+        System.out.println("constrains " + constrains);
 
         Solver.header = header;
         Solver.data = rules + constrains;
-        convertTimetable(Solver.runSolver());
+        if (countClause == 1){
+            TimeTable curTimeTable = new TimeTable(1);
+            for(CourseInfo c: allCourses){
+                curTimeTable.contents.add(c);
+            }
+            allTimetables.add(curTimeTable);
+            return;
+        } else
+            convertTimetable(Solver.runSolver());
 
-        //System.out.println("final data " + Solver.data);
+        System.out.println("final data " + Solver.data);
     }
 
     public static void filterFull(){
@@ -90,7 +98,15 @@ public class FindConstrains {
         System.out.println("SAT total generated: " + allTimetables.size());
     }
 
-
+    public static void resetConstrains(){
+        myHashMap  = new HashMap<>();
+        allTimetables = new ArrayList<>();
+        allCourses = new ArrayList<>();
+        fullCourses = new ArrayList<>();
+        SATinput  = new StringBuilder();
+        countCourse = 1;
+        countClause = 0;
+    }
 
 
     public static String findConstrains(ArrayList<CourseInfo> courseInfos){

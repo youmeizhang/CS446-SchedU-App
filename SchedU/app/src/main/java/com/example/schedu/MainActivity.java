@@ -223,8 +223,10 @@ public class MainActivity extends AppCompatActivity  {
                 initColors();
                 allTimetables = findCourse();
                 System.out.println("Total " + allTimetables.size() + " is generated");
+
                 if (allTimetables.size() > 0) {
                     curTimeTable = allTimetables.get(0);
+                    curTimeTable.printInfo();
                     Intent i = new Intent(MainActivity.this, Main2Activity.class);
                     i.putExtra("idNumber", 0);
 
@@ -300,7 +302,7 @@ public class MainActivity extends AppCompatActivity  {
                     }
                 }
             }
-            c.printCourseSummary();
+            //c.printCourseSummary();
 
         }
         FindConstrains.executeSATSolver(data);
