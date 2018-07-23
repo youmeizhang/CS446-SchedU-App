@@ -26,7 +26,7 @@
 
             <TextView
                 android:id="@+id/Mon"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -36,7 +36,7 @@
 
             <TextView
                 android:id="@+id/Tue"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
                 android:layout_height="30dp"
                 android:textSize = "13dp"
                 android:background="@drawable/cell_shape"
@@ -46,7 +46,7 @@
 
             <TextView
                 android:id="@+id/Wed"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
                 android:layout_height="30dp"
                 android:textSize = "13dp"
                 android:background="@drawable/cell_shape"
@@ -56,7 +56,7 @@
 
             <TextView
                 android:id="@+id/Thu"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
                 android:layout_height="30dp"
                 android:textSize = "13dp"
                 android:background="@drawable/cell_shape"
@@ -66,7 +66,7 @@
 
             <TextView
                 android:id="@+id/Fri"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
                 android:layout_height="30dp"
                 android:textSize = "13dp"
                 android:background="@drawable/cell_shape"
@@ -99,7 +99,7 @@
 
             <TextView
                 android:id="@+id/T0830"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -108,7 +108,7 @@
 
             <TextView
                 android:id="@+id/W0830"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -118,7 +118,7 @@
 
             <TextView
                 android:id="@+id/Th0830"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -128,7 +128,7 @@
 
             <TextView
                 android:id="@+id/F0830"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -161,7 +161,7 @@
 
             <TextView
                 android:id="@+id/T0900"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -171,7 +171,7 @@
 
             <TextView
                 android:id="@+id/W0900"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -181,7 +181,7 @@
 
             <TextView
                 android:id="@+id/Th0900"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -191,7 +191,7 @@
 
             <TextView
                 android:id="@+id/F0900"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -224,7 +224,7 @@
 
             <TextView
                 android:id="@+id/T0930"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -234,7 +234,7 @@
 
             <TextView
                 android:id="@+id/W0930"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -244,7 +244,7 @@
 
             <TextView
                 android:id="@+id/Th0930"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -254,7 +254,7 @@
 
             <TextView
                 android:id="@+id/F0930"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -287,7 +287,7 @@
 
             <TextView
                 android:id="@+id/T1000"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -297,7 +297,7 @@
 
             <TextView
                 android:id="@+id/W1000"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -307,7 +307,7 @@
 
             <TextView
                 android:id="@+id/Th1000"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -317,7 +317,7 @@
 
             <TextView
                 android:id="@+id/F1000"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -350,7 +350,7 @@
 
             <TextView
                 android:id="@+id/T1030"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -360,7 +360,7 @@
 
             <TextView
                 android:id="@+id/W1030"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -370,7 +370,7 @@
 
             <TextView
                 android:id="@+id/Th1030"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -380,7 +380,7 @@
 
             <TextView
                 android:id="@+id/F1030"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -413,7 +413,7 @@
 
             <TextView
                 android:id="@+id/T1100"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -423,7 +423,7 @@
 
             <TextView
                 android:id="@+id/W1100"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -433,7 +433,7 @@
 
             <TextView
                 android:id="@+id/Th1100"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -443,7 +443,7 @@
 
             <TextView
                 android:id="@+id/F1100"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -478,7 +478,7 @@
 
             <TextView
                 android:id="@+id/T1130"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -488,7 +488,7 @@
 
             <TextView
                 android:id="@+id/W1130"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -498,7 +498,7 @@
 
             <TextView
                 android:id="@+id/Th1130"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -508,7 +508,7 @@
 
             <TextView
                 android:id="@+id/F1130"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -541,7 +541,7 @@
 
             <TextView
                 android:id="@+id/T1200"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -551,7 +551,7 @@
 
             <TextView
                 android:id="@+id/W1200"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -561,7 +561,7 @@
 
             <TextView
                 android:id="@+id/Th1200"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -571,7 +571,7 @@
 
             <TextView
                 android:id="@+id/F1200"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -606,7 +606,7 @@
 
             <TextView
                 android:id="@+id/T1230"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -616,7 +616,7 @@
 
             <TextView
                 android:id="@+id/W1230"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -626,7 +626,7 @@
 
             <TextView
                 android:id="@+id/Th1230"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -636,7 +636,7 @@
 
             <TextView
                 android:id="@+id/F1230"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -669,7 +669,7 @@
 
             <TextView
                 android:id="@+id/T1300"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -679,7 +679,7 @@
 
             <TextView
                 android:id="@+id/W1300"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -689,7 +689,7 @@
 
             <TextView
                 android:id="@+id/Th1300"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -699,7 +699,7 @@
 
             <TextView
                 android:id="@+id/F1300"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -734,7 +734,7 @@
 
             <TextView
                 android:id="@+id/T1330"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -744,7 +744,7 @@
 
             <TextView
                 android:id="@+id/W1330"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -754,7 +754,7 @@
 
             <TextView
                 android:id="@+id/Th1330"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -764,7 +764,7 @@
 
             <TextView
                 android:id="@+id/F1330"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -797,7 +797,7 @@
 
             <TextView
                 android:id="@+id/T1400"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -807,7 +807,7 @@
 
             <TextView
                 android:id="@+id/W1400"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -817,7 +817,7 @@
 
             <TextView
                 android:id="@+id/Th1400"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -827,7 +827,7 @@
 
             <TextView
                 android:id="@+id/F1400"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -862,7 +862,7 @@
 
             <TextView
                 android:id="@+id/T1430"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -872,7 +872,7 @@
 
             <TextView
                 android:id="@+id/W1430"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -882,7 +882,7 @@
 
             <TextView
                 android:id="@+id/Th1430"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -892,7 +892,7 @@
 
             <TextView
                 android:id="@+id/F1430"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -925,7 +925,7 @@
 
             <TextView
                 android:id="@+id/T1500"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -935,7 +935,7 @@
 
             <TextView
                 android:id="@+id/W1500"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -945,7 +945,7 @@
 
             <TextView
                 android:id="@+id/Th1500"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -955,7 +955,7 @@
 
             <TextView
                 android:id="@+id/F1500"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -990,7 +990,7 @@
 
             <TextView
                 android:id="@+id/T1530"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1000,7 +1000,7 @@
 
             <TextView
                 android:id="@+id/W1530"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1010,7 +1010,7 @@
 
             <TextView
                 android:id="@+id/Th1530"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1020,7 +1020,7 @@
 
             <TextView
                 android:id="@+id/F1530"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1053,7 +1053,7 @@
 
             <TextView
                 android:id="@+id/T1600"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1063,7 +1063,7 @@
 
             <TextView
                 android:id="@+id/W1600"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1073,7 +1073,7 @@
 
             <TextView
                 android:id="@+id/Th1600"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1083,7 +1083,7 @@
 
             <TextView
                 android:id="@+id/F1600"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1118,7 +1118,7 @@
 
             <TextView
                 android:id="@+id/T1630"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1128,7 +1128,7 @@
 
             <TextView
                 android:id="@+id/W1630"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1138,7 +1138,7 @@
 
             <TextView
                 android:id="@+id/Th1630"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1148,7 +1148,7 @@
 
             <TextView
                 android:id="@+id/F1630"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1181,7 +1181,7 @@
 
             <TextView
                 android:id="@+id/T1700"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1191,7 +1191,7 @@
 
             <TextView
                 android:id="@+id/W1700"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1201,7 +1201,7 @@
 
             <TextView
                 android:id="@+id/Th1700"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1211,7 +1211,7 @@
 
             <TextView
                 android:id="@+id/F1700"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1246,7 +1246,7 @@
 
             <TextView
                 android:id="@+id/T1730"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1256,7 +1256,7 @@
 
             <TextView
                 android:id="@+id/W1730"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1266,7 +1266,7 @@
 
             <TextView
                 android:id="@+id/Th1730"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1276,7 +1276,7 @@
 
             <TextView
                 android:id="@+id/F1730"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1309,7 +1309,7 @@
 
             <TextView
                 android:id="@+id/T1800"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1319,7 +1319,7 @@
 
             <TextView
                 android:id="@+id/W1800"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1329,7 +1329,7 @@
 
             <TextView
                 android:id="@+id/Th1800"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1339,7 +1339,7 @@
 
             <TextView
                 android:id="@+id/F1800"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1374,7 +1374,7 @@
 
             <TextView
                 android:id="@+id/T1830"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1384,7 +1384,7 @@
 
             <TextView
                 android:id="@+id/W1830"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1394,7 +1394,7 @@
 
             <TextView
                 android:id="@+id/Th1830"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1404,7 +1404,7 @@
 
             <TextView
                 android:id="@+id/F1830"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1437,7 +1437,7 @@
 
             <TextView
                 android:id="@+id/T1900"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1447,7 +1447,7 @@
 
             <TextView
                 android:id="@+id/W1900"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1457,7 +1457,7 @@
 
             <TextView
                 android:id="@+id/Th1900"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1467,7 +1467,7 @@
 
             <TextView
                 android:id="@+id/F1900"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1502,7 +1502,7 @@
 
             <TextView
                 android:id="@+id/T1930"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1512,7 +1512,7 @@
 
             <TextView
                 android:id="@+id/W1930"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1522,7 +1522,7 @@
 
             <TextView
                 android:id="@+id/Th1930"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1532,7 +1532,7 @@
 
             <TextView
                 android:id="@+id/F1930"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1565,7 +1565,7 @@
 
             <TextView
                 android:id="@+id/T2000"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1575,7 +1575,7 @@
 
             <TextView
                 android:id="@+id/W2000"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1585,7 +1585,7 @@
 
             <TextView
                 android:id="@+id/Th2000"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1595,7 +1595,7 @@
 
             <TextView
                 android:id="@+id/F2000"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1630,7 +1630,7 @@
 
             <TextView
                 android:id="@+id/T2030"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1640,7 +1640,7 @@
 
             <TextView
                 android:id="@+id/W2030"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1650,7 +1650,7 @@
 
             <TextView
                 android:id="@+id/Th2030"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1660,7 +1660,7 @@
 
             <TextView
                 android:id="@+id/F2030"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1693,7 +1693,7 @@
 
             <TextView
                 android:id="@+id/T2100"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1703,7 +1703,7 @@
 
             <TextView
                 android:id="@+id/W2100"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1713,7 +1713,7 @@
 
             <TextView
                 android:id="@+id/Th2100"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1723,7 +1723,7 @@
 
             <TextView
                 android:id="@+id/F2100"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1758,7 +1758,7 @@
 
             <TextView
                 android:id="@+id/T2130"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1768,7 +1768,7 @@
 
             <TextView
                 android:id="@+id/W2130"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1778,7 +1778,7 @@
 
             <TextView
                 android:id="@+id/Th2130"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1788,7 +1788,7 @@
 
             <TextView
                 android:id="@+id/F2130"
-                android:layout_width="63dp"
+                android:layout_width="58dp"
 
                 android:layout_height="30dp"
                 android:textSize = "13dp"
@@ -1800,50 +1800,53 @@
 
 
         <TableRow>
+
             <TextView
-                android:text=""
-                android:padding="5dip"/>
+                android:padding="5dip"
+                android:text="" />
 
             <Button
                 android:id="@+id/like"
                 android:layout_width="56dp"
                 android:layout_height="50dp"
-                android:text="SAVE"
                 android:background="@color/mdtp_white"
-                android:textColor="@color/orange"/>
+                android:text="SAVE"
+                android:textColor="@color/orange" />
 
-            <TextView
-                android:text=""
-                android:padding="5dip"/>
+            <Button
+                android:id="@+id/returnMain"
+                android:layout_width="56dp"
+                android:layout_height="50dp"
+                android:background="@color/mdtp_white"
+                android:text="BACK"
+                android:textColor="@color/colorAccent" />
 
             <Button
                 android:id="@+id/todo"
-                android:layout_width="30dp"
+                android:layout_width="62dp"
                 android:layout_height="50dp"
-                android:text="TODO"
                 android:background="@color/mdtp_white"
-                android:textColor="@color/green"/>
-            <TextView
-                android:text=""
-                android:padding="5dip"/>
+                android:text="TODO"
+                android:textColor="@color/green" />
 
             <Button
                 android:id="@+id/delete"
-                android:layout_width="77dp"
+                android:layout_width="56dp"
                 android:layout_height="50dp"
-                android:text="DELETE"
                 android:background="@color/mdtp_white"
+                android:text="DELETE"
                 android:textColor="@color/darkPurple" />
 
             <TextView
-                android:text=""
-                android:padding="5dip"/>
+                android:padding="5dip"
+                android:text="" />
 
             <TextView
-                android:text=""
-                android:padding="5dip"/>
+                android:padding="5dip"
+                android:text="" />
         </TableRow>
 
 
     </TableLayout>
+
 </ScrollView>

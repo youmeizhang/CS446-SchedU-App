@@ -31,6 +31,7 @@ public class Main2Activity extends AppCompatActivity implements SimpleGestureLis
 
     private Button like;
     private Button delete;
+    private Button backMain;
     private Button todo;
     private ArrayList<TextView> tvList;
     private TableLayout tableLayout;
@@ -281,6 +282,17 @@ public class Main2Activity extends AppCompatActivity implements SimpleGestureLis
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Main2Activity.this, Main4Activity.class);
+                startActivity(i);
+            }
+        });
+
+
+        // export to google calendar
+        backMain = (Button)findViewById(R.id.returnMain);
+        backMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Main2Activity.this, MainActivity.class);
                 startActivity(i);
             }
         });

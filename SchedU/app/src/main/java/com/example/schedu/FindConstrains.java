@@ -75,7 +75,18 @@ public class FindConstrains {
             }
             allTimetables.add(curTimeTable);
             return;
-        } else
+        } else if (countClause == 1){
+            int i = 1;
+
+            for (Course c: data){
+                for (CourseInfo courseInfo : c.lectures) {
+                    TimeTable curTimeTable = new TimeTable(i);
+                    curTimeTable.contents.add(courseInfo);
+                    allTimetables.add(curTimeTable);
+                }
+            }
+            return;
+        }else
             convertTimetable(Solver.runSolver());
 
         System.out.println("final data " + Solver.data);
