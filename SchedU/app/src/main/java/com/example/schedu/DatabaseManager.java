@@ -305,8 +305,10 @@ public class DatabaseManager extends SQLiteOpenHelper {
             if (filters[2]) {
                 query_indaytime = " AND (strftime('%H:%M:%S', START_TIME) NOT BETWEEN '19:00:00' AND '23:00:00')";
             }
+            course_num = "\"" + course_num + "\"";
             final_query = "SELECT SECTION, WEEKDAYS, START_TIME, END_TIME FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject + " AND CATALOG_NUMBER = " + course_num + query_laterthan10 + query_indaytime + query_notbetween + query_notbetween2;
         }else{
+            course_num = "\"" + course_num + "\"";
             final_query = "SELECT SECTION, WEEKDAYS, START_TIME, END_TIME FROM " + CLASS_TABLE + " WHERE SUBJECT = " + subject + " AND CATALOG_NUMBER = " + course_num;
 
         }
