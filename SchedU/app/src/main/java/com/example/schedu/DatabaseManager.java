@@ -45,7 +45,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
 
     public DatabaseManager(Context context) {
-        super(context, "UWCourseDB", null, 46);
+        super(context, "UWCourseDB", null, 52);
         SQLiteDatabase db = this.getWritableDatabase();
     }
 

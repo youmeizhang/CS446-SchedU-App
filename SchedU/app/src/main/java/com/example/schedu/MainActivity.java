@@ -230,6 +230,8 @@ public class MainActivity extends AppCompatActivity  {
 
                     startActivity(i);
                 }
+                else
+                    Toast.makeText(getApplicationContext(),"No valid schedule!",Toast.LENGTH_SHORT).show();
             }
         });
 
