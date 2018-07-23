@@ -114,8 +114,8 @@ public class WorkerThread implements Runnable {
                 if (instructor.length() >5) {
                     System.out.println(instructor);
                     String fullname = instructor.substring(2,instructor.length()-2);
-                    String firstname = fullname.split(",")[1].replace("\"","");
-                    String lastname  = fullname.split(",")[0].replace("\"","");
+                    String firstname = fullname.split(",")[1].replace("\"","").replace("'", "''");
+                    String lastname  = fullname.split(",")[0].replace("\"","").replace("'", "''");
                     instructor_rating = databaseManager.getRating(firstname, lastname);
                 }
 
